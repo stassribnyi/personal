@@ -1,0 +1,24 @@
+{
+  "name": "personal",
+  "description": "The personal website which will be used as interactive resume and blog (in future)",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "parcel index.html --port 8080",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build index.html --public-url /personal/ --no-source-maps --out-dir build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "gh-pages": "^2.0.1",
+    "parcel": "^1.12.3",
+    "parcel-plugin-clean-dist": "^0.0.6"
+  },
+  "browserslist": "> 0.25%, not dead",
+  "author": "Stas Sribnyi",
+  "license": "ISC",
+  "homepage": "https://stassribnyi.github.io/personal"
+}
