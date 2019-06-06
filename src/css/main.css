@@ -294,6 +294,7 @@ p {
 
 .navigation--fixed {
   top: 0;
+  z-index: 9999;
   bottom: initial;
   position: fixed;
   background: var(--color-dark);
@@ -452,6 +453,10 @@ p {
   margin-bottom: 4%;
 }
 
+.skills__category-group:last-child {
+  margin-bottom: 0;
+}
+
 .skills__category {
   flex: 0 1 48%;
   display: flex;
@@ -489,4 +494,9 @@ p {
 .skills__item-strength {
   font-size: 0.9em;
   color: var(--color-light-accent);
+}
+
+.ion-flash--disabled {
+  color: var(--color-light);
+  opacity: 0.5;
 }
