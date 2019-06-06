@@ -10,7 +10,13 @@
       rel="stylesheet"
       href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap"
+    />
+
     <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="src/css/query.css" />
   </head>
   <body>
     <header>
@@ -43,14 +49,33 @@
             <a href="#" class="btn btn--secondary">Contact me</a>
           </div>
         </div>
-        <a href="#" class="welcome__show-more">
-          Wanna learn more what I do?
-          <span class="ion-chevron-down"></span>
-        </a>
+        <nav class="navigation">
+          <p class="navigation__title">
+            Wanna learn more what I do?
+          </p>
+          <div class="navigation__links">
+            <ul>
+              <li><a class="navigation__link" href="#about">/about</a></li>
+              <li><a class="navigation__link" href="#skills">/skills</a></li>
+              <li>
+                <a class="navigation__link" href="#experience">/experience</a>
+              </li>
+            </ul>
+            <span class="navigation__show-more ion-chevron-down"></span>
+            <ul>
+              <li>
+                <a class="navigation__link" href="#projects">/projects</a>
+              </li>
+              <li>
+                <a class="navigation__link" href="#contacts">/contacts</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
       </div>
     </header>
 
-    <section class="section about">
+    <section class="section about" id="about">
       <h2 class="section__title about__title">
         About
       </h2>
@@ -92,516 +117,420 @@
       </div>
     </section>
 
-    <section class="section skills">
+    <section class="section skills" id="skills">
       <h2 class="section__title skills__title">Skills</h2>
       <div class="section__content skills__content">
-        <div class="skills__category">
-          <h3>
-            Back-End
-          </h3>
-          <ul class="skills__list">
-            <li class="skills__item">
-              <p>.NET Framework</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>ASP.NET</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>ASP.NET Web Api</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>ASP.NET MVC</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>ASP.NET Web Pages</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>C#</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>T-SQL</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>WCF</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>IIS</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>LINQ</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>RESTful WebServices</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>NodeJS</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-          </ul>
+        <div class="skills__category-group ">
+          <div class="skills__category">
+            <h3>
+              Front-End
+            </h3>
+            <ul class="skills__list">
+              <li class="skills__item">
+                <p>Javascript / Typescript</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>React / Redux / Redux Thunk</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Angular / RxJs / NgRx</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>CSS3 / SASS / SCSS</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Bootstrap</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>HTML5 / Semantic HTML</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>JSON / XML</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>AJAX</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>JQuery / JQueryUI</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>WPF / Silverlight</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div class="skills__category">
+            <h3>
+              Back-End
+            </h3>
+            <ul class="skills__list">
+              <li class="skills__item">
+                <p>.NET Framework / C#</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>ASP.NET / Web Api / Web Pages / MVC</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>T-SQL</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>WCF</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Entity Framework / LINQ</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>RESTful WebServices</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>NodeJS</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="skills__category">
-          <h3>
-            Front-End
-          </h3>
-          <ul class="skills__list">
-            <li class="skills__item">
-              <p>Javascript</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Typescript</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>React</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Redux</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Redux Thunk</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Angular</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>NgRx</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>RxJs</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>HTML5</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>CSS3</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>SASS / SCSS</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Bootstrap</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>JSON</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>XML</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>AJAX</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>JQuery / JQueryUI</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>WPF</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Silverlight</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-          </ul>
-        </div>
-        <div class="skills__category">
-          <h3>Techniques & Approaches</h3>
-          <ul class="skill__list">
-            <li class="skills__item">
-              <p>SOLID</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Object Oriented Programming (OOP)</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Functional Programming</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Test Driven Development (TDD)</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Design Patterns</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>BEM</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Unit Testing</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Code Refactoring</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Clean Code</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-          </ul>
-        </div>
-        <div class="skills__category">
-          <h3>Tools</h3>
-          <ul class="skill__list">
-            <li class="skills__item">
-              <p>NPM</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Parcel</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Webpack</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Grunt</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Visual Studio</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>VS Code</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>MS SQL Server</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>Git</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-            <li class="skills__item">
-              <p>SVN</p>
-              <span class="skills__item-strength">
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-                <span class="ion-star"></span>
-              </span>
-            </li>
-          </ul>
+
+        <div class="skills__category-group">
+          <div class="skills__category">
+            <h3>Techniques & Approaches</h3>
+            <ul class="skill__list">
+              <li class="skills__item">
+                <p>Object Oriented Programming (OOP)</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Test Driven Development (TDD)</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Block Element Modifier (BEM)</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Functional Programming</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>SOLID Principles</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>DRY Principles</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>KISS Principles</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Design Patterns</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Unit Testing</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Code Refactoring</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Clean Code</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+            </ul>
+          </div>
+          <div class="skills__category">
+            <h3>Tools</h3>
+            <ul class="skill__list">
+              <li class="skills__item">
+                <p>Node Package Manager (NPM)</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Visual Studio Code</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Visual Studio 2012 and higher</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Parcel</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Webpack</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Grunt</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>MS SQL Server</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>IIS</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>Git</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+              <li class="skills__item">
+                <p>SVN</p>
+                <span class="skills__item-strength">
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                  <span class="ion-flash"></span>
+                </span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
-
     <script src="src/js/main.js"></script>
   </body>
 </html>
