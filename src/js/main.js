@@ -75,16 +75,37 @@ function initialize() {
   });
 
   const scroller = new SweetScroll({
-    offset: -headerOffset
+    offset: -headerOffset + 1
   });
 
-  document
-    .querySelectorAll('a[href*="#"]:not([href="#"]):not([href="#0"])')
-    .forEach(element =>
-      element.addEventListener("click", event => {
-        scrollToAnchor(event, scroller);
+  const allLinks = document.querySelectorAll(
+    'a[href*="#"]:not([href="#"]):not([href="#0"])'
+  );
+
+  const allSections = document.querySelectorAll(".section");
+
+  allSections.forEach(
+    section =>
+      new Waypoint({
+        element: section,
+        handler: direction => {
+          allLinks.forEach(link => {
+            if (link.hash.replace("#", "") === section.id) {
+              link.classList.add("navigation__link--selected");
+
+              return;
+            }
+
+            link.classList.remove("navigation__link--selected");
+          });
+        },
+        offset: headerOffset
       })
-    );
+  );
+
+  allLinks.forEach(link =>
+    link.addEventListener("click", event => scrollToAnchor(event, scroller))
+  );
 
   navigationShowMoreIcon.addEventListener("click", () => {
     if (navigationShowMoreIcon.classList.contains("ion-chevron-up")) {
