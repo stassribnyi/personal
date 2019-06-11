@@ -83,6 +83,11 @@ body {
   margin: 0 auto;
 }
 
+.section__content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .section__title {
   font-size: 2em;
   line-height: 1.45;
@@ -141,6 +146,10 @@ p {
   border: 2px solid var(--color-light);
 }
 
+.btn:last-child {
+  margin-right: 0;
+}
+
 .btn--secondary,
 .btn--secondary:link,
 .btn--secondary:visited {
@@ -152,6 +161,7 @@ p {
 /*-----------------------------*/
 .welcome {
   display: flex;
+  flex-wrap: wrap;
   position: relative;
 
   height: 100vh;
@@ -168,29 +178,29 @@ p {
   margin: 0 auto;
 }
 
-.welcome__content,
-.welcome__image {
+.welcome__content-side,
+.welcome__image-side {
   flex: 0 1 50%;
 
-  padding: 3%;
+  padding: 5%;
 
   display: flex;
   align-items: center;
 }
 
-.welcome__content {
+.welcome__content-side {
   color: var(--color-light);
 
   background: rgba(var(--dark-accent), 0.9);
 }
 
-.welcome__image {
+.welcome__image-side {
   position: relative;
 
   background: rgba(var(--light), 0.2);
 }
 
-.welcome__image::after {
+.welcome__image-side::after {
   position: absolute;
   display: block;
   content: "";
@@ -219,7 +229,7 @@ p {
 
   margin-top: 3em;
 
-  font-size: 0.7em;
+  font-size: 0.8em;
   text-align: right;
   font-style: italic;
   line-height: 1.45em;
@@ -286,6 +296,7 @@ p {
 
   position: absolute;
   bottom: 0;
+  left: 0;
 
   color: var(--color-light);
 
@@ -303,7 +314,10 @@ p {
 
 .navigation__links {
   display: flex;
-  position: relative;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
 }
 
 .navigation__links ul {
@@ -312,28 +326,31 @@ p {
 
 .navigation--fixed .navigation__links ul {
   display: flex;
-  position: absolute;
-  top: 50%;
-
-  transform: translateY(-50%);
-
   list-style: none;
+
+  flex: 0 1 calc(45% - 0.6em);
 }
 
 .navigation__links ul:first-child {
-  right: calc(50% + 1.5em);
+  justify-content: flex-end;
 }
 
-.navigation__links ul:last-child {
-  left: calc(50% + 1.5em);
+.navigation__links ul > li {
+  margin: 0 5%;
 }
 
 .navigation__link:link,
 .navigation__link:visited {
+  display: inline-flex;
+
   color: inherit;
   text-decoration: none;
 
   transition: color 0.2s;
+}
+
+.navigation__link-icon {
+  display: none;
 }
 
 .navigation__link--selected:link,
@@ -346,6 +363,10 @@ p {
   display: flex;
   cursor: pointer;
 
+  justify-content: center;
+
+  flex: 0 1 1.2em;
+
   font-size: 2em;
   line-height: 0em;
 
@@ -357,6 +378,7 @@ p {
   font-size: 1em;
   line-height: 1.2em;
   font-weight: 400;
+  text-indent: 0;
 }
 
 .navigation--fixed .navigation__title {
@@ -368,19 +390,14 @@ p {
   font-size: 1.2em;
   line-height: 1.2em;
   letter-spacing: 0.1em;
-  margin: 0 0.5em;
 }
 
 /*-----------------------------*/
 /*------------ABOUT------------*/
 /*-----------------------------*/
 
-.about__content {
-  display: flex;
-}
-
 .about__details {
-  margin-right: 3%;
+  margin-right: 5%;
 
   flex: 0 1 20%;
 
@@ -447,7 +464,6 @@ p {
 }
 
 .skills__content {
-  display: flex;
   flex-direction: column;
 }
 
@@ -455,10 +471,13 @@ p {
   flex: 1;
 
   display: flex;
+  flex-wrap: wrap;
 
   border-bottom: 1px solid var(--color-light);
-  padding-bottom: 4%;
-  margin-bottom: 4%;
+  padding-bottom: 5%;
+  margin-bottom: 5%;
+
+  justify-content: space-between;
 }
 
 .skills__category-group:last-child {
@@ -466,13 +485,13 @@ p {
 }
 
 .skills__category {
-  flex: 0 1 48%;
+  flex: 0 1 46%;
   display: flex;
   flex-direction: column;
 }
 
 .skills__category:not(:nth-child(2n + 0)) {
-  margin-right: 4%;
+  margin-right: 5%;
 }
 
 .skills__category h3 {
@@ -523,7 +542,7 @@ p {
 
 .career__stages::before {
   content: "";
-  top: 0;
+  top: 0.2em;
   left: 25%;
   bottom: 0;
   width: 0.2em;
@@ -537,14 +556,14 @@ p {
 
 .career__stage {
   display: flex;
+  flex-wrap: wrap;
 
   position: relative;
 
-  margin-bottom: 4%;
+  margin-bottom: 5%;
 }
 
-.career__stage::before,
-.career__stage:first-child::after {
+.career__stage:not(:first-child)::before {
   content: "";
   top: 0;
   left: 25%;
@@ -560,13 +579,19 @@ p {
 }
 
 .career__stage:first-child::after {
-  top: 0.35em;
-  width: 0.1em;
-  height: 0.1em;
+  content: "";
+  display: block;
 
-  background: var(--color-light-accent);
+  width: 1.8em;
+  height: 1.8em;
 
+  top: 0;
+  left: 25%;
+  position: absolute;
   transform: translateX(-50%);
+
+  background-image: url(img/first-point.svg);
+  background-size: cover;
 }
 
 .career__company {

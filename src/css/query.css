@@ -1,6 +1,152 @@
-/* Only for desktops */
-@media screen and (min-width: 1140px) {
+/*--------Desktops--------*/
+@media (min-width: 1281px) {
   .welcome {
     background-attachment: fixed;
+  }
+}
+
+/*--------Laptops, Desktops--------*/
+@media (max-width: 1280px) {
+  .section__title,
+  .section__content,
+  .career__content {
+    width: 85%;
+  }
+}
+
+/*--------Tablets, IPads (portrait)--------*/
+@media (max-width: 1024px) {
+}
+
+/*--------Tablets, IPads (landscape)--------*/
+@media (max-width: 1024px) and (orientation: landscape) {
+}
+
+/*--------Low Resolution Tablets, Mobiles (Landscape)--------*/
+@media (max-width: 767px) {
+  body {
+    font-size: 18px;
+  }
+
+  .section__title,
+  .section__content,
+  .career__content {
+    width: 90%;
+  }
+
+  .navigation__link-icon {
+    display: inline;
+  }
+
+  .navigation__link-text {
+    display: none;
+  }
+
+  .navigation__links ul > li {
+    margin: 0 10%;
+  }
+
+  .welcome {
+    padding: 5%;
+    background: linear-gradient(
+        rgba(var(--dark-accent), 0.9),
+        rgba(var(--dark-accent), 0.9)
+      ),
+      url(img/welcome.jpg);
+  }
+
+  .welcome__content-side,
+  .welcome__image-side {
+    padding: 0;
+    flex: 0 1 100%;
+    background: none;
+  }
+
+  .welcome__image-side::after {
+    display: none;
+  }
+
+  .about__section {
+    align-items: center;
+  }
+
+  .about__details,
+  .about__description {
+    margin: 0;
+    flex: 0 1 100%;
+  }
+
+  .about__details {
+    margin-bottom: 5%;
+  }
+
+  .skills__category,
+  .skills__category:not(:nth-child(2n + 0)) {
+    flex: 0 1 100%;
+    margin: 0;
+  }
+
+  .skills__category:not(:last-child) {
+    margin-bottom: 5%;
+  }
+
+  .career__stages::before {
+    display: none;
+  }
+
+  .career__stage {
+    margin: 0;
+  }
+
+  .career__stage:not(:last-child) {
+    margin-bottom: 10%;
+  }
+
+  .career__stage:not(:first-child):before,
+  .career__stage:first-child::after {
+    display: none;
+  }
+
+  .career__company,
+  .career__position {
+    flex: 0 1 100%;
+    padding: 0;
+  }
+
+  .career__company {
+    margin-bottom: 5%;
+  }
+
+  .career__position h4 {
+    text-align: center;
+  }
+
+  .career__technologies {
+    justify-content: center;
+  }
+}
+
+/*--------Most of the Smartphones Mobiles (Portrait)--------*/
+@media (max-width: 480px) {
+  .welcome {
+    padding-bottom: 4em;
+  }
+
+  .welcome__greeting {
+    margin-bottom: 0.5em;
+  }
+
+  .my-name {
+    font-size: 1.2em;
+  }
+
+  .my-title {
+    font-size: 1.4em;
+  }
+
+  .welcome__cite {
+    margin-left: 30%;
+    width: 70%;
+    margin-top: 2.5em;
   }
 }

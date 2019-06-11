@@ -10,7 +10,7 @@ function replaceClass(element, oldClass, newClass) {
 }
 
 function scrollToAnchor(event, sweetScroll) {
-  const currentElement = event.target;
+  const currentElement = event.currentTarget;
   const replaceRegexp = /^\//;
 
   const samePathname =
@@ -45,7 +45,9 @@ function initialize() {
     ".navigation__show-more"
   );
 
-  const headerOffset = 56;
+  const { fontSize } = window.getComputedStyle(document.body);
+
+  const headerOffset = fontSize === 20 ? 56 : 50;
 
   const aboutWaypoint = new Waypoint({
     element: aboutSection,
