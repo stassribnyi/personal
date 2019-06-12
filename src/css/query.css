@@ -7,27 +7,49 @@
 
 /*--------Laptops, Desktops--------*/
 @media (max-width: 1280px) {
+  body {
+    font-size: 18px;
+  }
+
   .section__title,
   .section__content,
   .career__content {
     width: 85%;
   }
+
+  .my-name {
+    font-size: 1.8em;
+  }
+
+  .my-title {
+    font-size: 2em;
+  }
 }
 
 /*--------Tablets, IPads (portrait)--------*/
 @media (max-width: 1024px) {
+  .my-name {
+    font-size: 1.4em;
+  }
+
+  .my-title {
+    font-size: 1.6em;
+  }
 }
 
 /*--------Tablets, IPads (landscape)--------*/
 @media (max-width: 1024px) and (orientation: landscape) {
+  .my-name {
+    font-size: 1.6em;
+  }
+
+  .my-title {
+    font-size: 1.8em;
+  }
 }
 
 /*--------Low Resolution Tablets, Mobiles (Landscape)--------*/
 @media (max-width: 767px) {
-  body {
-    font-size: 18px;
-  }
-
   .section__title,
   .section__content,
   .career__content {
@@ -78,6 +100,12 @@
 
   .about__details {
     margin-bottom: 5%;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .about__photo {
+    margin-right: 1em;
   }
 
   .skills__category,
@@ -90,34 +118,42 @@
     margin-bottom: 5%;
   }
 
-  .career__stages::before {
+  .career__work-stages::before,
+  .career__education-stages::before {
     display: none;
   }
 
-  .career__stage {
+  .career__work-stage,
+  .career__education-stage {
     margin: 0;
   }
 
-  .career__stage:not(:last-child) {
+  .career__work-stage:not(:last-child),
+  .career__education-stage:not(:last-child) {
     margin-bottom: 10%;
   }
 
-  .career__stage:not(:first-child):before,
-  .career__stage:first-child::after {
+  .career__work-stage:not(:first-child):before,
+  .career__work-stage:first-child::after,
+  .career__education-stage:before {
     display: none;
   }
 
   .career__company,
-  .career__position {
+  .career__institution,
+  .career__position,
+  .career__education {
     flex: 0 1 100%;
     padding: 0;
   }
 
-  .career__company {
+  .career__company,
+  .career__institution {
     margin-bottom: 5%;
   }
 
-  .career__position h4 {
+  .career__position h4,
+  .career__education h4 {
     text-align: center;
   }
 
@@ -148,5 +184,15 @@
     margin-left: 30%;
     width: 70%;
     margin-top: 2.5em;
+  }
+
+  .navigation__links ul > li {
+    margin: 0 8%;
+  }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+  body {
+    font-size: 14px;
   }
 }
