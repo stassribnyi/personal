@@ -1,6 +1,11 @@
 import "waypoints/lib/noframework.waypoints.min.js";
 
 import SweetScroll from "sweet-scroll";
+import Glide, {
+  Controls,
+  Swipe,
+  Autoplay
+} from "@glidejs/glide/dist/glide.modular.esm";
 
 document.addEventListener("DOMContentLoaded", () => initialize(), false);
 
@@ -48,6 +53,20 @@ function initialize() {
   const { fontSize } = window.getComputedStyle(document.body);
 
   const headerOffset = fontSize === 20 ? 56 : 50;
+
+  const glide = new Glide(".glide", {
+    type: "carousel",
+    autoplay: 15000,
+    hoverpause: false,
+    animationDuration: 1000,
+    animationTimingFunc: "cubic-bezier(0.6, 0, 0.14, 1)",
+    swipeThreshold: 60,
+    dragThreshold: 60
+  }).mount({
+    Controls,
+    Swipe,
+    Autoplay
+  });
 
   const aboutWaypoint = new Waypoint({
     element: aboutSection,

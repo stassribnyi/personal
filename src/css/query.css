@@ -193,6 +193,6 @@
 
 @media (max-width: 767px) and (orientation: landscape) {
   body {
-    font-size: 14px;
+    /* font-size: 14px; */
   }
 }
