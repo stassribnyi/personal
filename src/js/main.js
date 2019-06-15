@@ -49,10 +49,29 @@ function initialize() {
   const navigationShowMoreIcon = document.querySelector(
     ".navigation__show-more"
   );
+  const contactForm = document.getElementById("contacts-form");
 
   const { fontSize } = window.getComputedStyle(document.body);
 
   const headerOffset = fontSize === 20 ? 56 : 50;
+
+  contactForm.addEventListener("submit", event => {
+    const { target: form } = event;
+
+    const formValues = {
+      subject: form.subject,
+      name: form.name,
+      body: form.body
+    };
+
+    const mailParams = Object.keys(formValues)
+      .map(param => `${param}=${formValues[param].value}`)
+      .join("&");
+
+    window.location.replace(`mailto:stas.sribnyi@gmail.com?${mailParams}`);
+
+    event.preventDefault();
+  });
 
   const glide = new Glide(".glide", {
     type: "carousel",
@@ -96,7 +115,7 @@ function initialize() {
   });
 
   const scroller = new SweetScroll({
-    offset: -headerOffset + 1
+    // offset: -headerOffset + 1
   });
 
   const allLinks = document.querySelectorAll(
@@ -120,7 +139,7 @@ function initialize() {
             link.classList.remove("navigation__link--selected");
           });
         },
-        offset: headerOffset
+        offset: headerOffset + 1
       })
   );
 

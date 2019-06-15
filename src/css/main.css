@@ -198,6 +198,31 @@ body {
   background-color: var(--color-light-accent);
 }
 
+.input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.input label {
+  margin-bottom: 0.5em;
+}
+
+.input input,
+.input textarea,
+.input select {
+  color: var(--color-dark);
+  text-decoration: none;
+  font-weight: 400;
+  display: inline-flex;
+  padding: 0.4em 0.6em;
+  min-width: 6em;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.4);
+  background-color: var(--color-light);
+  border: 2px solid var(--color-dark-accent);
+  outline: none;
+}
+
 /*-----------------------------*/
 /*----------PARAGRAPHS---------*/
 /*-----------------------------*/
@@ -226,7 +251,7 @@ p {
   margin-right: 1em;
   min-width: 6em;
 
-  box-shadow: 0px 1px 3px 0px rgba(var(--dark), 0.4);
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.4);
   background-color: var(--color-light-accent);
   border: 2px solid var(--color-light);
 }
@@ -927,7 +952,8 @@ p {
   color: var(--color-light);
 }
 
-.projects__item:hover figcaption {
+.projects__item:hover figcaption,
+.projects__item:active figcaption {
   background: rgba(44, 44, 44, 0.418);
 }
 
@@ -939,7 +965,8 @@ p {
   transition: opacity 0.4s;
 }
 
-.projects__item:hover .project__item-details {
+.projects__item:hover .project__item-details,
+.projects__item:active .project__item-details {
   opacity: 1;
 }
 
@@ -955,7 +982,8 @@ p {
   transition: margin-left 0.4s;
 }
 
-.projects__item:hover .projects__item-description {
+.projects__item:hover .projects__item-description,
+.projects__item:active .projects__item-description {
   margin-left: 0;
 }
 
@@ -969,7 +997,8 @@ p {
   transition: filter 0.4s;
 }
 
-.projects__item:hover .projects__item-thumbnail {
+.projects__item:hover .projects__item-thumbnail,
+.projects__item:active .projects__item-thumbnail {
   filter: blur(2px);
 }
 
@@ -982,7 +1011,8 @@ p {
   transition: margin-bottom 0.4s;
 }
 
-.projects__item:hover .projects__item-tags {
+.projects__item:hover .projects__item-tags,
+.projects__item:active .projects__item-tags {
   margin-bottom: 0;
 }
 
@@ -1021,4 +1051,124 @@ p {
 .projects__item:not(:hover) .projects__item-link:visited {
   background: var(--color-dark-accent);
   box-shadow: 0px 0px 2px 2px rgba(var(--dark), 0.2);
+}
+
+/*-----------------------------*/
+/*-----------PROJECTS-----------*/
+/*-----------------------------*/
+.contacts {
+  color: var(--color-light);
+  background: var(--color-dark);
+
+  height: 100vh;
+}
+
+.contacts__title {
+}
+
+.contacts__content {
+  display: flex;
+}
+
+.contacts__group {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 calc(50% - 2.5%);
+}
+
+.contacts__group:nth-child(2n + 1) {
+  margin-right: 5%;
+}
+
+.socials {
+  list-style: none;
+
+  align-self: center;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.socials li {
+  display: flex;
+  margin-bottom: 1em;
+}
+
+.social__link:link,
+.social__link:visited {
+  display: flex;
+  align-items: center;
+
+  text-decoration: none;
+  color: var(--color-light);
+}
+
+.social__link-icon {
+  width: 1em;
+  font-size: 2em;
+  text-align: center;
+  margin-right: 0.2em;
+}
+
+.contacts__form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts__group-title {
+  font-size: 1.5em;
+  font-weight: 300;
+  line-height: 1.2em;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+
+.contacts__group-title::after {
+  display: block;
+  content: "";
+  width: 10em;
+  height: 0.05em;
+  margin: 0 auto;
+  margin-top: 0.1em;
+  background-color: var(--color-light-accent);
+}
+
+.contacts__form textarea {
+  resize: none;
+  flex: 1;
+}
+
+.contacts__form .input:last-of-type {
+  margin-bottom: 2em;
+}
+
+.contacts__form .btn {
+  align-self: center;
+}
+
+.contacts__title {
+  font-size: 2em;
+  line-height: 1.45;
+  text-align: center;
+
+  font-weight: 400;
+
+  text-transform: uppercase;
+
+  margin-bottom: 1.25em;
+}
+
+.contacts__title::after {
+  display: block;
+  content: "";
+
+  width: 5em;
+  height: 0.1em;
+
+  margin: 0 auto;
+  margin-top: 0.2em;
+
+  background-color: var(--color-light-accent);
 }
