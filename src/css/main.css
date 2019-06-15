@@ -41,6 +41,10 @@ body {
   font-family: "Roboto Condensed", sans-serif;
 }
 
+body {
+  position: relative;
+}
+
 /*-----------------------------*/
 /*-----------GLIDER------------*/
 /*-----------------------------*/
@@ -245,6 +249,7 @@ p {
   text-decoration: none;
   text-align: center;
   font-weight: 400;
+  cursor: pointer;
 
   display: inline-block;
   padding: 0.4em 0.6em;
@@ -367,7 +372,7 @@ p {
 
 .my-greeting {
   font-size: 0.8em;
-  line-height: 1.2em;
+  line-height: 1.25em;
 }
 
 .my-name,
@@ -384,13 +389,13 @@ p {
 .my-name {
   font-size: 2em;
   font-weight: 400;
-  line-height: 1.2em;
+  line-height: 1.25em;
 }
 
 .my-title {
   font-size: 2.3em;
   font-weight: 300;
-  line-height: 1.2em;
+  line-height: 1.25em;
 }
 
 /*-----------------------------*/
@@ -415,7 +420,7 @@ p {
 
 .navigation--fixed {
   top: 0;
-  z-index: 9999;
+  z-index: 9998;
   bottom: initial;
   position: fixed;
   background: var(--color-dark);
@@ -475,7 +480,7 @@ p {
 
   justify-content: center;
 
-  flex: 0 1 1.2em;
+  flex: 0 1 1.25em;
 
   font-size: 2em;
   line-height: 0em;
@@ -486,7 +491,7 @@ p {
 .navigation__title,
 .navigation__title {
   font-size: 1em;
-  line-height: 1.2em;
+  line-height: 1.25em;
   font-weight: 400;
   text-indent: 0;
 }
@@ -497,8 +502,8 @@ p {
 
 .navigation__link:link,
 .navigation__link:visited {
-  font-size: 1.2em;
-  line-height: 1.2em;
+  font-size: 1.25em;
+  line-height: 1.25em;
   letter-spacing: 0.1em;
 }
 
@@ -546,7 +551,7 @@ p {
 
 .about__detail span {
   font-size: 0.9em;
-  line-height: 1.2em;
+  line-height: 1.25em;
 }
 
 .about__detail span:first-child {
@@ -669,7 +674,7 @@ p {
 .career__group-title {
   font-size: 1.5em;
   font-weight: 300;
-  line-height: 1.2em;
+  line-height: 1.25em;
 
   text-align: center;
   text-transform: uppercase;

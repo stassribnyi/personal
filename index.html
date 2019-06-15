@@ -10,15 +10,12 @@
       rel="stylesheet"
       href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"
     />
-    <!-- <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:100,300,300i,400&display=swap"
-    /> -->
     <link
       href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="src/css/main.css" />
+    <link rel="stylesheet" href="src/css/modal.css" />
     <link rel="stylesheet" href="src/css/query.css" />
   </head>
   <body>
@@ -96,7 +93,11 @@
               <li>
                 <a class="navigation__link" href="#cv">
                   <span class="navigation__link-icon ion-clipboard"></span>
-                  <span class="navigation__link-text">/cv</span>
+                  <span
+                    class="navigation__link-text"
+                    data-micromodal-trigger="cv-modal"
+                    >/cv</span
+                  >
                 </a>
               </li>
             </ul>
@@ -1137,6 +1138,50 @@
         </div>
       </div>
     </footer>
+
+    <div class="modal micromodal-slide" id="cv-modal" aria-hidden="true">
+      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+        <div
+          class="modal__container"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="cv-modal-title"
+        >
+          <header class="modal__header">
+            <h2 class="modal__title" id="cv-modal-title">
+              Confirm your action!
+            </h2>
+            <button
+              class="modal__close ion-close"
+              aria-label="Close modal"
+              data-micromodal-close
+            ></button>
+          </header>
+          <main class="modal__content" id="cv-modal-content">
+            <p>
+              Do you want to download my CV?
+            </p>
+          </main>
+          <footer class="modal__footer">
+            <button
+              class="btn"
+              data-micromodal-close
+              aria-label="Get CV and close this dialog window"
+              onclick="getCV()"
+            >
+              Yes, download!
+            </button>
+            <button
+              class="btn btn--secondary"
+              data-micromodal-close
+              aria-label="Close this dialog window"
+            >
+              No, I don't!
+            </button>
+          </footer>
+        </div>
+      </div>
+    </div>
     <script src="src/js/main.js"></script>
   </body>
 </html>
