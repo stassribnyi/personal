@@ -1,0 +1,56 @@
+@import "normalize.css";
+
+/*---------------*/
+/* ACCENT COLORS */
+/*---------------*/
+
+:root {
+  --black: 0, 0, 0;
+  --white: 255, 255, 255;
+
+  --dark: 51, 51, 51;
+  --light: 243, 242, 239;
+
+  --dark-accent: 50, 89, 99;
+  --light-accent: 244, 121, 124;
+
+  --color-black: rgb(var(--black));
+  --color-white: rgb(var(--white));
+
+  --color-dark: rgb(var(--dark));
+  --color-light: rgb(var(--light));
+
+  --color-dark-accent: rgb(var(--dark-accent));
+  --color-light-accent: rgb(var(--light-accent));
+
+  --max-content-width: 1140px;
+}
+
+*,
+h1,
+h2,
+h3,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--color-dark);
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+input,
+select,
+button,
+textarea {
+  border-radius: 0;
+  -webkit-appearance: none;
+}

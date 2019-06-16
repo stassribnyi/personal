@@ -1,0 +1,78 @@
+/*--------Desktops--------*/
+@media (min-width: 1281px) {
+}
+
+/*--------Laptops, Desktops--------*/
+@media (max-width: 1280px) {
+  body {
+    font-size: 18px;
+  }
+
+  .section__title,
+  .section__content {
+    width: 85%;
+  }
+}
+
+/*--------Tablets, IPads (portrait)--------*/
+@media (max-width: 1024px) {
+}
+
+/*--------Tablets, IPads (landscape)--------*/
+@media (max-width: 1024px) and (orientation: landscape) {
+}
+
+/*--------Low Resolution Tablets, Mobiles (Landscape)--------*/
+@media (max-width: 767px) {
+  .section__title,
+  .section__content {
+    width: 90%;
+  }
+
+  .contacts__content {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .contacts__group {
+    flex: auto;
+    width: 70%;
+  }
+
+  .contacts__group:nth-child(2n + 1) {
+    margin: 0;
+  }
+
+  .contacts__group-title {
+    display: none;
+  }
+
+  .socials {
+    flex-direction: row;
+  }
+
+  .social__link {
+    margin: 0 0.2em;
+  }
+
+  .social__link-text {
+    display: none;
+  }
+
+  .social__link-icon {
+    margin-right: 0;
+  }
+}
+
+/*--------Most of the Smartphones Mobiles (Portrait)--------*/
+@media (max-width: 480px) {
+  .contacts__group {
+    width: 100%;
+  }
+}
+
+@media (max-width: 340px) {
+  .section__title {
+    margin-bottom: 0.5em;
+  }
+}

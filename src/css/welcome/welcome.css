@@ -1,0 +1,116 @@
+.welcome {
+  display: flex;
+  position: relative;
+
+  height: 100vh;
+  overflow: hidden;
+
+  background-size: cover;
+  color: var(--color-light);
+  background-image: url(../img/welcome.jpg);
+}
+
+.welcome__content,
+.welcome__actions {
+  flex: 0 1 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5% 5% 4em 5%;
+}
+
+.welcome__column {
+  max-width: calc(var(--max-content-width, 1140px) / 2);
+}
+
+.welcome__content {
+  flex-direction: column;
+  background-color: rgba(var(--dark-accent), 0.9);
+}
+
+.welcome__actions {
+  position: relative;
+  background-color: rgba(var(--light), 0.2);
+}
+
+.welcome__actions::after {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  content: "";
+  display: block;
+  position: absolute;
+
+  box-shadow: -1px 0 2px 1px rgba(var(--dark), 0.2);
+}
+
+.welcome__title {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  font-size: 1em;
+  line-height: 1em;
+  margin-bottom: 2em;
+}
+
+.my-greeting {
+  font-size: 0.8em;
+  line-height: 1.25em;
+}
+
+.my-name,
+.my-title,
+.my-greeting {
+  margin-bottom: 0.5em;
+}
+
+.my-name,
+.my-title {
+  text-transform: uppercase;
+}
+
+.my-name {
+  font-size: 2em;
+  font-weight: 400;
+  line-height: 1.25em;
+}
+
+.my-title {
+  font-size: 2.3em;
+  font-weight: 300;
+  line-height: 1.25em;
+}
+
+.welcome__cite {
+  width: 50%;
+  margin-top: 3em;
+  margin-left: 50%;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  font-size: 0.8em;
+  text-align: right;
+  font-style: italic;
+  line-height: 1.45em;
+}
+
+.welcome__cite::before {
+  position: absolute;
+  content: "\201C";
+  display: block;
+  top: -4px;
+  left: -4px;
+
+  font-size: 3.5em;
+}
+
+.welcome__cite cite {
+  margin-top: 1em;
+
+  font-size: 0.9em;
+  line-height: 1.45em;
+}

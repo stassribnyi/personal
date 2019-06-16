@@ -1,0 +1,54 @@
+@media (max-width: 1280px) {
+  .career__content {
+    width: 85%;
+  }
+}
+
+@media (max-width: 767px) {
+  .career__content {
+    width: 90%;
+  }
+
+  .career__work-stages::before,
+  .career__education-stages::before {
+    display: none;
+  }
+
+  .career__work-stage,
+  .career__education-stage {
+    margin: 0;
+  }
+
+  .career__work-stage:not(:last-child),
+  .career__education-stage:not(:last-child) {
+    margin-bottom: 10%;
+  }
+
+  .career__work-stage:not(:first-child):before,
+  .career__work-stage:first-child::after,
+  .career__education-stage:before {
+    display: none;
+  }
+
+  .career__company,
+  .career__institution,
+  .career__position,
+  .career__education {
+    padding: 0;
+    flex: 0 1 100%;
+  }
+
+  .career__company,
+  .career__institution {
+    margin-bottom: 5%;
+  }
+
+  .career__position h4,
+  .career__education h4 {
+    text-align: center;
+  }
+
+  .career__technologies {
+    justify-content: center;
+  }
+}

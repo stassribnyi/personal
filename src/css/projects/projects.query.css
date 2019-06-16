@@ -1,0 +1,16 @@
+@media (max-width: 767px) {
+  .projects__item {
+    flex: 0 1 100%;
+    margin-bottom: 5%;
+  }
+
+  .projects__item:nth-child(2n + 1) {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 340px) {
+  .projects__content {
+    padding: 5% 0;
+  }
+}

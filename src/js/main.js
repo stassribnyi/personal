@@ -47,7 +47,7 @@ function initialize() {
   const aboutSection = document.getElementById("about");
   const navigation = document.querySelector(".navigation");
   const navigationShowMoreIcon = document.querySelector(
-    ".navigation__show-more"
+    ".navigation__chevron"
   );
   const contactForm = document.getElementById("contacts-form");
 

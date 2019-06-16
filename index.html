@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    
+
     <title>Stas Sribnyi | Front-End Engineer</title>
 
     <link
@@ -15,93 +15,100 @@
       href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="src/css/base.css" />
+    <link rel="stylesheet" href="src/css/custom.css" />
     <link rel="stylesheet" href="src/css/main.css" />
-    <link rel="stylesheet" href="src/css/queries/query.css" />
-    <link rel="stylesheet" href="src/css/queries/navigation.css" />
+
+    <link rel="stylesheet" href="src/css/nav/nav.css" />
+    <link rel="stylesheet" href="src/css/about/about.css" />
+    <link rel="stylesheet" href="src/css/skills/skills.css" />
+    <link rel="stylesheet" href="src/css/career/career.css" />
+    <link rel="stylesheet" href="src/css/welcome/welcome.css" />
+    <link rel="stylesheet" href="src/css/projects/projects.css" />
+
+    <link rel="stylesheet" href="src/css/nav/nav.query.css" />
+    <link rel="stylesheet" href="src/css/about/about.query.css" />
+    <link rel="stylesheet" href="src/css/skills/skills.query.css" />
+    <link rel="stylesheet" href="src/css/career/career.query.css" />
+    <link rel="stylesheet" href="src/css/welcome/welcome.query.css" />
+    <link rel="stylesheet" href="src/css/projects/projects.query.css" />
+    <link rel="stylesheet" href="src/css/main.query.css" />
   </head>
   <body>
-    <header>
-      <div class="welcome">
-        <div class="welcome__content-side">
-          <div class="welcome__col">
-            <h1 class="welcome__greeting">
-              <em class="my-greeting">Hello, I am</em>
-              <span class="my-name line-on-sides">Stas Sribnyi</span>
-              <strong class="my-title">Front-End Engineer</strong>
-            </h1>
-            <p>
-              Nice to see you here. I am a skilled front-end engineer with more
-              than 4 years of working experience both with front-end and
-              back-end. I develop single-page web applications using a variety
-              of frameworks such as React and Angular. I will be glad to
-              collaborate with you.
-            </p>
-
-            <blockquote class="welcome__cite">
-              When it is obvious that the goals cannot be reached, don't adjust
-              the goals, adjust the action steps.
-              <cite>Сonfucius</cite>
-            </blockquote>
-          </div>
-        </div>
-        <div class="welcome__image-side">
-          <div class="welcome__col">
-            <a href="#contacts" class="btn">Hire me</a>
-            <a href="#contacts" class="btn btn--secondary">Contact me</a>
-          </div>
-        </div>
-        <nav class="navigation">
-          <p class="navigation__title">
-            Wanna learn more what I can do?
+    <header class="welcome">
+      <div class="welcome__content">
+        <div class="welcome__column">
+          <h1 class="welcome__title">
+            <em class="my-greeting">Hello, I am</em>
+            <span class="my-name line-on-sides">Stas Sribnyi</span>
+            <strong class="my-title">Front-End Engineer</strong>
+          </h1>
+          <p>
+            Nice to see you here. I am a skilled front-end engineer with more
+            than 4 years of working experience both with front-end and back-end.
+            I develop single-page web applications using a variety of frameworks
+            such as React and Angular. I will be glad to collaborate with you.
           </p>
-          <div class="navigation__links">
-            <ul>
-              <li>
-                <a class="navigation__link" href="#about">
-                  <span class="navigation__link-icon ion-person"></span>
-                  <span class="navigation__link-text">/about</span>
-                </a>
-              </li>
-              <li>
-                <a class="navigation__link" href="#skills">
-                  <span class="navigation__link-icon ion-settings"></span>
-                  <span class="navigation__link-text">/skills</span>
-                </a>
-              </li>
-              <li>
-                <a class="navigation__link" href="#career">
-                  <span class="navigation__link-icon ion-briefcase"></span>
-                  <span class="navigation__link-text">/career</span>
-                </a>
-              </li>
-            </ul>
-            <span class="navigation__show-more ion-chevron-down"></span>
-            <ul>
-              <li>
-                <a class="navigation__link" href="#projects">
-                  <span
-                    class="navigation__link-icon ion-erlenmeyer-flask"
-                  ></span>
-                  <span class="navigation__link-text">/projects</span>
-                </a>
-              </li>
-              <li>
-                <a class="navigation__link" href="#contacts">
-                  <span class="navigation__link-icon ion-at"></span>
-                  <span class="navigation__link-text">/contacts</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+          <blockquote class="welcome__cite">
+            When it is obvious that the goals cannot be reached, don't adjust
+            the goals, adjust the action steps.
+            <cite>Сonfucius</cite>
+          </blockquote>
+        </div>
       </div>
+      <div class="welcome__actions">
+        <div class="welcome__column">
+          <a href="#contacts" class="btn">Hire me</a>
+          <a href="#contacts" class="btn btn--secondary">Contact me</a>
+        </div>
+      </div>
+      <nav class="navigation">
+        <p class="navigation__title">
+          Wanna learn more what I can do?
+        </p>
+        <div class="navigation__content">
+          <ul class="navigation__links">
+            <li class="navigation__links-item">
+              <a class="navigation__link" href="#about">
+                <span class="navigation__link-icon ion-person"></span>
+                <span class="navigation__link-text">/about</span>
+              </a>
+            </li>
+            <li class="navigation__links-item">
+              <a class="navigation__link" href="#skills">
+                <span class="navigation__link-icon ion-settings"></span>
+                <span class="navigation__link-text">/skills</span>
+              </a>
+            </li>
+            <li class="navigation__links-item">
+              <a class="navigation__link" href="#career">
+                <span class="navigation__link-icon ion-briefcase"></span>
+                <span class="navigation__link-text">/career</span>
+              </a>
+            </li>
+          </ul>
+          <a href="#about" class="navigation__chevron ion-chevron-down"></a>
+          <ul class="navigation__links">
+            <li class="navigation__links-item">
+              <a class="navigation__link" href="#projects">
+                <span class="navigation__link-icon ion-erlenmeyer-flask"></span>
+                <span class="navigation__link-text">/projects</span>
+              </a>
+            </li>
+            <li class="navigation__links-item">
+              <a class="navigation__link" href="#contacts">
+                <span class="navigation__link-icon ion-at"></span>
+                <span class="navigation__link-text">/contacts</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <main>
-      <section class="section about" id="about">
-        <h2 class="section__title about__title">
-          About
-        </h2>
+      <section id="about" class="section about">
+        <h2 class="section__title about__title">About</h2>
         <div class="section__content about__content">
           <figure class="about__details">
             <img
@@ -140,7 +147,6 @@
             positions and I am here, to provide you with all that experience to
             make you happy 😎.
           </p>
-
           <a
             class="btn"
             href="https://drive.google.com/open?id=0B4WwhDkyLxKpSDZzdzU4YUdBX1k"
@@ -150,12 +156,12 @@
         </div>
       </section>
 
-      <section class="section skills" id="skills">
+      <section id="skills" class="section skills">
         <h2 class="section__title skills__title">Skills</h2>
         <div class="section__content skills__content">
           <div class="skills__category-group">
             <div class="skills__category">
-              <h3>Front-End</h3>
+              <h3 class="skills__category-title">Front-End</h3>
               <ul class="skills__list">
                 <li class="skills__item">
                   <p>Javascript / Typescript</p>
@@ -168,37 +174,7 @@
                   </span>
                 </li>
                 <li class="skills__item">
-                  <p>React / Redux / Redux Thunk</p>
-                  <span class="skills__item-strength">
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                  </span>
-                </li>
-                <li class="skills__item">
-                  <p>Angular / RxJs / NgRx</p>
-                  <span class="skills__item-strength">
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                  </span>
-                </li>
-                <li class="skills__item">
                   <p>CSS3 / SASS / SCSS</p>
-                  <span class="skills__item-strength">
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                  </span>
-                </li>
-                <li class="skills__item">
-                  <p>Bootstrap</p>
                   <span class="skills__item-strength">
                     <span class="ion-flash"></span>
                     <span class="ion-flash"></span>
@@ -238,7 +214,7 @@
                   </span>
                 </li>
                 <li class="skills__item">
-                  <p>JQuery / JQueryUI</p>
+                  <p>React / Redux / Redux Thunk</p>
                   <span class="skills__item-strength">
                     <span class="ion-flash"></span>
                     <span class="ion-flash"></span>
@@ -248,7 +224,27 @@
                   </span>
                 </li>
                 <li class="skills__item">
-                  <p>WPF / Silverlight</p>
+                  <p>Angular / RxJs / NgRx</p>
+                  <span class="skills__item-strength">
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                  </span>
+                </li>
+                <li class="skills__item">
+                  <p>Bootstrap</p>
+                  <span class="skills__item-strength">
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                  </span>
+                </li>
+                <li class="skills__item">
+                  <p>JQuery / JQueryUI</p>
                   <span class="skills__item-strength">
                     <span class="ion-flash"></span>
                     <span class="ion-flash"></span>
@@ -257,10 +253,20 @@
                     <span class="ion-flash ion-flash--disabled"></span>
                   </span>
                 </li>
+                <li class="skills__item">
+                  <p>WPF / Silverlight</p>
+                  <span class="skills__item-strength">
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                  </span>
+                </li>
               </ul>
             </div>
             <div class="skills__category">
-              <h3>Back-End</h3>
+              <h3 class="skills__category-title">Back-End</h3>
               <ul class="skills__list">
                 <li class="skills__item">
                   <p>.NET Framework / C#</p>
@@ -280,6 +286,26 @@
                     <span class="ion-flash"></span>
                     <span class="ion-flash"></span>
                     <span class="ion-flash"></span>
+                  </span>
+                </li>
+                <li class="skills__item">
+                  <p>Entity Framework / LINQ</p>
+                  <span class="skills__item-strength">
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                  </span>
+                </li>
+                <li class="skills__item">
+                  <p>RESTful WebServices</p>
+                  <span class="skills__item-strength">
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
                   </span>
                 </li>
                 <li class="skills__item">
@@ -303,26 +329,6 @@
                   </span>
                 </li>
                 <li class="skills__item">
-                  <p>Entity Framework / LINQ</p>
-                  <span class="skills__item-strength">
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                  </span>
-                </li>
-                <li class="skills__item">
-                  <p>RESTful WebServices</p>
-                  <span class="skills__item-strength">
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                  </span>
-                </li>
-                <li class="skills__item">
                   <p>NodeJS</p>
                   <span class="skills__item-strength">
                     <span class="ion-flash"></span>
@@ -338,7 +344,7 @@
 
           <div class="skills__category-group">
             <div class="skills__category">
-              <h3>Techniques & Approaches</h3>
+              <h3 class="skills__category-title">Techniques & Approaches</h3>
               <ul class="skill__list">
                 <li class="skills__item">
                   <p>Object Oriented Programming (OOP)</p>
@@ -348,36 +354,6 @@
                     <span class="ion-flash"></span>
                     <span class="ion-flash"></span>
                     <span class="ion-flash"></span>
-                  </span>
-                </li>
-                <li class="skills__item">
-                  <p>Test Driven Development (TDD)</p>
-                  <span class="skills__item-strength">
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash ion-flash--disabled"></span>
-                    <span class="ion-flash ion-flash--disabled"></span>
-                  </span>
-                </li>
-                <li class="skills__item">
-                  <p>Block Element Modifier (BEM)</p>
-                  <span class="skills__item-strength">
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                  </span>
-                </li>
-                <li class="skills__item">
-                  <p>Functional Programming</p>
-                  <span class="skills__item-strength">
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash ion-flash--disabled"></span>
-                    <span class="ion-flash ion-flash--disabled"></span>
                   </span>
                 </li>
                 <li class="skills__item">
@@ -411,26 +387,6 @@
                   </span>
                 </li>
                 <li class="skills__item">
-                  <p>Design Patterns</p>
-                  <span class="skills__item-strength">
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash ion-flash--disabled"></span>
-                  </span>
-                </li>
-                <li class="skills__item">
-                  <p>Unit Testing</p>
-                  <span class="skills__item-strength">
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                  </span>
-                </li>
-                <li class="skills__item">
                   <p>Code Refactoring</p>
                   <span class="skills__item-strength">
                     <span class="ion-flash"></span>
@@ -450,10 +406,60 @@
                     <span class="ion-flash"></span>
                   </span>
                 </li>
+                <li class="skills__item">
+                  <p>Block Element Modifier (BEM)</p>
+                  <span class="skills__item-strength">
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                  </span>
+                </li>
+                <li class="skills__item">
+                  <p>Unit Testing</p>
+                  <span class="skills__item-strength">
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                  </span>
+                </li>
+                <li class="skills__item">
+                  <p>Design Patterns</p>
+                  <span class="skills__item-strength">
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                  </span>
+                </li>
+                <li class="skills__item">
+                  <p>Test Driven Development (TDD)</p>
+                  <span class="skills__item-strength">
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                  </span>
+                </li>
+                <li class="skills__item">
+                  <p>Functional Programming</p>
+                  <span class="skills__item-strength">
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                  </span>
+                </li>
               </ul>
             </div>
             <div class="skills__category">
-              <h3>Tools</h3>
+              <h3 class="skills__category-title">Tools</h3>
               <ul class="skill__list">
                 <li class="skills__item">
                   <p>Node Package Manager (NPM)</p>
@@ -486,6 +492,36 @@
                   </span>
                 </li>
                 <li class="skills__item">
+                  <p>Git</p>
+                  <span class="skills__item-strength">
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                  </span>
+                </li>
+                <li class="skills__item">
+                  <p>SVN</p>
+                  <span class="skills__item-strength">
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                  </span>
+                </li>
+                <li class="skills__item">
+                  <p>MS SQL Server</p>
+                  <span class="skills__item-strength">
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                  </span>
+                </li>
+                <li class="skills__item">
                   <p>Parcel</p>
                   <span class="skills__item-strength">
                     <span class="ion-flash"></span>
@@ -506,26 +542,6 @@
                   </span>
                 </li>
                 <li class="skills__item">
-                  <p>Grunt</p>
-                  <span class="skills__item-strength">
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash ion-flash--disabled"></span>
-                    <span class="ion-flash ion-flash--disabled"></span>
-                    <span class="ion-flash ion-flash--disabled"></span>
-                    <span class="ion-flash ion-flash--disabled"></span>
-                  </span>
-                </li>
-                <li class="skills__item">
-                  <p>MS SQL Server</p>
-                  <span class="skills__item-strength">
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash ion-flash--disabled"></span>
-                    <span class="ion-flash ion-flash--disabled"></span>
-                  </span>
-                </li>
-                <li class="skills__item">
                   <p>IIS</p>
                   <span class="skills__item-strength">
                     <span class="ion-flash"></span>
@@ -535,23 +551,14 @@
                     <span class="ion-flash ion-flash--disabled"></span>
                   </span>
                 </li>
+
                 <li class="skills__item">
-                  <p>Git</p>
+                  <p>Grunt</p>
                   <span class="skills__item-strength">
                     <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                  </span>
-                </li>
-                <li class="skills__item">
-                  <p>SVN</p>
-                  <span class="skills__item-strength">
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
-                    <span class="ion-flash"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
+                    <span class="ion-flash ion-flash--disabled"></span>
                     <span class="ion-flash ion-flash--disabled"></span>
                   </span>
                 </li>
@@ -561,10 +568,8 @@
         </div>
       </section>
 
-      <section class="section career" id="career">
-        <h2 class="section__title career__title">
-          Career
-        </h2>
+      <section id="career" class="section career">
+        <h2 class="section__title career__title">Career</h2>
         <div class="section__content career__content">
           <ul class="career__groups">
             <li class="career__group">
@@ -933,7 +938,7 @@
         </div>
       </section>
 
-      <section class="section projects" id="projects">
+      <section id="projects" class="section projects">
         <h2 class="section__title projects__title">
           Projects
         </h2>
