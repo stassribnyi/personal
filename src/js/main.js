@@ -6,7 +6,6 @@ import Glide, {
   Swipe,
   Autoplay
 } from "@glidejs/glide/dist/glide.modular.esm";
-import MicroModal from "micromodal";
 
 document.addEventListener("DOMContentLoaded", () => initialize(), false);
 
@@ -54,16 +53,7 @@ function initialize() {
 
   const { fontSize } = window.getComputedStyle(document.body);
 
-  const headerOffset = fontSize === 20 ? 56 : 50;
-
-  MicroModal.init();
-
-  window.getCV = () => {
-    window.open(
-      "https://drive.google.com/open?id=0B4WwhDkyLxKpSDZzdzU4YUdBX1k",
-      "_blank"
-    );
-  };
+  const headerOffset = window.innerWidth <= 767 ? 0 : fontSize === 20 ? 56 : 50;
 
   contactForm.addEventListener("submit", event => {
     const { target: form } = event;
@@ -125,7 +115,7 @@ function initialize() {
   });
 
   const scroller = new SweetScroll({
-    // offset: -headerOffset + 1
+    offset: -headerOffset + 1
   });
 
   const allLinks = document.querySelectorAll(

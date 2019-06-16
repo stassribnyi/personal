@@ -56,25 +56,13 @@
     width: 90%;
   }
 
-  .navigation__link-icon {
-    display: inline;
-  }
-
-  .navigation__link-text {
-    display: none;
-  }
-
-  .navigation__links ul > li {
-    margin: 0 10%;
-  }
-
   .welcome {
     padding: 5%;
     background: linear-gradient(
         rgba(var(--dark-accent), 0.9),
         rgba(var(--dark-accent), 0.9)
       ),
-      url(img/welcome.jpg);
+      url(../img/welcome.jpg);
   }
 
   .welcome__content-side,
@@ -91,12 +79,12 @@
   .about__section {
     align-items: center;
   }
-
+  /* 
   .about__details,
   .about__description {
     margin: 0;
     flex: 0 1 100%;
-  }
+  } */
 
   .about__details {
     margin-bottom: 5%;
@@ -160,6 +148,41 @@
   .career__technologies {
     justify-content: center;
   }
+
+  .contacts__content {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .contacts__group {
+    flex: auto;
+    width: 70%;
+  }
+
+  .contacts__group:nth-child(2n + 1) {
+    margin: 0;
+  }
+
+  .contacts__group-title {
+    display: none;
+  }
+
+  .socials {
+    flex-direction: row;
+  }
+
+  .social__link-text {
+    display: none;
+  }
+
+  .projects__item {
+    flex: 0 1 100%;
+    margin-bottom: 5%;
+  }
+
+  .projects__item:nth-child(2n + 1) {
+    margin-right: 0;
+  }
 }
 
 /*--------Most of the Smartphones Mobiles (Portrait)--------*/
@@ -186,8 +209,18 @@
     margin-top: 2.5em;
   }
 
-  .navigation__links ul > li {
-    margin: 0 8%;
+  .contacts__group {
+    width: 100%;
+  }
+}
+
+@media (max-width: 340px) {
+  .section__title {
+    margin-bottom: 0.5em;
+  }
+
+  .projects__content {
+    padding: 5% 0;
   }
 }
 
@@ -196,3 +229,10 @@
     /* font-size: 14px; */
   }
 }
+/* 
+@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
+  body {
+    height: 100vw;
+    transform: rotate(90deg);
+  }
+} */

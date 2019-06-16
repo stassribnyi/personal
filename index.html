@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
     <title>Stas Sribnyi | Front-End Engineer</title>
 
     <link
@@ -15,8 +16,8 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="src/css/main.css" />
-    <link rel="stylesheet" href="src/css/modal.css" />
-    <link rel="stylesheet" href="src/css/query.css" />
+    <link rel="stylesheet" href="src/css/queries/query.css" />
+    <link rel="stylesheet" href="src/css/queries/navigation.css" />
   </head>
   <body>
     <header>
@@ -90,16 +91,6 @@
                   <span class="navigation__link-text">/contacts</span>
                 </a>
               </li>
-              <li>
-                <a class="navigation__link" href="#cv">
-                  <span class="navigation__link-icon ion-clipboard"></span>
-                  <span
-                    class="navigation__link-text"
-                    data-micromodal-trigger="cv-modal"
-                    >/cv</span
-                  >
-                </a>
-              </li>
             </ul>
           </div>
         </nav>
@@ -112,28 +103,30 @@
           About
         </h2>
         <div class="section__content about__content">
-          <div class="about__details">
+          <figure class="about__details">
             <img
               class="about__photo"
               src="src/img/stassribnyi.jpg"
               alt="Stas Sribnyi"
             />
-            <ul>
-              <li class="about__detail">
-                <span>Name:</span>
-                <span>Stas Sribnyi</span>
-              </li>
-              <li class="about__detail">
-                <span>Age:</span>
-                <span>24 years</span>
-              </li>
-              <li class="about__detail">
-                <span>Location:</span>
-                <span> Europe, Ukraine, Kiev</span>
-              </li>
-            </ul>
-          </div>
-          <div class="about__description">
+            <figcaption>
+              <ul>
+                <li class="about__detail">
+                  <span>Name:</span>
+                  <span>Stas Sribnyi</span>
+                </li>
+                <li class="about__detail">
+                  <span>Age:</span>
+                  <span>24 years</span>
+                </li>
+                <li class="about__detail">
+                  <span>Location:</span>
+                  <span> Europe, Ukraine, Kiev</span>
+                </li>
+              </ul>
+            </figcaption>
+          </figure>
+          <p class="about__description">
             Hello again, I am Stas and I am front-end engineer 😊. Working with
             UI is my passion and so I do it using the latest technologies such
             as React and Angular (but personally prefer using React and Vanilla
@@ -146,7 +139,14 @@
             several companies, with the different teams, hold different
             positions and I am here, to provide you with all that experience to
             make you happy 😎.
-          </div>
+          </p>
+
+          <a
+            class="btn"
+            href="https://drive.google.com/open?id=0B4WwhDkyLxKpSDZzdzU4YUdBX1k"
+          >
+            Download regular version of my CV
+          </a>
         </div>
       </section>
 
@@ -1064,41 +1064,44 @@
 
             <ul class="socials">
               <li>
-                <a href="#" class="social__link">
-                  <span class="social__link-icon ion-social-instagram"></span>
-                  <span class="social__link-text"
-                    >https://www.instagram.com/stas.sribnyi/</span
-                  >
-                </a>
-              </li>
-              <li>
-                <a href="#" class="social__link">
+                <a
+                  href="https://www.linkedin.com/in/stassribnyi"
+                  class="social__link"
+                >
                   <span class="social__link-icon ion-social-linkedin"></span>
-                  <span class="social__link-text"
-                    >https://www.linkedin.com/in/stassribnyi/</span
-                  >
-                </a>
-              </li>
-              <li>
-                <a href="#" class="social__link">
-                  <span class="social__link-icon ion-social-facebook"></span>
-                  <span class="social__link-text"
-                    >https://www.facebook.com/stassribnyi/</span
-                  >
-                </a>
-              </li>
-              <li>
-                <a href="#" class="social__link">
-                  <span class="social__link-icon ion-social-github"></span>
-                  <span class="social__link-text"
-                    >http://github.com/stassribnyi/</span
-                  >
+                  <span class="social__link-text">
+                    linkedin.com/in/stassribnyi
+                  </span>
                 </a>
               </li>
               <li>
                 <a href="mailto:stas.sribnyi@gmail.com" class="social__link">
                   <span class="social__link-icon ion-at"></span>
                   <span class="social__link-text">stas.sribnyi@gmail.com</span>
+                </a>
+              </li>
+              <li>
+                <a href="http://github.com/stassribnyi" class="social__link">
+                  <span class="social__link-icon ion-social-github"></span>
+                  <span class="social__link-text">
+                    github.com/stassribnyi
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://instagr.am/stas.sribnyi" class="social__link">
+                  <span class="social__link-icon ion-social-instagram"></span>
+                  <span class="social__link-text">
+                    instagr.am/stas.sribnyi
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.fb.com/stassribnyi" class="social__link">
+                  <span class="social__link-icon ion-social-facebook"></span>
+                  <span class="social__link-text">
+                    fb.com/stassribnyi
+                  </span>
                 </a>
               </li>
             </ul>
@@ -1139,49 +1142,6 @@
       </div>
     </footer>
 
-    <div class="modal micromodal-slide" id="cv-modal" aria-hidden="true">
-      <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-        <div
-          class="modal__container"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="cv-modal-title"
-        >
-          <header class="modal__header">
-            <h2 class="modal__title" id="cv-modal-title">
-              Confirm your action!
-            </h2>
-            <button
-              class="modal__close ion-close"
-              aria-label="Close modal"
-              data-micromodal-close
-            ></button>
-          </header>
-          <main class="modal__content" id="cv-modal-content">
-            <p>
-              Do you want to download my CV?
-            </p>
-          </main>
-          <footer class="modal__footer">
-            <button
-              class="btn"
-              data-micromodal-close
-              aria-label="Get CV and close this dialog window"
-              onclick="getCV()"
-            >
-              Yes, download!
-            </button>
-            <button
-              class="btn btn--secondary"
-              data-micromodal-close
-              aria-label="Close this dialog window"
-            >
-              No, I don't!
-            </button>
-          </footer>
-        </div>
-      </div>
-    </div>
     <script src="src/js/main.js"></script>
   </body>
 </html>

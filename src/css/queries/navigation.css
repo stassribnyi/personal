@@ -1,0 +1,74 @@
+/*--------Desktops--------*/
+@media (min-width: 1281px) {
+}
+
+/*--------Laptops, Desktops--------*/
+@media (max-width: 1280px) {
+}
+
+/*--------Tablets, IPads (portrait)--------*/
+@media (max-width: 1024px) {
+}
+
+/*--------Tablets, IPads (landscape)--------*/
+@media (max-width: 1024px) and (orientation: landscape) {
+}
+
+/*--------Low Resolution Tablets, Mobiles (Landscape)--------*/
+@media (max-width: 767px) {
+  .navigation--fixed {
+    top: initial;
+    bottom: 0;
+  }
+
+  .navigation--fixed .navigation__show-more {
+    display: none;
+  }
+
+  .navigation--fixed .navigation__links ul {
+    flex: auto;
+  }
+
+  .navigation--fixed .navigation__links ul:first-child,
+  .navigation--fixed .navigation__links ul:last-child {
+    margin: 0;
+  }
+
+  .navigation--fixed .navigation__link {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navigation--fixed .navigation__link-text {
+    font-size: 0.5em;
+    line-height: 1.25em;
+  }
+
+  .navigation--fixed .navigation__link-icon {
+    display: inline-flex;
+
+    margin-bottom: 0.2em;
+  }
+
+  .navigation--fixed .navigation__links ul > li {
+    margin: 0 8%;
+    margin-right: 0;
+  }
+}
+
+/*--------Most of the Smartphones Mobiles (Portrait)--------*/
+@media (max-width: 480px) {
+ 
+}
+
+@media (max-width: 340px) {
+  .navigation--fixed .navigation__links ul > li {
+    margin: 0 5%;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 767px) and (orientation: landscape) {
+}
