@@ -1,0 +1,20 @@
+/*------------------------------------*/
+/* FIX IN CASE IF IONICONS WON'T LOAD */
+/*------------------------------------*/
+[class^="ion-"]::before,
+[class*=" ion-"]::before {
+  content: "\25AF";
+  display: inline-block;
+  
+  speak: none;
+  font-family: "Ionicons";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
