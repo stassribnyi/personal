@@ -1,4 +1,14 @@
+@media (max-width: 1024px) {
+  .projects__item-name {
+    margin-bottom: 0.5em;
+  }
+}
+
 @media (max-width: 767px) {
+  .project__item-details {
+    font-size: 0.9em;
+  }
+
   .projects__item {
     flex: 0 1 100%;
     margin-bottom: 5%;

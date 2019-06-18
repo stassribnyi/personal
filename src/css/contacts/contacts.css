@@ -1,15 +1,7 @@
-
-/*-----------------------------*/
-/*-----------PROJECTS-----------*/
-/*-----------------------------*/
 .contacts {
-  color: var(--color-light);
-  background: var(--color-dark);
-
   height: 100vh;
-}
-
-.contacts__title {
+  color: var(--color-light);
+  background-color: var(--color-dark);
 }
 
 .contacts__content {
@@ -28,10 +20,8 @@
 
 .socials {
   list-style: none;
-
-  align-self: center;
-
   display: flex;
+  align-self: center;
   flex-direction: column;
 }
 
@@ -40,16 +30,15 @@
   margin-bottom: 1em;
 }
 
-.social__link:link,
-.social__link:visited {
+.socials__link:link,
+.socials__link:visited {
   display: flex;
   align-items: center;
-
   text-decoration: none;
   color: var(--color-light);
 }
 
-.social__link-icon {
+.socials__link-icon {
   width: 1em;
   font-size: 2em;
   text-align: center;
@@ -66,24 +55,23 @@
   font-size: 1.5em;
   font-weight: 300;
   line-height: 1.2em;
+  margin-bottom: 1em;
   text-align: center;
   text-transform: uppercase;
-  margin-bottom: 1em;
 }
 
 .contacts__group-title::after {
-  display: block;
   content: "";
   width: 10em;
+  display: flex;
   height: 0.05em;
-  margin: 0 auto;
-  margin-top: 0.1em;
+  margin: 0.1em auto 0 auto;
   background-color: var(--color-light-accent);
 }
 
 .contacts__form textarea {
-  resize: none;
   flex: 1;
+  resize: none;
 }
 
 .contacts__form .input:last-of-type {
@@ -96,25 +84,18 @@
 
 .contacts__title {
   font-size: 2em;
+  font-weight: 400;
   line-height: 1.45;
   text-align: center;
-
-  font-weight: 400;
-
-  text-transform: uppercase;
-
   margin-bottom: 1.25em;
+  text-transform: uppercase;
 }
 
 .contacts__title::after {
-  display: block;
   content: "";
-
   width: 5em;
   height: 0.1em;
-
-  margin: 0 auto;
-  margin-top: 0.2em;
-
+  display: flex;
+  margin: 0.2em auto 0 auto;
   background-color: var(--color-light-accent);
 }

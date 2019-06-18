@@ -1,0 +1,25 @@
+@media (max-width: 1280px) {
+  .section__title,
+  .section__content {
+    width: 85%;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section__title,
+  .section__content {
+    width: 90%;
+  }
+}
+
+@media (max-width: 340px) {
+  .section__title {
+    margin-bottom: 0.5em;
+  }
+}

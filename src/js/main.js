@@ -46,9 +46,7 @@ function setHash(hash) {
 function initialize() {
   const aboutSection = document.getElementById("about");
   const navigation = document.querySelector(".navigation");
-  const navigationShowMoreIcon = document.querySelector(
-    ".navigation__chevron"
-  );
+  const navigationShowMoreIcon = document.querySelector(".navigation__chevron");
   const contactForm = document.getElementById("contacts-form");
 
   const { fontSize } = window.getComputedStyle(document.body);
@@ -117,6 +115,16 @@ function initialize() {
   const scroller = new SweetScroll({
     offset: -headerOffset + 1
   });
+
+  const projectsItemTouchStartHandler = () => {};
+
+  document
+    .querySelectorAll(".projects__item")
+    .forEach(item =>
+      item.addEventListener("touchstart", projectsItemTouchStartHandler, {
+        passive: true
+      })
+    );
 
   const allLinks = document.querySelectorAll(
     'a[href*="#"]:not([href="#"]):not([href="#0"])'

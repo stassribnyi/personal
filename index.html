@@ -15,24 +15,28 @@
       href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&display=swap"
       rel="stylesheet"
     />
+    <!-- General Styles -->
     <link rel="stylesheet" href="src/css/base.css" />
     <link rel="stylesheet" href="src/css/custom.css" />
-    <link rel="stylesheet" href="src/css/main.css" />
 
+    <!-- Component Styles -->
     <link rel="stylesheet" href="src/css/nav/nav.css" />
     <link rel="stylesheet" href="src/css/about/about.css" />
     <link rel="stylesheet" href="src/css/skills/skills.css" />
     <link rel="stylesheet" href="src/css/career/career.css" />
     <link rel="stylesheet" href="src/css/welcome/welcome.css" />
     <link rel="stylesheet" href="src/css/projects/projects.css" />
+    <link rel="stylesheet" href="src/css/contacts/contacts.css" />
 
+    <!-- Component Query Styles -->
+    <link rel="stylesheet" href="src/css/custom.query.css" />
     <link rel="stylesheet" href="src/css/nav/nav.query.css" />
     <link rel="stylesheet" href="src/css/about/about.query.css" />
     <link rel="stylesheet" href="src/css/skills/skills.query.css" />
     <link rel="stylesheet" href="src/css/career/career.query.css" />
     <link rel="stylesheet" href="src/css/welcome/welcome.query.css" />
+    <link rel="stylesheet" href="src/css/contacts/contacts.query.css" />
     <link rel="stylesheet" href="src/css/projects/projects.query.css" />
-    <link rel="stylesheet" href="src/css/main.query.css" />
   </head>
   <body>
     <header class="welcome">
@@ -87,7 +91,11 @@
               </a>
             </li>
           </ul>
-          <a href="#about" class="navigation__chevron ion-chevron-down"></a>
+          <a
+            href="#about"
+            class="navigation__chevron ion-chevron-down"
+            aria-label="Move up or down"
+          ></a>
           <ul class="navigation__links">
             <li class="navigation__links-item">
               <a class="navigation__link" href="#projects">
@@ -577,7 +585,7 @@
               <ul class="career__work-stages">
                 <li class="career__work-stage">
                   <figure class="career__company">
-                    <img src="src/img/innovecs.png" alt="Innovecs" />
+                    <img src="src/img/career/innovecs.png" alt="Innovecs" />
                     <figcaption>
                       <p class="career__company-name">Innovecs</p>
                       <p>Apr 2019 &mdash; Present</p>
@@ -611,7 +619,7 @@
                 </li>
                 <li class="career__work-stage">
                   <figure class="career__company">
-                    <img src="src/img/caspio.png" alt="Caspio" />
+                    <img src="src/img/career/caspio.png" alt="Caspio" />
                     <figcaption>
                       <p class="career__company-name">Caspio</p>
                       <p>Aug 2017 &mdash; Apr 2019</p>
@@ -659,7 +667,7 @@
                 </li>
                 <li class="career__work-stage">
                   <figure class="career__company">
-                    <img src="src/img/altexsoft.png" alt="AltexSoft" />
+                    <img src="src/img/career/altexsoft.png" alt="AltexSoft" />
                     <figcaption>
                       <p class="career__company-name">AltexSoft</p>
                       <p>Jul 2015 &mdash; Aug 2017</p>
@@ -714,7 +722,7 @@
                 <li class="career__education-stage">
                   <figure class="career__institution">
                     <img
-                      src="src/img/krnu.png"
+                      src="src/img/career/krnu.png"
                       alt="Kremenchuk State Polytechnical University"
                     />
                     <figcaption>
@@ -736,7 +744,7 @@
                 <li class="career__education-stage">
                   <figure class="career__institution">
                     <img
-                      src="src/img/altexsoft-labs.png"
+                      src="src/img/career/altexsoft-labs.png"
                       alt="AltexSoft Labs"
                     />
                     <figcaption>
@@ -759,7 +767,7 @@
                 <li class="career__education-stage">
                   <figure class="career__institution">
                     <img
-                      src="src/img/krnu.png"
+                      src="src/img/career/krnu.png"
                       alt="Kremenchuk State Polytechnical University"
                     />
                     <figcaption>
@@ -946,40 +954,58 @@
           <ul class="projects__list">
             <li class="projects__item">
               <figure>
-                <img
-                  class="projects__item-thumbnail"
-                  src="src/img/projects/canvas-practice.jpg"
-                  alt="Thumbnail Name"
-                />
+                <picture>
+                  <img
+                    class="projects__item-thumbnail"
+                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    srcset="
+                      src/img/projects/canvas-practice_320.png   320w,
+                      src/img/projects/canvas-practice_486.png   486w,
+                      src/img/projects/canvas-practice_625.png   625w,
+                      src/img/projects/canvas-practice_749.png   749w,
+                      src/img/projects/canvas-practice_869.png   869w,
+                      src/img/projects/canvas-practice_1024.png 1024w
+                    "
+                    src="src/img/projects/canvas-practice_1024.png"
+                    alt="Canvas Practice"
+                  />
+                </picture>
                 <figcaption>
                   <div class="project__item-details">
                     <h3 class="projects__item-name">HTML5 Canvas Playground</h3>
                     <p class="projects__item-description">
-                      The playground I've made to try some cool things with
-                      canvas. There you can find snake and tic-tac-toe game and
-                      some of the experiments with particles.
+                      The playground where you can find snake and tic-tac-toe
+                      game and some of the experiments with particles.
                     </p>
                     <ul class="projects__item-tags">
-                      <li class="projects__item-tag">JS (ES6)</li>
-                      <li class="projects__item-tag">HTML5</li>
-                      <li class="projects__item-tag">HTML5 Canvas</li>
-                      <li class="projects__item-tag">CSS3</li>
+                      <li class="projects__item-tag">JS</li>
+                      <li class="projects__item-tag">ES6+</li>
+                      <li class="projects__item-tag">HTML 5 Canvas</li>
                     </ul>
                   </div>
                   <a
                     href="https://stassribnyi.github.io/canvas-practice/"
                     class="projects__item-link ion-link"
+                    aria-label="Canvas Practice"
                   ></a>
                 </figcaption>
               </figure>
             </li>
             <li class="projects__item">
               <figure>
-                <img
-                  class="projects__item-thumbnail"
-                  src="src/img/projects/todo-list-react.jpg"
-                  alt="Thumbnail Name"
-                />
+                <picture>
+                  <img
+                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    srcset="
+                      src/img/projects/todo-list-react_320.png   320w,
+                      src/img/projects/todo-list-react_896.png   896w,
+                      src/img/projects/todo-list-react_1024.png 1024w
+                    "
+                    src="src/img/projects/todo-list-react_1024.png"
+                    class="projects__item-thumbnail"
+                    alt="ToDo List React"
+                  />
+                </picture>
                 <figcaption>
                   <div class="project__item-details">
                     <h3 class="projects__item-name">Todo List React</h3>
@@ -995,17 +1021,29 @@
                   <a
                     href="https://stassribnyi.github.io/todo-list-react/#/"
                     class="projects__item-link ion-link"
+                    aria-label="ToDo List React"
                   ></a>
                 </figcaption>
               </figure>
             </li>
             <li class="projects__item">
               <figure>
-                <img
-                  class="projects__item-thumbnail"
-                  src="src/img/projects/image-manager.jpg"
-                  alt="Thumbnail Name"
-                />
+                <picture>
+                  <img
+                    class="projects__item-thumbnail"
+                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    srcset="
+                      src/img/projects/image-manager_320.png   320w,
+                      src/img/projects/image-manager_518.png   486w,
+                      src/img/projects/image-manager_665.png   625w,
+                      src/img/projects/image-manager_801.png   749w,
+                      src/img/projects/image-manager_921.png   869w,
+                      src/img/projects/image-manager_1024.png 1024w
+                    "
+                    src="src/img/projects/image-manager_1024.png"
+                    alt="Image Manager"
+                  />
+                </picture>
                 <figcaption>
                   <div class="project__item-details">
                     <h3 class="projects__item-name">Image Manager</h3>
@@ -1023,17 +1061,26 @@
                   <a
                     href="https://stassribnyi.github.io/image-manager/"
                     class="projects__item-link ion-link"
+                    aria-label="Image Manager"
                   ></a>
                 </figcaption>
               </figure>
             </li>
             <li class="projects__item">
               <figure>
-                <img
-                  class="projects__item-thumbnail"
-                  src="src/img/projects/magic-app-redux.jpg"
-                  alt="Thumbnail Name"
-                />
+                <picture>
+                  <img
+                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    srcset="
+                      src/img/projects/magic-app-redux_320.png   320w,
+                      src/img/projects/magic-app-redux_920.png   920w,
+                      src/img/projects/magic-app-redux_1024.png 1024w
+                    "
+                    src="src/img/projects/magic-app-redux_1024.png"
+                    class="projects__item-thumbnail"
+                    alt="Magic App (Redux)"
+                  />
+                </picture>
                 <figcaption>
                   <div class="project__item-details">
                     <h3 class="projects__item-name">Magic App (Redux)</h3>
@@ -1050,6 +1097,7 @@
                   <a
                     href="https://stassribnyi.github.io/magic-app-redux/"
                     class="projects__item-link ion-link"
+                    aria-label="Magic App Redux"
                   ></a>
                 </figcaption>
               </figure>
@@ -1059,90 +1107,102 @@
       </section>
     </main>
 
-    <footer>
-      <div class="section contacts" id="contacts">
-        <h2 class="section__title contacts__title">Contacts</h2>
-
-        <div class="section__content  contacts__content">
-          <div class="contacts__group">
-            <h3 class="contacts__group-title">Links</h3>
-
-            <ul class="socials">
-              <li>
-                <a
-                  href="https://www.linkedin.com/in/stassribnyi"
-                  class="social__link"
-                >
-                  <span class="social__link-icon ion-social-linkedin"></span>
-                  <span class="social__link-text">
-                    linkedin.com/in/stassribnyi
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="mailto:stas.sribnyi@gmail.com" class="social__link">
-                  <span class="social__link-icon ion-at"></span>
-                  <span class="social__link-text">stas.sribnyi@gmail.com</span>
-                </a>
-              </li>
-              <li>
-                <a href="http://github.com/stassribnyi" class="social__link">
-                  <span class="social__link-icon ion-social-github"></span>
-                  <span class="social__link-text">
-                    github.com/stassribnyi
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="https://instagr.am/stas.sribnyi" class="social__link">
-                  <span class="social__link-icon ion-social-instagram"></span>
-                  <span class="social__link-text">
-                    instagr.am/stas.sribnyi
-                  </span>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.fb.com/stassribnyi" class="social__link">
-                  <span class="social__link-icon ion-social-facebook"></span>
-                  <span class="social__link-text">
-                    fb.com/stassribnyi
-                  </span>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="contacts__group">
-            <h3 class="contacts__group-title">Contact me</h3>
-            <form class="contacts__form" id="contacts-form">
-              <div class="input">
-                <label for="name">Your Name:</label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="John Doe"
-                  required
-                />
-              </div>
-              <div class="input">
-                <label for="subject">Subject:</label>
-                <select name="subject" id="subject">
-                  <option value="Hire You">I wanna hire you</option>
-                  <option value="Contact You">I wanna contact you</option>
-                </select>
-              </div>
-              <div class="input">
-                <label for="body">Message:</label>
-                <textarea
-                  name="body"
-                  id="body"
-                  placeholder="A message you would like to send me..."
-                ></textarea>
-              </div>
-
-              <input class="btn" type="submit" value="Send Message" />
-            </form>
-          </div>
+    <footer id="contacts" class="section contacts">
+      <h2 class="section__title contacts__title">Contacts</h2>
+      <div class="section__content  contacts__content">
+        <div class="contacts__group">
+          <h3 class="contacts__group-title">Links</h3>
+          <ul class="socials">
+            <li>
+              <a
+                href="https://www.linkedin.com/in/stassribnyi"
+                class="socials__link"
+                aria-label="LinkedIn"
+              >
+                <span class="socials__link-icon ion-social-linkedin"></span>
+                <span class="socials__link-text">
+                  linkedin.com/in/stassribnyi
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="mailto:stas.sribnyi@gmail.com"
+                class="socials__link"
+                aria-label="E-Mail"
+              >
+                <span class="socials__link-icon ion-at"></span>
+                <span class="socials__link-text">stas.sribnyi@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="http://github.com/stassribnyi"
+                class="socials__link"
+                aria-label="GitHub"
+              >
+                <span class="socials__link-icon ion-social-github"></span>
+                <span class="socials__link-text">
+                  github.com/stassribnyi
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://instagr.am/stas.sribnyi"
+                class="socials__link"
+                aria-label="Instagram"
+              >
+                <span class="socials__link-icon ion-social-instagram"></span>
+                <span class="socials__link-text">
+                  instagr.am/stas.sribnyi
+                </span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.fb.com/stassribnyi"
+                class="socials__link"
+                aria-label="Facebook"
+              >
+                <span class="socials__link-icon ion-social-facebook"></span>
+                <span class="socials__link-text">
+                  fb.com/stassribnyi
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="contacts__group">
+          <h3 class="contacts__group-title">Contact me</h3>
+          <form class="contacts__form" id="contacts-form">
+            <div class="input">
+              <label for="name">Your Name:</label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+            <div class="input">
+              <label for="subject">Subject:</label>
+              <select id="subject" name="subject">
+                <option value="Hire You">I wanna hire you</option>
+                <option value="Contact You">I wanna contact you</option>
+              </select>
+            </div>
+            <div class="input">
+              <label for="body">Message:</label>
+              <textarea
+                id="body"
+                name="body"
+                placeholder="A message you would like to send me..."
+              ></textarea>
+            </div>
+            <input class="btn" type="submit" value="Send Message" />
+          </form>
         </div>
       </div>
     </footer>
