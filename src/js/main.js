@@ -118,38 +118,61 @@ function initialize() {
 
   const projectsItemTouchStartHandler = () => {};
 
-  document
-    .querySelectorAll(".projects__item")
-    .forEach(item =>
-      item.addEventListener("touchstart", projectsItemTouchStartHandler, {
-        passive: true
-      })
-    );
+  document.querySelectorAll(".projects__item").forEach(item =>
+    item.addEventListener("touchstart", projectsItemTouchStartHandler, {
+      passive: true
+    })
+  );
 
   const allLinks = document.querySelectorAll(
-    'a[href*="#"]:not([href="#"]):not([href="#0"])'
+    'a[href*="#"]:not([href="#"]):not([href="#0"]):not(.navigation__chevron)'
   );
 
   const allSections = document.querySelectorAll(".section");
 
-  allSections.forEach(
-    section =>
-      new Waypoint({
-        element: section,
-        handler: direction => {
-          allLinks.forEach(link => {
-            if (link.hash.replace("#", "") === section.id) {
-              link.classList.add("navigation__link--selected");
+  allSections.forEach(section => {
+    new Waypoint({
+      element: section,
+      handler: direction => {
+        if (direction !== "up") {
+          return;
+        }
 
-              return;
-            }
+        allLinks.forEach(link => {
+          if (link.hash.replace("#", "") === section.id) {
+            link.classList.add("navigation__link--selected");
+            setHash(`#${section.id}`);
 
-            link.classList.remove("navigation__link--selected");
-          });
-        },
-        offset: headerOffset + 1
-      })
-  );
+            return;
+          }
+
+          link.classList.remove("navigation__link--selected");
+        });
+      },
+      offset: "bottom-in-view"
+    });
+
+    new Waypoint({
+      element: section,
+      handler: direction => {
+        if (direction !== "down") {
+          return;
+        }
+
+        allLinks.forEach(link => {
+          if (link.hash.replace("#", "") === section.id) {
+            link.classList.add("navigation__link--selected");
+            setHash(`#${section.id}`);
+
+            return;
+          }
+
+          link.classList.remove("navigation__link--selected");
+        });
+      },
+      offset: headerOffset + 1
+    });
+  });
 
   allLinks.forEach(link =>
     link.addEventListener("click", event => scrollToAnchor(event, scroller))
