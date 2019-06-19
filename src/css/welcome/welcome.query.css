@@ -36,7 +36,7 @@
 
 @media (max-width: 767px) {
   .welcome {
-    padding: 5% 5% 4.5em 5%;
+    padding: 5% 5% 3em 5%;
     background-image: linear-gradient(
         rgba(var(--dark-accent), 0.9),
         rgba(var(--dark-accent), 0.9)
@@ -60,10 +60,6 @@
 }
 
 @media (max-width: 480px) {
-  .welcome {
-    padding-bottom: 4.5em;
-  }
-
   .welcome__title {
     margin-bottom: 0.5em;
   }

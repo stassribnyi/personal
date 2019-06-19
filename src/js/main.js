@@ -90,7 +90,7 @@ function initialize() {
     handler: direction => {
       switch (direction) {
         case "down":
-          navigation.classList.add("navigation--fixed");
+          navigation.classList.add("navigation--top");
           replaceClass(
             navigationShowMoreIcon,
             "ion-chevron-down",
@@ -98,7 +98,7 @@ function initialize() {
           );
           break;
         case "up":
-          navigation.classList.remove("navigation--fixed");
+          navigation.classList.remove("navigation--top");
           replaceClass(
             navigationShowMoreIcon,
             "ion-chevron-up",

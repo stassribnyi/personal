@@ -1,5 +1,6 @@
 .contacts {
   height: 100vh;
+  position: relative;
   color: var(--color-light);
   background-color: var(--color-dark);
 }
