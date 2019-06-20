@@ -1,193 +1,192 @@
 import "waypoints/lib/noframework.waypoints.min.js";
 
 import SweetScroll from "sweet-scroll";
+
 import Glide, {
-  Controls,
   Swipe,
+  Controls,
   Autoplay
 } from "@glidejs/glide/dist/glide.modular.esm";
 
-document.addEventListener("DOMContentLoaded", () => initialize(), false);
+import {
+  setHash,
+  replaceClass,
+  scrollToAnchor,
+  openEmailClient,
+  canNavigateInsidePage
+} from "./utilities";
 
-function replaceClass(element, oldClass, newClass) {
-  element.classList.remove(oldClass);
-  element.classList.add(newClass);
-}
+const glideConfig = {
+  autoplay: 15000,
+  type: "carousel",
+  dragThreshold: 60,
+  hoverpause: false,
+  swipeThreshold: 60,
+  animationDuration: 1000,
+  animationTimingFunc: "cubic-bezier(0.6, 0, 0.14, 1)"
+};
 
-function scrollToAnchor(event, sweetScroll) {
-  const currentElement = event.currentTarget;
-  const replaceRegexp = /^\//;
+const glideOptions = {
+  Controls,
+  Swipe,
+  Autoplay
+};
 
-  const samePathname =
-    location.pathname.replace(replaceRegexp, "") ===
-    currentElement.pathname.replace(replaceRegexp, "");
+let app = null;
 
-  if (!samePathname || location.hostname !== currentElement.hostname) {
-    return;
-  }
+document.addEventListener("DOMContentLoaded", () => (app = new Application()));
 
-  const target = document.querySelector(currentElement.hash);
+window.onunload = () => app && app.destroy();
 
-  if (!target) {
-    return;
-  }
-
-  event.preventDefault();
-
-  sweetScroll.toElement(target);
-
-  setHash(currentElement.hash);
-}
-
-function setHash(hash) {
-  history.pushState(null, null, hash);
-}
-
-function initialize() {
-  const aboutSection = document.getElementById("about");
-  const navigation = document.querySelector(".navigation");
-  const navigationShowMoreIcon = document.querySelector(".navigation__chevron");
+function Application() {
+  const nav = document.querySelector(".nav");
+  const navChevron = document.querySelector(".nav__chevron");
   const contactForm = document.getElementById("contacts-form");
 
-  const { fontSize } = window.getComputedStyle(document.body);
+  const projectItems = Array.from(
+    document.querySelectorAll(".js--projects__item")
+  );
+  const navLinks = Array.from(document.querySelectorAll(".js--nav-link"));
+  const sections = Array.from(document.querySelectorAll(".js--section"));
 
-  const headerOffset = window.innerWidth <= 767 ? 0 : fontSize === 20 ? 56 : 50;
+  const scroller = new SweetScroll({ offset: 1 });
+  const glide = new Glide(".glide", glideConfig).mount(glideOptions);
 
-  contactForm.addEventListener("submit", event => {
-    const { target: form } = event;
+  const sectionWaypoints = sections.map(section => {
+    return {
+      topInView: new Waypoint({
+        element: section,
+        handler: direction => {
+          if (section.id === "about") {
+            toggleNav(nav, direction);
+          }
 
-    const formValues = {
-      subject: form.subject,
-      name: form.name,
-      body: form.body
+          if (direction !== "down") {
+            return;
+          }
+
+          selectLinksBySection(`#${section.id}`, navLinks);
+        }
+      }),
+      bottomInView: new Waypoint({
+        element: section,
+        handler: direction => {
+          if (direction !== "up") {
+            return;
+          }
+
+          selectLinksBySection(`#${section.id}`, navLinks);
+        },
+        offset: "bottom-in-view"
+      })
     };
-
-    const mailParams = Object.keys(formValues)
-      .map(param => `${param}=${formValues[param].value}`)
-      .join("&");
-
-    window.location.replace(`mailto:stas.sribnyi@gmail.com?${mailParams}`);
-
-    event.preventDefault();
   });
 
-  const glide = new Glide(".glide", {
-    type: "carousel",
-    autoplay: 15000,
-    hoverpause: false,
-    animationDuration: 1000,
-    animationTimingFunc: "cubic-bezier(0.6, 0, 0.14, 1)",
-    swipeThreshold: 60,
-    dragThreshold: 60
-  }).mount({
-    Controls,
-    Swipe,
-    Autoplay
-  });
+  const touchstartStub = () => {};
+  const linkClickToScroll = event => navLinkClickHandler(event, scroller);
+  const chevronClickToScroll = event => navChevronClickHandler(event, scroller);
 
-  const aboutWaypoint = new Waypoint({
-    element: aboutSection,
-    handler: direction => {
-      switch (direction) {
-        case "down":
-          navigation.classList.add("navigation--top");
-          replaceClass(
-            navigationShowMoreIcon,
-            "ion-chevron-down",
-            "ion-chevron-up"
-          );
-          break;
-        case "up":
-          navigation.classList.remove("navigation--top");
-          replaceClass(
-            navigationShowMoreIcon,
-            "ion-chevron-up",
-            "ion-chevron-down"
-          );
-          break;
-        default:
-          break;
-      }
-    },
-    offset: headerOffset + 1
-  });
+  navChevron.addEventListener("click", chevronClickToScroll);
+  contactForm.addEventListener("submit", handleContactFormSubmission);
 
-  const scroller = new SweetScroll({
-    offset: -headerOffset + 1
-  });
+  navLinks.forEach(link => link.addEventListener("click", linkClickToScroll));
 
-  const projectsItemTouchStartHandler = () => {};
-
-  document.querySelectorAll(".projects__item").forEach(item =>
-    item.addEventListener("touchstart", projectsItemTouchStartHandler, {
-      passive: true
-    })
+  projectItems.forEach(item =>
+    item.addEventListener("touchstart", touchstartStub, { passive: true })
   );
 
-  const allLinks = document.querySelectorAll(
-    'a[href*="#"]:not([href="#"]):not([href="#0"]):not(.navigation__chevron)'
-  );
+  return {
+    destroy: () => {
+      projectItems.forEach(item =>
+        item.removeEventListener("touchstart", touchstartStub)
+      );
 
-  const allSections = document.querySelectorAll(".section");
+      navChevron.removeEventListener("click", chevronClickToScroll);
+      contactForm.removeEventListener("submit", handleContactFormSubmission);
 
-  allSections.forEach(section => {
-    new Waypoint({
-      element: section,
-      handler: direction => {
-        if (direction !== "up") {
-          return;
-        }
+      navLinks.forEach(link =>
+        link.removeEventListener("click", linkClickToScroll)
+      );
 
-        allLinks.forEach(link => {
-          if (link.hash.replace("#", "") === section.id) {
-            link.classList.add("navigation__link--selected");
-            setHash(`#${section.id}`);
+      sectionWaypoints.forEach(sectionWaypoint => {
+        sectionWaypoint.topInView.destroy();
+        sectionWaypoint.bottomInView.destroy();
+      });
 
-            return;
-          }
-
-          link.classList.remove("navigation__link--selected");
-        });
-      },
-      offset: "bottom-in-view"
-    });
-
-    new Waypoint({
-      element: section,
-      handler: direction => {
-        if (direction !== "down") {
-          return;
-        }
-
-        allLinks.forEach(link => {
-          if (link.hash.replace("#", "") === section.id) {
-            link.classList.add("navigation__link--selected");
-            setHash(`#${section.id}`);
-
-            return;
-          }
-
-          link.classList.remove("navigation__link--selected");
-        });
-      },
-      offset: headerOffset + 1
-    });
-  });
-
-  allLinks.forEach(link =>
-    link.addEventListener("click", event => scrollToAnchor(event, scroller))
-  );
-
-  navigationShowMoreIcon.addEventListener("click", () => {
-    if (navigationShowMoreIcon.classList.contains("ion-chevron-up")) {
-      scroller.toTop(0);
-      setHash("#");
-
-      return;
+      glide.destroy();
     }
+  };
+}
 
-    if (navigationShowMoreIcon.classList.contains("ion-chevron-down")) {
-      scroller.toElement(aboutSection);
-    }
+function handleContactFormSubmission(event) {
+  const { target: form } = event;
+
+  openEmailClient("stas.sribnyi@gmail.com", {
+    subject: form.subject,
+    name: form.name,
+    body: form.body
   });
+
+  event.preventDefault();
+}
+
+function navChevronClickHandler(event, scroller) {
+  const { classList } = event.currentTarget;
+
+  const anchor = classList.contains("ion-chevron-down")
+    ? "#about"
+    : classList.contains("ion-chevron-up")
+    ? "#"
+    : null;
+
+  scrollToAnchor(anchor, scroller);
+
+  event.preventDefault();
+}
+
+function navLinkClickHandler(event, scroller) {
+  const currentElement = event.currentTarget;
+
+  if (!canNavigateInsidePage(currentElement)) {
+    return;
+  }
+
+  scrollToAnchor(currentElement.hash, scroller, false);
+
+  event.preventDefault();
+}
+
+function toggleNav(nav, direction) {
+  const navChevron = nav.querySelector(".nav__chevron");
+
+  switch (direction) {
+    case "down":
+      nav.classList.add("nav--top");
+      replaceClass(navChevron, "ion-chevron-down", "ion-chevron-up");
+      break;
+    case "up":
+      nav.classList.remove("nav--top");
+      replaceClass(navChevron, "ion-chevron-up", "ion-chevron-down");
+      break;
+    default:
+      break;
+  }
+}
+
+function selectLinksBySection(sectionLinkHash, navLinks) {
+  const sectionLinks = navLinks.filter(link => link.hash === sectionLinkHash);
+
+  if (!sectionLinks.length) {
+    return;
+  }
+
+  const selectedLinks = navLinks.filter(link => link.hash === location.hash);
+
+  if (selectedLinks.length) {
+    selectedLinks.forEach(item => item.classList.remove("nav__link--selected"));
+  }
+
+  sectionLinks.forEach(item => item.classList.add("nav__link--selected"));
+
+  setHash(sectionLinkHash);
 }
