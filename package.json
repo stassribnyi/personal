@@ -6,9 +6,9 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "parcel index.html --port 8080",
+    "start": "parcel public/index.html --port 8080",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "parcel build index.html --public-url /personal/ --no-source-maps --out-dir build"
+    "build": "parcel build public/index.html --public-url /personal/ --no-source-maps --out-dir build"
   },
   "dependencies": {
     "@glidejs/glide": "^3.3.0",

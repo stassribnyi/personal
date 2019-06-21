@@ -1,0 +1,22 @@
+{
+  "name": "Stas Sribnyi | Front-End Engineer",
+  "short_name": "Stas Sribnyi FE",
+  "theme_color": "#f4797c",
+  "background_color": "#325963",
+  "display": "standalone",
+  "Scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "images/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "splash_pages": null
+}

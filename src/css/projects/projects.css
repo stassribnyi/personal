@@ -142,6 +142,11 @@
   transition: background-color 0.4s;
 }
 
+.projects__item-link:link:hover,
+.projects__item-link:visited:hover {
+  color: var(--color-light-accent);
+}
+
 .projects__item:not(:hover) .projects__item-link:link,
 .projects__item:not(:hover) .projects__item-link:visited {
   background-color: var(--color-dark-accent);

@@ -8,7 +8,7 @@
   bottom: 0;
   position: absolute;
 
-  color: var(--color-light);
+  color: var(--color-light); /*TODO*/
   background-color: transparent;
 
   transition: background-color 0.3s;
