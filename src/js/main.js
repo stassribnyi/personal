@@ -46,6 +46,7 @@ function Application() {
   const projectItems = Array.from(
     document.querySelectorAll(".js--projects__item")
   );
+  const btnLinks = Array.from(document.querySelectorAll(".js--btn-link"));
   const navLinks = Array.from(document.querySelectorAll(".js--nav-link"));
   const sections = Array.from(document.querySelectorAll(".js--section"));
 
@@ -89,7 +90,9 @@ function Application() {
   navChevron.addEventListener("click", chevronClickToScroll);
   contactForm.addEventListener("submit", handleContactFormSubmission);
 
-  navLinks.forEach(link => link.addEventListener("click", linkClickToScroll));
+  [...navLinks, ...btnLinks].forEach(link =>
+    link.addEventListener("click", linkClickToScroll)
+  );
 
   projectItems.forEach(item =>
     item.addEventListener("touchstart", touchstartStub, { passive: true })
@@ -104,7 +107,7 @@ function Application() {
       navChevron.removeEventListener("click", chevronClickToScroll);
       contactForm.removeEventListener("submit", handleContactFormSubmission);
 
-      navLinks.forEach(link =>
+      [...navLinks, ...btnLinks].forEach(link =>
         link.removeEventListener("click", linkClickToScroll)
       );
 

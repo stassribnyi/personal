@@ -30,6 +30,14 @@
   display: none;
 }
 
+.nav:not(.nav--top) .nav__chevron {
+  animation-name: chevronUpDown;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
 .nav__chevron:link,
 .nav__chevron:visited {
   display: flex;
@@ -144,4 +152,14 @@
   font-size: 0.6em;
   line-height: 1.25em;
   text-transform: capitalize;
+}
+
+@keyframes chevronUpDown {
+  from {
+    transform: translateY(-25%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
 }
