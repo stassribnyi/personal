@@ -195,19 +195,20 @@
   line-height: 1.45em;
 }
 
-.career__recommendation-details:link,
-.career__recommendation-details:visited {
+.career__recommendation-details {
   display: flex;
   margin-bottom: 1em;
   align-items: center;
   flex-direction: column;
+}
 
+.career__recommendation-details:link,
+.career__recommendation-details:visited {
   text-decoration: none;
   color: var(--color-dark);
 }
 
-.career__recommendation-details:link img,
-.career__recommendation-details:visited img {
+.career__recommendation-details img {
   width: 90px;
   height: 90px;
   border-radius: 50%;
@@ -215,24 +216,20 @@
   border: 2px solid var(--color-dark-accent);
 }
 
-.career__recommendation-details:link h4,
-.career__recommendation-details:link p,
-.career__recommendation-details:visited h4,
-.career__recommendation-details:visited p {
+.career__recommendation-details h4,
+.career__recommendation-details p {
   /*TODO*/
   text-indent: 0;
   text-align: center;
   line-height: 1.45em;
 }
 
-.career__recommendation-details:link h4,
-.career__recommendation-details:visited h4 {
+.career__recommendation-details h4 {
   font-style: normal;
   margin-bottom: 0.5em;
   color: var(--color-dark-accent);
 }
 
-.career__recommendation-details:link:hover h4,
-.career__recommendation-details:visited:hover h4 {
+.career__recommendation-details:hover h4 {
   text-decoration: underline;
 }

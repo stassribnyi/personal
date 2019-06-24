@@ -1,20 +1,10 @@
-import "waypoints/lib/noframework.waypoints.min.js";
-
-import SweetScroll from "sweet-scroll";
-
-import Glide, {
-  Swipe,
-  Controls,
-  Autoplay
-} from "@glidejs/glide/dist/glide.modular.esm";
-
 import {
   setHash,
   replaceClass,
   scrollToAnchor,
   openEmailClient,
   canNavigateInsidePage
-} from "./utilities";
+} from "./utilities.js";
 
 const glideConfig = {
   autoplay: 15000,
@@ -26,11 +16,8 @@ const glideConfig = {
   animationTimingFunc: "cubic-bezier(0.6, 0, 0.14, 1)"
 };
 
-const glideOptions = {
-  Controls,
-  Swipe,
-  Autoplay
-};
+const Glide = window.Glide;
+const SweetScroll = window.SweetScroll;
 
 let app = null;
 
@@ -51,7 +38,7 @@ function Application() {
   const sections = Array.from(document.querySelectorAll(".js--section"));
 
   const scroller = new SweetScroll({ offset: 1 });
-  const glide = new Glide(".glide", glideConfig).mount(glideOptions);
+  const glide = new Glide(".glide", glideConfig).mount();
 
   const sectionWaypoints = sections.map(section => {
     return {
