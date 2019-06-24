@@ -6,6 +6,8 @@ import {
   canNavigateInsidePage
 } from "./utilities.js";
 
+import { registerSW } from "./registerServiceWorker.js";
+
 const glideConfig = {
   autoplay: 15000,
   type: "carousel",
@@ -84,6 +86,8 @@ function Application() {
   projectItems.forEach(item =>
     item.addEventListener("touchstart", touchstartStub, { passive: true })
   );
+
+  registerSW();
 
   return {
     destroy: () => {
