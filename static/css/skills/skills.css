@@ -33,7 +33,7 @@
 }
 
 .skills__category-title {
-    /*TODO*/
+  /*TODO*/
   font-size: 1.4em;
   font-weight: 300;
   text-align: center;
@@ -59,11 +59,7 @@
 }
 
 .skills__item-strength {
-  font-size: 0.9em;
+  font-size: 1em;
   display: inline-flex;
   color: var(--color-light-accent);
-}
-
-.skills__item-strength span:not(:last-child) {
-  margin-right: 0.2em;
 }

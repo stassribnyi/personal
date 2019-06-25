@@ -42,7 +42,8 @@ body {
   font-size: 20px;
   font-weight: 300;
   color: var(--color-dark);
-  font-family: "Roboto Condensed", sans-serif;
+  font-family: "Roboto Condensed", -apple-system, system-ui, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 input,

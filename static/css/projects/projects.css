@@ -76,6 +76,7 @@
   margin-left: -100%;
   margin-bottom: auto;
   transition: margin-left 0.4s;
+  will-change: margin-left;
 }
 
 .projects__item:hover .projects__item-description,
@@ -105,6 +106,7 @@
 
   margin-bottom: -100%;
   transition: margin-bottom 0.4s;
+  will-change: margin-bottom;
 }
 
 .projects__item:hover .projects__item-tags,
