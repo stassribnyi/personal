@@ -28,6 +28,11 @@ document.addEventListener("DOMContentLoaded", () => (app = new Application()));
 window.onunload = () => app && app.destroy();
 
 function Application() {
+  const img = document.querySelectorAll("img");
+  const observer = lozad(img);
+
+  observer.observe();
+
   const nav = document.querySelector(".nav");
   const navChevron = document.querySelector(".nav__chevron");
   const contactForm = document.getElementById("contacts-form");
