@@ -164,3 +164,11 @@ p {
   opacity: 0.5;
   color: var(--color-light);
 }
+
+.lozad:not([data-loaded]) {
+  padding: 5%;
+}
+
+.lozad-hidden {
+  display: none;
+}

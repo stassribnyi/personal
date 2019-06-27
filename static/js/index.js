@@ -28,7 +28,9 @@ document.addEventListener("DOMContentLoaded", () => (app = new Application()));
 window.onunload = () => app && app.destroy();
 
 function Application() {
-  const img = document.querySelectorAll("img");
+  const img = document.querySelectorAll(".lozad");
+  img.forEach(img => img.classList.remove("lozad-hidden"));
+
   const observer = lozad(img);
 
   observer.observe();

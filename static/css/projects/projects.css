@@ -4,6 +4,7 @@
 }
 
 .projects__list {
+  flex: 1;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -92,6 +93,15 @@
   object-fit: cover;
 
   transition: filter 0.4s;
+}
+
+.projects__item-thumbnail.lozad-hidden {
+  display: none;
+}
+
+.projects__item-thumbnail.lozad:not([data-loaded]) {
+  padding: 15% 30%;
+  background: var(--color-white);
 }
 
 .projects__item:hover .projects__item-thumbnail,
