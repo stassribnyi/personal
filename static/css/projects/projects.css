@@ -46,7 +46,7 @@
   padding: 1em;
   padding-right: 2.5em;
   color: var(--color-light);
-  transition: background-color 0.4s;
+  transition: background-color 0.5s;
 }
 
 .projects__item:hover figcaption,
@@ -59,7 +59,7 @@
   flex-direction: column;
 
   opacity: 0;
-  transition: opacity 0.4s;
+  transition: opacity 0.5s;
 }
 
 .projects__item:hover .project__item-details,
@@ -76,7 +76,7 @@
   text-indent: 0;
   margin-left: -100%;
   margin-bottom: auto;
-  transition: margin-left 0.4s;
+  transition: margin-left 0.5s;
   will-change: margin-left;
 }
 
@@ -92,7 +92,7 @@
   height: 100%;
   object-fit: cover;
 
-  transition: filter 0.4s;
+  transition: filter 0.5s;
 }
 
 .projects__item-thumbnail.lozad-hidden {
@@ -115,7 +115,7 @@
   list-style: none;
 
   margin-bottom: -100%;
-  transition: margin-bottom 0.4s;
+  transition: margin-bottom 0.5s;
   will-change: margin-bottom;
 }
 
@@ -151,7 +151,7 @@
   color: var(--color-light);
 
   border-radius: 50%;
-  transition: background-color 0.4s;
+  transition: background-color 0.5s;
 }
 
 .projects__item-link:link:hover,

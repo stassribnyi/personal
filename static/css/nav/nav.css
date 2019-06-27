@@ -11,7 +11,7 @@
   color: var(--color-light); /*TODO*/
   background-color: transparent;
 
-  transition: background-color 0.3s;
+  transition: background-color 0.5s;
 }
 
 .nav__title {
@@ -54,7 +54,7 @@
 .nav__link:visited {
   color: inherit;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.5s;
 }
 
 .nav__link--selected:link,

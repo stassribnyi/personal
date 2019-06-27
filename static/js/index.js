@@ -46,7 +46,11 @@ function Application() {
   const navLinks = Array.from(document.querySelectorAll(".js--nav-link"));
   const sections = Array.from(document.querySelectorAll(".js--section"));
 
-  const scroller = new SweetScroll({ offset: 1 });
+  const scroller = new SweetScroll({
+    offset: 1,
+    duration: 2000,
+    easing: "easeInOutQuint"
+  });
   const glide = new Glide(".glide", glideConfig).mount();
 
   const sectionWaypoints = sections.map(section => {

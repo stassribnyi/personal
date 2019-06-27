@@ -21,6 +21,8 @@
   --color-dark-accent: rgb(var(--dark-accent));
   --color-light-accent: rgb(var(--light-accent));
 
+  --color-active: rgb(40, 150, 130);
+
   --max-content-width: 1140px;
 }
 
