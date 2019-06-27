@@ -7,7 +7,7 @@
 
   background-size: cover;
   color: var(--color-light);
-  background-image: url(../img/welcome.jpg);
+  background-image: url(../img/welcome-min.jpg);
 }
 
 .welcome__content,

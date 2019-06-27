@@ -28,14 +28,8 @@ document.addEventListener("DOMContentLoaded", () => (app = new Application()));
 window.onunload = () => app && app.destroy();
 
 function Application() {
-  const img = document.querySelectorAll(".lozad");
-  img.forEach(img => img.classList.remove("lozad-hidden"));
-
-  const observer = lozad(img);
-
-  observer.observe();
-
   const nav = document.querySelector(".nav");
+  const img = document.querySelectorAll(".lozad");
   const navChevron = document.querySelector(".nav__chevron");
   const contactForm = document.getElementById("contacts-form");
 
@@ -52,6 +46,12 @@ function Application() {
     easing: "easeInOutQuint"
   });
   const glide = new Glide(".glide", glideConfig).mount();
+
+  img.forEach(img => img.classList.remove("lozad-hidden"));
+
+  const observer = lozad(img);
+
+  observer.observe();
 
   const sectionWaypoints = sections.map(section => {
     return {
