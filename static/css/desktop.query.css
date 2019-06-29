@@ -53,6 +53,7 @@
   .nav--bottom {
     display: flex;
     height: 2.35em;
+    font-size: 1.2em;
     justify-content: center;
   }
 
