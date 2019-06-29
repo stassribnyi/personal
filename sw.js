@@ -1,49 +1,68 @@
-const cacheName = "personal-cache";
+let cacheName = "personal-cache";
+const cacheWhitelist = [cacheName];
 
 const filesToCache = getFilesToCache();
 
-// self.addEventListener("install", async e => {
-//   const cache = await caches.open(cacheName);
+self.addEventListener("install", async event => {
+  await addToCache(cacheName, filesToCache);
 
-//   await cache.addAll(filesToCache);
+  return self.skipWaiting();
+});
 
-//   return self.skipWaiting();
-// });
+self.addEventListener("activate", event => {
+  return self.clients.claim();
 
-// self.addEventListener("activate", e => {
-//   self.clients.claims();
-// });
+  // const cacheNames = await caches.keys();
 
-// self.addEventListener("fetch", async e => {
-//   const req = e.request;
-//   const url = new URL(req.url);
+  // await cacheNames.forEach(async name => {
+  //   if (cacheWhitelist.indexOf(name) === -1) {
+  //     await caches.delete(name);
+  //   }
+  // });
 
-//   if (url.origin === location.origin) {
-//     e.respondWith(cacheFirst(req));
-//   } else {
-//     e.respondWith(networkAndCache(req));
-//   }
-// });
+  // cacheName = "personal-cache-v1";
 
-// async function cacheFirst(req) {
-//   const cache = await caches.open(cacheName);
-//   const cached = await cache.match(req);
+  // // await addToCache(cacheName, filesToCache);
 
-//   return cached || fetch(req);
-// }
+  // return self.skipWaiting();
+});
 
-// async function networkAndCache(req) {
-//   const cache = await caches.open(cacheName);
+self.addEventListener("fetch", async event => {
+  const request = event.request;
+  const url = new URL(request.url);
 
-//   try {
-//     const fresh = await fetch(req);
-//     await cache.put(req, fresh.clone());
+  if (url.origin === location.origin) {
+    event.respondWith(cacheFirst(request));
+  } else {
+    event.respondWith(networkAndCache(request));
+  }
+});
 
-//     return fresh;
-//   } catch (error) {
-//     return await cache.match(req);
-//   }
-// }
+async function cacheFirst(request) {
+  const cache = await caches.open(cacheName);
+  const cached = await cache.match(request);
+
+  return cached || fetch(request);
+}
+
+async function networkAndCache(request) {
+  const cache = await caches.open(cacheName);
+
+  try {
+    const fresh = await fetch(request);
+    await cache.put(request, fresh.clone());
+
+    return fresh;
+  } catch (error) {
+    return await cache.match(request);
+  }
+}
+
+async function addToCache(cacheName, filesToCache) {
+  const cache = await caches.open(cacheName);
+
+  await cache.addAll(filesToCache);
+}
 
 /**
  * Files to be cached with service worker
@@ -74,8 +93,6 @@ function getFilesToCache() {
  * CSS files and images used inside that files
  */
 function getStaticCSS() {
-  const cssImg = ["first-point.svg", "welcome.jpg"];
-
   const componentNames = [
     "nav",
     "about",
@@ -86,18 +103,40 @@ function getStaticCSS() {
     "contacts"
   ];
 
-  const components = [
-    ...componentNames.map(name => `${name}/${name}.css`),
-    ...componentNames.map(name => `${name}/${name}.query.css`)
+  const iconNames = [
+    "at",
+    "briefcase",
+    "chevron-up",
+    "chevron-down",
+    "construct",
+    "flash",
+    "flask",
+    "link",
+    "logo-facebook",
+    "logo-linkedin",
+    "logo-github",
+    "logo-instagram",
+    "person"
+  ];
+
+  const icons = iconNames.map(file => `${file}.svg`);
+  const components = componentNames.map(file => `${file}.css`);
+
+  const queries = ["desktop", "tablet", "mobile", "small-mobile"];
+  const cssImg = [
+    "first-point.svg",
+    "welcome.jpg",
+    "welcome-min.jpg",
+    ...addPrefixPath(icons, "ionicons")
   ];
 
   return [
     "base.css",
-    "custom.css",
-    "custom.query.css",
-    "ionicons.substitute.css",
+    "index.css",
+    "ionicons.css",
     ...components,
-    ...addPrefixPath(cssImg, "img")
+    ...addPrefixPath(cssImg, "img"),
+    ...queries.map(file => `${file}.query.css`)
   ];
 }
 
@@ -115,8 +154,15 @@ function getStaticImg() {
     "krnu.png"
   ];
 
+  const placeholders = [
+    "placeholder-social.jpg",
+    "placeholder-square.png",
+    "placeholder-wide.png"
+  ];
+
   return [
     "stassribnyi.jpg",
+    ...placeholders,
     ...addPrefixPath(careerImg, "career"),
     ...addPrefixPath(projectImg, "projects")
   ];
