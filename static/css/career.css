@@ -35,7 +35,7 @@
   height: 0.05em;
   margin: 0 auto;
   margin-top: 0.1em;
-  background-color: var(--color-light-accent);
+  background-color: var(--color-light-accent, rgb(244, 121, 124));
 }
 
 .career__work-stages,
@@ -55,8 +55,8 @@
   transform: translateX(-50%);
   background-image: linear-gradient(
     to bottom,
-    var(--color-light) 90%,
-    rgba(var(--white), 0) 100%
+    var(--color-light, rgb(243, 242, 239)) 90%,
+    rgba(var(--white, 255, 255, 255), 0) 100%
   );
 }
 
@@ -80,7 +80,7 @@
   border-radius: 50%;
   transform: translateX(-50%);
   background-color: var(--color-white);
-  border: 0.25em solid var(--color-light-accent);
+  border: 0.25em solid var(--color-light-accent, rgb(244, 121, 124));
 }
 
 .career__work-stage:first-child::after {
@@ -92,7 +92,7 @@
   display: flex;
   position: absolute;
   transform: translateX(-50%);
-  background-image: url(../img/first-point.svg);
+  background-image: url(img/first-point.svg);
   background-size: cover;
 }
 
@@ -136,7 +136,7 @@
   /*TODO*/
   line-height: 1.45em;
   margin-bottom: 0.5em;
-  color: var(--color-dark-accent);
+  color: var(--color-dark-accent, rgb(50, 89, 99));
 }
 
 .career__education-degree,
@@ -177,10 +177,10 @@
 
   line-height: 1;
   font-size: 0.9em;
-  color: var(--color-dark-accent);
+  color: var(--color-dark-accent, rgb(50, 89, 99));
 
   border-radius: 16px;
-  border: 1px solid var(--color-dark-accent);
+  border: 1px solid var(--color-dark-accent, rgb(50, 89, 99));
 }
 
 .career__recommendation {
@@ -205,7 +205,7 @@
 .career__recommendation-details:link,
 .career__recommendation-details:visited {
   text-decoration: none;
-  color: var(--color-dark);
+  color: var(--color-dark, rgb(51, 51, 51));
 }
 
 .career__recommendation-details img {
@@ -213,7 +213,7 @@
   height: 90px;
   border-radius: 50%;
   margin-bottom: 1em;
-  border: 2px solid var(--color-dark-accent);
+  border: 2px solid var(--color-dark-accent, rgb(50, 89, 99));
 }
 
 .career__recommendation-details h4,
@@ -227,7 +227,7 @@
 .career__recommendation-details h4 {
   font-style: normal;
   margin-bottom: 0.5em;
-  color: var(--color-dark-accent);
+  color: var(--color-dark-accent, rgb(50, 89, 99));
 }
 
 .career__recommendation-details:hover h4 {

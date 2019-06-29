@@ -30,7 +30,7 @@
   height: 150px;
   margin-right: 1em;
   border-radius: 50%;
-  border: 0.2em solid var(--color-dark-accent);
+  border: 0.2em solid var(--color-dark-accent, rgb(50, 89, 99));
 }
 
 .about__detail:first-child {

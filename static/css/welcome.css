@@ -6,8 +6,8 @@
   overflow: hidden;
 
   background-size: cover;
-  color: var(--color-light);
-  background-image: url(../img/welcome-min.jpg);
+  color: var(--color-light, rgb(243, 242, 239));
+  background-image: url(img/welcome-min.jpg);
 }
 
 .welcome__content,
@@ -26,12 +26,12 @@
 
 .welcome__content {
   flex-direction: column;
-  background-color: rgba(var(--dark-accent), 0.9);
+  background-color: rgba(var(--dark-accent, 50, 89, 99), 0.9);
 }
 
 .welcome__actions {
   position: relative;
-  background-color: rgba(var(--light), 0.2);
+  background-color: rgba(var(--light, 243, 242, 239), 0.2);
 }
 
 .welcome__actions::after {
@@ -42,7 +42,7 @@
   display: block;
   position: absolute;
 
-  box-shadow: -1px 0 2px 1px rgba(var(--dark), 0.2);
+  box-shadow: -1px 0 2px 1px rgba(var(--dark, 51, 51, 51), 0.2);
 }
 
 .welcome__title {

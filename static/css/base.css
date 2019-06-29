@@ -12,14 +12,14 @@
   --dark-accent: 50, 89, 99;
   --light-accent: 244, 121, 124;
 
-  --color-black: rgb(var(--black));
-  --color-white: rgb(var(--white));
+  --color-black: rgb(var(--black, 0, 0, 0));
+  --color-white: rgb(var(--white, 255, 255, 255));
 
-  --color-dark: rgb(var(--dark));
-  --color-light: rgb(var(--light));
+  --color-dark: rgb(var(--dark, 51, 51, 51));
+  --color-light: rgb(var(--light, 243, 242, 239));
 
-  --color-dark-accent: rgb(var(--dark-accent));
-  --color-light-accent: rgb(var(--light-accent));
+  --color-dark-accent: rgb(var(--dark-accent, 50, 89, 99));
+  --color-light-accent: rgb(var(--light-accent, 244, 121, 124));
 
   --color-active: rgb(40, 150, 130);
 
@@ -43,7 +43,7 @@ html,
 body {
   font-size: 20px;
   font-weight: 300;
-  color: var(--color-dark);
+  color: var(--color-dark, rgb(51, 51, 51));
   font-family: "Roboto Condensed", -apple-system, system-ui, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }

@@ -8,7 +8,7 @@
   bottom: 0;
   position: absolute;
 
-  color: var(--color-light); /*TODO*/
+  color: var(--color-light, rgb(243, 242, 239)); /*TODO*/
   background-color: transparent;
 
   transition: background-color 0.5s;
@@ -59,14 +59,14 @@
 
 .nav__link--selected:link,
 .nav__link--selected:visited {
-  color: var(--color-light-accent);
+  color: var(--color-light-accent, rgb(244, 121, 124));
 }
 
 .nav--top,
 .nav--bottom {
   z-index: 9999;
   position: fixed;
-  background-color: var(--color-dark);
+  background-color: var(--color-dark, rgb(51, 51, 51));
   box-shadow: 0 0px 4px var(--color-black);
 }
 
@@ -109,6 +109,7 @@
 
 .nav--top .nav__links > li {
   margin: 0 5%;
+  display: flex;
 }
 
 .nav--top .nav__link::before {
@@ -127,6 +128,10 @@
   display: flex;
   list-style: none;
   justify-content: space-around;
+}
+
+.nav--bottom .nav__links > li {
+  display: flex;
 }
 
 .nav--bottom .nav__link {

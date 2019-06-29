@@ -71,6 +71,28 @@
 
     <title>Stas Sribnyi | Front-End Engineer | Interactive Resume</title>
 
+    <!-- Preload -->
+    <link
+      rel="preload"
+      href="static/css/img/welcome.jpg"
+      as="image"
+      media="(min-width: 1281px)"
+    />
+    <link rel="preload" href="static/css/img/welcome-min.jpg" as="image" />
+
+    <!-- Prefetch -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+
     <!-- External Styles -->
     <!-- Normalize -->
     <link
@@ -116,36 +138,74 @@
 
     <!-- General Styles -->
     <link rel="stylesheet" href="static/css/base.css" />
-    <link rel="stylesheet" href="static/css/custom.css" />
-    <link rel="stylesheet" href="static/css/ionicons.substitute.css" />
+    <link rel="stylesheet" href="static/css/index.css" />
+    <link rel="stylesheet" href="static/css/ionicons.css" />
 
     <!-- Component Styles -->
-    <link rel="stylesheet" href="static/css/nav/nav.css" />
-    <link rel="stylesheet" href="static/css/about/about.css" />
-    <link rel="stylesheet" href="static/css/skills/skills.css" />
-    <link rel="stylesheet" href="static/css/career/career.css" />
-    <link rel="stylesheet" href="static/css/projects/projects.css" />
-    <link rel="stylesheet" href="static/css/contacts/contacts.css" />
+    <link rel="stylesheet" href="static/css/nav.css" />
+    <link rel="stylesheet" href="static/css/about.css" />
+    <link rel="stylesheet" href="static/css/skills.css" />
+    <link rel="stylesheet" href="static/css/career.css" />
+    <link rel="stylesheet" href="static/css/projects.css" />
+    <link rel="stylesheet" href="static/css/welcome.css" />
+    <link rel="stylesheet" href="static/css/contacts.css" />
 
-    <!-- Component Query Styles -->
-    <link rel="stylesheet" href="static/css/custom.query.css" />
-    <link rel="stylesheet" href="static/css/nav/nav.query.css" />
-    <link rel="stylesheet" href="static/css/welcome/welcome.css" />
-    <link rel="stylesheet" href="static/css/about/about.query.css" />
-    <link rel="stylesheet" href="static/css/skills/skills.query.css" />
-    <link rel="stylesheet" href="static/css/career/career.query.css" />
-    <link rel="stylesheet" href="static/css/contacts/contacts.query.css" />
-    <link rel="stylesheet" href="static/css/projects/projects.query.css" />
-
-    <!-- Render Blocking Styles -->
+    <!-- Queries -->
     <link
-      href="static/css/welcome/welcome.query.css"
+      onload="this.onload = null;this.rel = 'stylesheet';"
+      media="screen and (min-width: 768px)"
+      href="static/css/desktop.query.css"
       rel="preload"
       as="style"
-      onload="this.onload = null;this.rel = 'stylesheet';"
     />
     <noscript>
-      <link rel="stylesheet" href="static/css/welcome/welcome.query.css" />
+      <link
+        media="screen and (min-width: 768px)"
+        href="static/css/desktop.query.css"
+        rel="stylesheet"
+      />
+    </noscript>
+    <link
+      onload="this.onload = null;this.rel = 'stylesheet';"
+      media="screen and (min-width: 481px) and  (max-width: 768px)"
+      href="static/css/tablet.query.css"
+      rel="preload"
+      as="style"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        media="screen and (min-width: 481px) and  (max-width: 768px)"
+        href="static/css/tablet.query.css"
+      />
+    </noscript>
+    <link
+      onload="this.onload = null;this.rel = 'stylesheet';"
+      media="screen and (min-width: 341px) and  (max-width: 480px)"
+      href="static/css/mobile.query.css"
+      rel="preload"
+      as="style"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        media="screen and (min-width: 341px) and  (max-width: 480px)"
+        href="static/css/mobile.query.css"
+      />
+    </noscript>
+    <link
+      onload="this.onload = null;this.rel = 'stylesheet';"
+      media="screen and (min-width: 320px) and  (max-width: 340px)"
+      href="static/css/small-mobile.query.css"
+      rel="preload"
+      as="style"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        media="screen and (min-width: 320px) and  (max-width: 340px)"
+        href="static/css/small-mobile.query.css"
+      />
     </noscript>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -237,6 +297,9 @@
             <li>
               <a class="js--nav-link nav__link" href="#contacts">contacts</a>
             </li>
+            <li>
+              <a class="js--nav-link nav__link" href="#cv">cv</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -292,6 +355,7 @@
             make you happy 😎.
           </p>
           <a
+            id="cv"
             class="btn"
             href="https://drive.google.com/open?id=0B4WwhDkyLxKpSDZzdzU4YUdBX1k"
           >
@@ -1218,7 +1282,7 @@
                   </noscript>
                 </picture>
                 <figcaption>
-                  <div class="project__item-details">
+                  <div class="projects__item-details">
                     <h3 class="projects__item-name">HTML5 Canvas Playground</h3>
                     <p class="projects__item-description">
                       The playground where you can find snake and tic-tac-toe
@@ -1268,7 +1332,7 @@
                   </noscript>
                 </picture>
                 <figcaption>
-                  <div class="project__item-details">
+                  <div class="projects__item-details">
                     <h3 class="projects__item-name">Todo List React</h3>
                     <p class="projects__item-description">
                       Simple to-do list made with React and Flux.
@@ -1323,7 +1387,7 @@
                   </noscript>
                 </picture>
                 <figcaption>
-                  <div class="project__item-details">
+                  <div class="projects__item-details">
                     <h3 class="projects__item-name">Image Manager</h3>
                     <p class="projects__item-description">
                       Simple image manager made with React, Redux and basic PWA
@@ -1374,7 +1438,7 @@
                   </noscript>
                 </picture>
                 <figcaption>
-                  <div class="project__item-details">
+                  <div class="projects__item-details">
                     <h3 class="projects__item-name">Magic App (Redux)</h3>
                     <p class="projects__item-description">
                       Understanding and practicing with Redux state container

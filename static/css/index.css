@@ -74,7 +74,7 @@
   height: 0.1em;
   display: flex;
   margin: 0.2em auto 0 auto;
-  background-color: var(--color-light-accent);
+  background-color: var(--color-light-accent, rgb(244, 121, 124));
 }
 
 /*-----------------------------*/
@@ -101,11 +101,11 @@
   font-size: 1em;
   font-weight: 400;
   text-decoration: none;
-  color: var(--color-dark);
+  color: var(--color-dark, rgb(51, 51, 51));
 
   outline: none;
-  background-color: var(--color-light);
-  border: 0.1em solid var(--color-dark-accent);
+  background-color: var(--color-light, rgb(243, 242, 239));
+  border: 0.1em solid var(--color-dark-accent, rgb(50, 89, 99));
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
@@ -139,16 +139,16 @@ p {
   font-weight: 400;
   text-align: center;
   text-decoration: none;
-  color: var(--color-light);
+  color: var(--color-light, rgb(243, 242, 239));
 
-  border: 0.1em solid var(--color-light);
-  background-color: var(--color-light-accent);
+  border: 0.1em solid var(--color-light, rgb(243, 242, 239));
+  background-color: var(--color-light-accent, rgb(244, 121, 124));
 
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 
   transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-  will-change: transform; 
+  will-change: transform;
 }
 
 .btn:hover,
@@ -158,7 +158,7 @@ p {
   animation-duration: 1.5s;
   animation-timing-function: ease-in-out;
 
-  background-color: var(--color-active);
+  background-color: var(--color-active, rgb(40, 150, 130));
 }
 
 .btn:last-child {
@@ -168,7 +168,7 @@ p {
 .btn--secondary,
 .btn--secondary:link,
 .btn--secondary:visited {
-  background-color: var(--color-dark-accent);
+  background-color: var(--color-dark-accent, rgb(50, 89, 99));
 }
 
 /*-----------------------------*/
@@ -177,7 +177,7 @@ p {
 
 .ion-flash--disabled {
   opacity: 0.5;
-  color: var(--color-light);
+  color: var(--color-light, rgb(243, 242, 239));
 }
 
 .lozad:not([data-loaded]) {

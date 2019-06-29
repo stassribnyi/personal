@@ -1,9 +1,0 @@
-@media (max-width: 767px) {
-  .welcome .nav {
-    display: none;
-  }
-
-  .nav--bottom {
-    display: flex;
-  }
-}
