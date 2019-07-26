@@ -92,7 +92,7 @@
   height: 100%;
   object-fit: cover;
 
-  transition: filter 0.5s;
+  transition: filter 0.5s, padding 0.5s ease-in-out;
 }
 
 .projects__item-thumbnail.lozad-hidden {

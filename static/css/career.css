@@ -33,8 +33,7 @@
   width: 10em;
   display: flex;
   height: 0.05em;
-  margin: 0 auto;
-  margin-top: 0.1em;
+  margin: 0.1em auto 0;
   background-color: var(--color-light-accent, rgb(244, 121, 124));
 }
 

@@ -1,5 +1,5 @@
 .contacts {
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
   color: var(--color-light, rgb(243, 242, 239));
   background-color: var(--color-dark, rgb(51, 51, 51));
@@ -128,4 +128,11 @@
   display: flex;
   margin: 0.2em auto 0 auto;
   background-color: var(--color-light-accent, rgb(244, 121, 124));
+}
+
+
+@supports (padding: max(0px)) {
+  .contacts {
+    padding-bottom: max(4em, env(safe-area-inset-bottom));;
+  }
 }

@@ -78,7 +78,7 @@
 .nav--bottom {
   bottom: 0;
   display: none;
-  padding: 0.2em 0;
+  padding: 0.5em 0;
 }
 
 .nav--top .nav__title {
@@ -157,6 +157,13 @@
   font-size: 0.6em;
   line-height: 1.25em;
   text-transform: capitalize;
+}
+
+
+@supports (padding: max(0px)) {
+  .nav--bottom {
+    padding-bottom: max(0.5em, env(safe-area-inset-bottom));
+  }
 }
 
 @keyframes chevronUpDown {
