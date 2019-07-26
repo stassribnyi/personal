@@ -13,6 +13,12 @@ export const GLIDE_CONFIG_DEFAULT = {
   animationTimingFunc: "cubic-bezier(0.6, 0, 0.14, 1)"
 };
 
+export const SWEET_SCROLL_CONFIG_DEFAULT ={
+  offset: 1,
+  duration: 3500,
+  easing: "easeInOutQuint"
+};
+
 export const Direction = Object.freeze({
   UP: "up",
   DOWN: "down"

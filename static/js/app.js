@@ -12,7 +12,8 @@ import {
   Waypoint,
   Direction,
   SweetScroll,
-  GLIDE_CONFIG_DEFAULT
+  GLIDE_CONFIG_DEFAULT,
+  SWEET_SCROLL_CONFIG_DEFAULT
 } from "./libs.js";
 
 import { registerSW } from "./registerServiceWorker.js";
@@ -22,25 +23,16 @@ const EMAIL_ADDRESS = "stas.sribnyi@gmail.com";
 export function Application() {
   initLozad();
 
-  const scroller = new SweetScroll({
-    offset: 1,
-    duration: 3500,
-    easing: "easeInOutQuint"
-  });
+  const scroller = new SweetScroll(SWEET_SCROLL_CONFIG_DEFAULT);
   const glide = new Glide(".glide", GLIDE_CONFIG_DEFAULT).mount();
 
-  const navChevron = initNavChevron(scroller);
-  const links = initLinks(scroller);
-
-  const contactForm = initContactForm();
   const projects = initProjectItems();
+  const contactForm = initContactForm();
+  const allLinks = initAllLinks(scroller);
+  const navChevron = initNavChevron(scroller);
+  const sectionNavigation = initSectionNavigation(allLinks.navLinks);
 
-  const sectionWaypoints = initSectionWaypoints(
-    (section) =>
-      selectLinksBySection(`#${section.id}`, links.navLinks)
-  );
-
-  const reloadOnOrientationChange = event => window.location.reload();
+  const reloadOnOrientationChange = () => window.location.reload();
 
   window.addEventListener("orientationchange", reloadOnOrientationChange);
 
@@ -50,13 +42,13 @@ export function Application() {
 
   return {
     destroy: () => {
-      links.destroy();
-      projects.destroy();
-      contactForm.destroy();
-      navChevron.destroy();
-
-      sectionWaypoints.destroy();
       glide.destroy();
+
+      allLinks.destroy();
+      projects.destroy();
+      navChevron.destroy();
+      contactForm.destroy();
+      sectionNavigation.destroy();
 
       window.removeEventListener("orientationchange", reloadOnOrientationChange);
     }
@@ -121,7 +113,7 @@ function initProjectItems() {
   }
 }
 
-function initLinks(scroller) {
+function initAllLinks(scroller) {
   const btnLinks = Array.from(document.querySelectorAll(".js--btn-link"));
   const navLinks = Array.from(document.querySelectorAll(".js--nav-link"));
 
@@ -145,7 +137,6 @@ function initLinks(scroller) {
 }
 
 function initSectionWaypoints(onSectionReached) {
-  const nav = document.querySelector(".nav");
   const sections = Array.from(document.querySelectorAll(".js--section"));
 
   const onSectionReachedInternal = typeof onSectionReached === 'function'
@@ -156,32 +147,11 @@ function initSectionWaypoints(onSectionReached) {
     return {
       topInView: new Waypoint({
         element: section,
-        handler: direction => {
-          if (section.id === "about") {
-            toggleNav(nav, direction);
-          }
-
-          if (direction !== Direction.DOWN) {
-            return;
-          }
-
-          onSectionReachedInternal(section);
-        }
+        handler: direction => onSectionReachedInternal(section, direction)
       }),
       bottomInView: new Waypoint({
         element: section,
-        handler: direction => {
-          if (direction !== Direction.UP) {
-            return;
-          }
-
-
-          if (typeof onSectionReached === 'function') {
-            onSectionReached(section);
-          }
-
-          onSectionReachedInternal(section);
-        },
+        handler: direction => onSectionReachedInternal(section, direction, true),
         offset: "bottom-in-view"
       })
     };
@@ -193,6 +163,35 @@ function initSectionWaypoints(onSectionReached) {
         sectionWaypoint.topInView.destroy();
         sectionWaypoint.bottomInView.destroy();
       });
+    }
+  }
+}
+
+function initSectionNavigation(navLinks) {
+  const sectionWaypoints = initSectionWaypoints(
+    (section, direction, bottomInView = false) => {
+      if (section.id === "about" && !bottomInView) {
+        toggleNav(direction);
+
+        if (direction === Direction.UP) {
+          selectLinksBySection(`#`, navLinks);
+
+          return;
+        }
+      }
+
+      if (
+        !bottomInView && direction === Direction.DOWN
+        || bottomInView && direction === Direction.UP
+      ) {
+        selectLinksBySection(`#${section.id}`, navLinks);
+      }
+    }
+  );
+
+  return {
+    destroy: () => {
+      sectionWaypoints.destroy();
     }
   }
 }
@@ -239,8 +238,9 @@ function navLinkClickHandler(event, scroller) {
   event.preventDefault();
 }
 
-function toggleNav(nav, direction) {
-  const navChevron = nav.querySelector(".nav__chevron");
+function toggleNav(direction) {
+  const nav = document.querySelector(".nav");
+  const navChevron = document.querySelector(".nav__chevron");
 
   const navTopClass = "nav--top";
   const chevronUpClass = "ion-chevron-up";
@@ -263,7 +263,7 @@ function toggleNav(nav, direction) {
 function selectLinksBySection(sectionLinkHash, navLinks) {
   const sectionLinks = navLinks.filter(link => link.hash === sectionLinkHash);
 
-  if (!sectionLinks.length) {
+  if (sectionLinkHash !== "#" && !sectionLinks.length) {
     return;
   }
 
