@@ -23,6 +23,11 @@ const BIRTH_DATE = "1995-01-09";
 const CAREER_START = "2015-08-01";
 const EMAIL_ADDRESS = "stas.sribnyi@gmail.com";
 
+/**
+ * initializes, subscribes and performs all necessary actions to make user experience better
+ * @returns {{unsubscribe: unsubscribe}} callback to destroy the app
+ * @constructor
+ */
 export function Application() {
   initLozad();
   initDates();
@@ -34,11 +39,10 @@ export function Application() {
   const contactForm = initContactForm();
   const allLinks = initAllLinks(scroller);
   const navChevron = initNavChevron(scroller);
+  const nativeSubscription = initNativeEvents();
+
   const sectionNavigation = initSectionNavigation(allLinks.navLinks);
 
-  const reloadOnOrientationChange = () => window.location.reload();
-
-  window.addEventListener("orientationchange", reloadOnOrientationChange);
 
   registerSW()
     .then(() => console.info('The service worker successfully registered'))
@@ -46,23 +50,23 @@ export function Application() {
 
   return {
     destroy: () => {
-      glide.destroy();
+      allLinks.unsubscribe();
+      projects.unsubscribe();
+      navChevron.unsubscribe();
+      contactForm.unsubscribe();
+      nativeSubscription.unsubscribe();
 
-      allLinks.destroy();
-      projects.destroy();
-      navChevron.destroy();
-      contactForm.destroy();
+      glide.destroy();
       sectionNavigation.destroy();
 
-      window.removeEventListener("orientationchange", reloadOnOrientationChange);
     }
   };
 }
 
-/**
- * App components
- */
 
+/**
+ * initialize lazy loading of images and removes classes used for no js implementation
+ */
 function initLozad() {
   const img = document.querySelectorAll(".lozad");
   img.forEach(img => img.classList.remove("lozad-hidden"));
@@ -72,6 +76,9 @@ function initLozad() {
   observer.observe();
 }
 
+/**
+ * initializes dates to avoid hard codded dates
+ */
 function initDates() {
   const age = document.getElementById("js--age");
   const career = document.getElementById("js--career-start");
@@ -83,31 +90,71 @@ function initDates() {
   career.innerText = Math.abs(Math.round(careerYears));
 }
 
+/**
+ * subscribe for click event of chevron icon to make smooth scroll
+ * and update browser hash depending on chevron direction
+ * @param scroller to provide smooth navigation
+ * @returns {{unsubscribe: unsubscribe}} object containing callback to unsubscribe
+ */
 function initNavChevron(scroller) {
-  const navChevron = document.querySelector(".nav__chevron");
-  const chevronClickToScroll = event => navChevronClickHandler(event, scroller);
+  const chevron = document.getElementById("js--nav__chevron");
 
-  navChevron.addEventListener("click", chevronClickToScroll);
+  const chevronClickToScroll = (event) => {
+    const { classList } = event.currentTarget;
+
+    const anchor = classList.contains("ion-chevron-down")
+      ? "#about"
+      : classList.contains("ion-chevron-up")
+        ? "#"
+        : null;
+
+    scrollToAnchor(anchor, scroller);
+
+    event.preventDefault();
+  };
+
+
+  chevron.addEventListener("click", chevronClickToScroll);
 
   return {
-    destroy: () => {
-      navChevron.removeEventListener("click", chevronClickToScroll);
+    unsubscribe: () => {
+      chevron.removeEventListener("click", chevronClickToScroll);
     }
   }
 }
 
+/**
+ * subscribes for form submit event to send form data to mail client directly
+ * @returns {{unsubscribe: unsubscribe}} callback to unsubscribe from event
+ */
 function initContactForm() {
-  const contactForm = document.getElementById("contacts-form");
+  const contactForm = document.getElementById("js--contacts-form");
+
+  const handleContactFormSubmission = (event) => {
+    const { target: form } = event;
+
+    openEmailClient(EMAIL_ADDRESS, {
+      subject: form.subject,
+      name: form.name,
+      body: form.body
+    });
+
+    event.preventDefault();
+  }
 
   contactForm.addEventListener("submit", handleContactFormSubmission);
 
   return {
-    destroy: () => {
+    unsubscribe: () => {
       contactForm.removeEventListener("submit", handleContactFormSubmission);
     }
   }
 }
 
+/**
+ * subscribe for touchstart event to simulate focus on touch devices
+ * @returns {{unsubscribe: unsubscribe}} callback to unsubscribe from events
+ */
 function initProjectItems() {
   const projects = Array.from(
     document.querySelectorAll(".js--projects__item")
@@ -120,7 +167,7 @@ function initProjectItems() {
   );
 
   return {
-    destroy: () => {
+    unsubscribe: () => {
       projects.forEach(item =>
         item.removeEventListener("touchstart", touchstartStub)
       );
@@ -128,13 +175,31 @@ function initProjectItems() {
   }
 }
 
+/**
+ * subscribes for click events of all links to perform smooth navigation
+ * @param scroller to be used for smooth navigation
+ * @returns {{unsubscribe: unsubscribe, btnLinks: *, navLinks: *}} object containing:
+ * callback to unsubscribe from click events
+ * button links
+ * navigation links
+ */
 function initAllLinks(scroller) {
   const btnLinks = Array.from(document.querySelectorAll(".js--btn-link"));
   const navLinks = Array.from(document.querySelectorAll(".js--nav-link"));
 
   const allLinks = [...navLinks, ...btnLinks];
 
-  const linkClickToScroll = event => navLinkClickHandler(event, scroller);
+  const linkClickToScroll = (event) => {
+    const currentElement = event.currentTarget;
+
+    if (!canNavigateInsidePage(currentElement)) {
+      return;
+    }
+
+    scrollToAnchor(currentElement.hash, scroller, false);
+
+    event.preventDefault();
+  }
 
   allLinks.forEach(link =>
     link.addEventListener("click", linkClickToScroll)
@@ -143,7 +208,7 @@ function initAllLinks(scroller) {
   return {
     btnLinks,
     navLinks,
-    destroy: () => {
+    unsubscribe: () => {
       allLinks.forEach(link =>
         link.removeEventListener("click", linkClickToScroll)
       );
@@ -151,6 +216,45 @@ function initAllLinks(scroller) {
   }
 }
 
+/**
+ * initializes callbacks which will be called when a section is in the viewport for performing side effects
+ * @param navLinks to select/deselect if section is/is not in viewport
+ * @returns {{destroy: destroy}} object with destroy callback to destroy all waypoints
+ */
+function initSectionNavigation(navLinks) {
+  const sectionWaypoints = initSectionWaypoints(
+    (section, direction, bottomInView = false) => {
+      if (section.id === "about" && !bottomInView) {
+        toggleNav(direction);
+
+        if (direction === Direction.UP) {
+          selectLinksBySection(`#`, navLinks);
+
+          return;
+        }
+      }
+
+      if (
+        !bottomInView && direction === Direction.DOWN
+        || bottomInView && direction === Direction.UP
+      ) {
+        selectLinksBySection(`#${section.id}`, navLinks);
+      }
+    }
+  );
+
+  return {
+    destroy: () => {
+      sectionWaypoints.destroy();
+    }
+  }
+}
+
+/**
+ * initializes waypoint listeners to each section item
+ * @param onSectionReached callback to be called once section is in viewport
+ * @returns {{destroy: destroy}} object with destroy callback to destroy all waypoints
+ */
 function initSectionWaypoints(onSectionReached) {
   const sections = Array.from(document.querySelectorAll(".js--section"));
 
@@ -182,80 +286,31 @@ function initSectionWaypoints(onSectionReached) {
   }
 }
 
-function initSectionNavigation(navLinks) {
-  const sectionWaypoints = initSectionWaypoints(
-    (section, direction, bottomInView = false) => {
-      if (section.id === "about" && !bottomInView) {
-        toggleNav(direction);
+/**
+ * subscribe to native events
+ * @returns {{unsubscribe(): void}} object with unsubscribe callback
+ */
+function initNativeEvents() {
+  const reloadOnOrientationChange = () => window.location.reload();
 
-        if (direction === Direction.UP) {
-          selectLinksBySection(`#`, navLinks);
-
-          return;
-        }
-      }
-
-      if (
-        !bottomInView && direction === Direction.DOWN
-        || bottomInView && direction === Direction.UP
-      ) {
-        selectLinksBySection(`#${section.id}`, navLinks);
-      }
-    }
-  );
+  window.addEventListener("orientationchange", reloadOnOrientationChange);
 
   return {
-    destroy: () => {
-      sectionWaypoints.destroy();
+    unsubscribe() {
+      window.removeEventListener("orientationchange", reloadOnOrientationChange);
     }
   }
 }
 
+
 /**
- * Event handlers
+ * toggles top navigation depending on scroll direction,
+ * also change direction of chevron icon
+ * @param direction of scroll
  */
-
-function handleContactFormSubmission(event) {
-  const { target: form } = event;
-
-  openEmailClient(EMAIL_ADDRESS, {
-    subject: form.subject,
-    name: form.name,
-    body: form.body
-  });
-
-  event.preventDefault();
-}
-
-function navChevronClickHandler(event, scroller) {
-  const { classList } = event.currentTarget;
-
-  const anchor = classList.contains("ion-chevron-down")
-    ? "#about"
-    : classList.contains("ion-chevron-up")
-      ? "#"
-      : null;
-
-  scrollToAnchor(anchor, scroller);
-
-  event.preventDefault();
-}
-
-function navLinkClickHandler(event, scroller) {
-  const currentElement = event.currentTarget;
-
-  if (!canNavigateInsidePage(currentElement)) {
-    return;
-  }
-
-  scrollToAnchor(currentElement.hash, scroller, false);
-
-  event.preventDefault();
-}
-
 function toggleNav(direction) {
-  const nav = document.querySelector(".nav");
-  const navChevron = document.querySelector(".nav__chevron");
+  const nav = document.getElementById("js--nav");
+  const navChevron = document.getElementById("js--nav__chevron");
 
   const navTopClass = "nav--top";
   const chevronUpClass = "ion-chevron-up";
@@ -275,6 +330,12 @@ function toggleNav(direction) {
   }
 }
 
+/**
+ * selects anchor links by the specified section id and
+ * updates current browser hash address
+ * @param sectionLinkHash specified section id
+ * @param navLinks all links to remove previously selected and select new ones
+ */
 function selectLinksBySection(sectionLinkHash, navLinks) {
   const sectionLinks = navLinks.filter(link => link.hash === sectionLinkHash);
 
