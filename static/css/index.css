@@ -190,6 +190,7 @@ img {
 
 .lozad {
   transition: padding 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  will-change: opacity, padding;
 }
 
 .lozad:not([data-loaded]) {

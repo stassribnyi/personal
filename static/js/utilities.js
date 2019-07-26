@@ -3,6 +3,15 @@ export function replaceClass(element, oldClass, newClass) {
   element.classList.add(newClass);
 }
 
+export function getDiffInYears(first, second) {
+  const firstDate = new Date(first).getTime();
+  const secondDate = new Date(second).getTime();
+
+  const diffMs = (secondDate - firstDate) / (1000 * 60 * 60 * 24);
+
+  return diffMs / 365.25;
+}
+
 export function setHash(hash) {
   history.pushState(null, null, hash);
 }

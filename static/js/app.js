@@ -2,6 +2,7 @@ import {
   setHash,
   replaceClass,
   scrollToAnchor,
+  getDiffInYears,
   openEmailClient,
   canNavigateInsidePage
 } from "./utilities.js";
@@ -18,10 +19,13 @@ import {
 
 import { registerSW } from "./registerServiceWorker.js";
 
+const BIRTH_DATE = "1995-01-09";
+const CAREER_START = "2015-08-01";
 const EMAIL_ADDRESS = "stas.sribnyi@gmail.com";
 
 export function Application() {
   initLozad();
+  initDates();
 
   const scroller = new SweetScroll(SWEET_SCROLL_CONFIG_DEFAULT);
   const glide = new Glide(".glide", GLIDE_CONFIG_DEFAULT).mount();
@@ -66,6 +70,17 @@ function initLozad() {
   const observer = lozad(img);
 
   observer.observe();
+}
+
+function initDates() {
+  const age = document.getElementById("js--age");
+  const career = document.getElementById("js--career-start");
+
+  const ageYears = getDiffInYears(new Date(BIRTH_DATE), new Date());
+  const careerYears = getDiffInYears(new Date(CAREER_START), new Date());
+
+  age.innerText = Math.abs(Math.floor(ageYears));
+  career.innerText = Math.abs(Math.round(careerYears));
 }
 
 function initNavChevron(scroller) {
