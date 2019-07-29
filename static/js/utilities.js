@@ -34,8 +34,11 @@ export function scrollToAnchor(
   offset = 0,
   setAnchorAsHash = true
 ) {
-  const anchorElement =
-    anchor !== "#" ? document.querySelector(anchor) : document.body;
+  const validAnchor = !!anchor && anchor !== "#";
+
+  const anchorElement = validAnchor
+    ? document.querySelector(anchor)
+    : document.body;
 
   if (!anchorElement) {
     return;
