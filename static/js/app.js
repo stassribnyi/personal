@@ -23,6 +23,15 @@ const BIRTH_DATE = "1995-01-09";
 const CAREER_START = "2015-08-01";
 const EMAIL_ADDRESS = "stas.sribnyi@gmail.com";
 
+const APP_ROUTES = Object.freeze({
+  ABOUT: 'about',
+  SKILLS: 'skills',
+  CAREER: 'career',
+  PROJECTS: 'projects',
+  CONTACTS: 'contacts',
+  CV: 'cv',
+});
+
 /**
  * initializes, subscribes and performs all necessary actions to make user experience better
  * @returns {{unsubscribe: unsubscribe}} callback to destroy the app
@@ -91,7 +100,7 @@ function initDates() {
  * subscribe for click event of chevron icon to make smooth scroll
  * and update browser hash depending on chevron direction
  * @param scroller to provide smooth navigation
- * @returns {{unsubscribe: unsubscribe}} object containing callback to unsubscribe
+ * @returns {{unsubscribe(): void}} object containing callback to unsubscribe
  */
 function initNavChevron(scroller) {
   const chevron = document.getElementById("js--nav__chevron");
@@ -99,13 +108,16 @@ function initNavChevron(scroller) {
   const chevronClickToScroll = event => {
     const { classList } = event.currentTarget;
 
-    const anchor = classList.contains("ion-chevron-down")
-      ? "#about"
-      : classList.contains("ion-chevron-up")
-      ? "#"
-      : null;
+    const chevronDown = classList.contains("ion-chevron-down");
+    const chevronUp = classList.contains("ion-chevron-up");
 
-    scrollToAnchor(anchor, scroller);
+    if (!chevronDown && !chevronUp) {
+      return;
+    }
+
+    const anchor = chevronDown ? APP_ROUTES.ABOUT : '';
+
+    scrollToAnchor(`#${anchor}`, scroller);
 
     event.preventDefault();
   };
@@ -121,7 +133,7 @@ function initNavChevron(scroller) {
 
 /**
  * subscribes for form submit event to send form data to mail client directly
- * @returns {{unsubscribe: unsubscribe}} callback to unsubscribe from event
+ * @returns {{unsubscribe(): void}} callback to unsubscribe from event
  */
 function initContactForm() {
   const contactForm = document.getElementById("js--contacts-form");
@@ -149,7 +161,7 @@ function initContactForm() {
 
 /**
  * subscribe for touchstart event to simulate focus on touch devices
- * @returns {{unsubscribe: unsubscribe}} callback to unsubscribe from events
+ * @returns {{unsubscribe(): void}} callback to unsubscribe from events
  */
 function initProjectItems() {
   const projects = Array.from(document.querySelectorAll(".js--projects__item"));
@@ -172,7 +184,7 @@ function initProjectItems() {
 /**
  * subscribes for click events of all links to perform smooth navigation
  * @param scroller to be used for smooth navigation
- * @returns {{unsubscribe: unsubscribe, btnLinks: *, navLinks: *}} object containing:
+ * @returns {{unsubscribe(): void, btnLinks: *, navLinks: *}} object containing:
  * callback to unsubscribe from click events
  * button links
  * navigation links
@@ -192,14 +204,14 @@ function initAllLinks(scroller) {
 
     const { hash } = currentElement;
 
-    const offset = hash === "#cv" ? -80 : 0;
-
-    scrollToAnchor(hash, scroller, offset, false);
+    scrollToAnchor(hash, scroller, getScrollOffset(hash), false);
 
     event.preventDefault();
   };
 
   allLinks.forEach(link => link.addEventListener("click", linkClickToScroll));
+
+  scrollToAnchor(location.hash, scroller, getScrollOffset(location.hash), false);
 
   return {
     btnLinks,
@@ -215,7 +227,7 @@ function initAllLinks(scroller) {
 /**
  * initializes callbacks which will be called when a section is in the viewport for performing side effects
  * @param navLinks to select/deselect if section is/is not in viewport
- * @returns {{destroy: destroy}} object with destroy callback to destroy all waypoints
+ * @returns {{destroy(): void}} object with destroy callback to destroy all waypoints
  */
 function initSectionNavigation(navLinks) {
   const sectionWaypoints = initSectionWaypoints(
@@ -239,8 +251,6 @@ function initSectionNavigation(navLinks) {
     }
   );
 
-  selectLinksBySection(location.hash, navLinks);
-
   return {
     destroy: () => {
       sectionWaypoints.destroy();
@@ -263,7 +273,8 @@ function initSectionWaypoints(onSectionReached) {
     return {
       topInView: new Waypoint({
         element: section,
-        handler: direction => onSectionReachedInternal(section, direction)
+        handler: direction => onSectionReachedInternal(section, direction),
+        offset: '7%'
       }),
       bottomInView: new Waypoint({
         element: section,
@@ -289,7 +300,7 @@ function initSectionWaypoints(onSectionReached) {
  * @returns {{unsubscribe(): void}} object with unsubscribe callback
  */
 function initNativeEvents() {
-  const reloadOnOrientationChange = () => window.location.reload();
+  const reloadOnOrientationChange = () => location.reload();
 
   window.addEventListener("orientationchange", reloadOnOrientationChange);
 
@@ -350,4 +361,13 @@ function selectLinksBySection(sectionLinkHash, navLinks) {
   sectionLinks.forEach(item => item.classList.add(selectedLinkClass));
 
   setHash(sectionLinkHash);
+}
+
+/**
+ * gets scroll offset by hash
+ * @param hash
+ * @returns {number} offset value
+ */
+function getScrollOffset(hash) {
+  return hash === `#${APP_ROUTES.CV}` ? -80 : 0;
 }
