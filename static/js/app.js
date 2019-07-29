@@ -43,10 +43,9 @@ export function Application() {
 
   const sectionNavigation = initSectionNavigation(allLinks.navLinks);
 
-
   registerSW()
-    .then(() => console.info('The service worker successfully registered'))
-    .catch(() => console.warn('Unable to register service worker'));
+    .then(() => console.info("The service worker successfully registered"))
+    .catch(() => console.warn("Unable to register service worker"));
 
   return {
     destroy: () => {
@@ -58,11 +57,9 @@ export function Application() {
 
       glide.destroy();
       sectionNavigation.destroy();
-
     }
   };
 }
-
 
 /**
  * initialize lazy loading of images and removes classes used for no js implementation
@@ -99,20 +96,19 @@ function initDates() {
 function initNavChevron(scroller) {
   const chevron = document.getElementById("js--nav__chevron");
 
-  const chevronClickToScroll = (event) => {
+  const chevronClickToScroll = event => {
     const { classList } = event.currentTarget;
 
     const anchor = classList.contains("ion-chevron-down")
       ? "#about"
       : classList.contains("ion-chevron-up")
-        ? "#"
-        : null;
+      ? "#"
+      : null;
 
     scrollToAnchor(anchor, scroller);
 
     event.preventDefault();
   };
-
 
   chevron.addEventListener("click", chevronClickToScroll);
 
@@ -120,7 +116,7 @@ function initNavChevron(scroller) {
     unsubscribe: () => {
       chevron.removeEventListener("click", chevronClickToScroll);
     }
-  }
+  };
 }
 
 /**
@@ -130,7 +126,7 @@ function initNavChevron(scroller) {
 function initContactForm() {
   const contactForm = document.getElementById("js--contacts-form");
 
-  const handleContactFormSubmission = (event) => {
+  const handleContactFormSubmission = event => {
     const { target: form } = event;
 
     openEmailClient(EMAIL_ADDRESS, {
@@ -140,7 +136,7 @@ function initContactForm() {
     });
 
     event.preventDefault();
-  }
+  };
 
   contactForm.addEventListener("submit", handleContactFormSubmission);
 
@@ -148,7 +144,7 @@ function initContactForm() {
     unsubscribe: () => {
       contactForm.removeEventListener("submit", handleContactFormSubmission);
     }
-  }
+  };
 }
 
 /**
@@ -156,9 +152,7 @@ function initContactForm() {
  * @returns {{unsubscribe: unsubscribe}} callback to unsubscribe from events
  */
 function initProjectItems() {
-  const projects = Array.from(
-    document.querySelectorAll(".js--projects__item")
-  );
+  const projects = Array.from(document.querySelectorAll(".js--projects__item"));
 
   const touchstartStub = () => {};
 
@@ -172,7 +166,7 @@ function initProjectItems() {
         item.removeEventListener("touchstart", touchstartStub)
       );
     }
-  }
+  };
 }
 
 /**
@@ -189,21 +183,23 @@ function initAllLinks(scroller) {
 
   const allLinks = [...navLinks, ...btnLinks];
 
-  const linkClickToScroll = (event) => {
+  const linkClickToScroll = event => {
     const currentElement = event.currentTarget;
 
     if (!canNavigateInsidePage(currentElement)) {
       return;
     }
 
-    scrollToAnchor(currentElement.hash, scroller, false);
+    const { hash } = currentElement;
+
+    const offset = hash === "#cv" ? -80 : 0;
+
+    scrollToAnchor(hash, scroller, offset, false);
 
     event.preventDefault();
-  }
+  };
 
-  allLinks.forEach(link =>
-    link.addEventListener("click", linkClickToScroll)
-  );
+  allLinks.forEach(link => link.addEventListener("click", linkClickToScroll));
 
   return {
     btnLinks,
@@ -213,7 +209,7 @@ function initAllLinks(scroller) {
         link.removeEventListener("click", linkClickToScroll)
       );
     }
-  }
+  };
 }
 
 /**
@@ -235,19 +231,21 @@ function initSectionNavigation(navLinks) {
       }
 
       if (
-        !bottomInView && direction === Direction.DOWN
-        || bottomInView && direction === Direction.UP
+        (!bottomInView && direction === Direction.DOWN) ||
+        (bottomInView && direction === Direction.UP)
       ) {
         selectLinksBySection(`#${section.id}`, navLinks);
       }
     }
   );
 
+  selectLinksBySection(location.hash, navLinks);
+
   return {
     destroy: () => {
       sectionWaypoints.destroy();
     }
-  }
+  };
 }
 
 /**
@@ -258,9 +256,8 @@ function initSectionNavigation(navLinks) {
 function initSectionWaypoints(onSectionReached) {
   const sections = Array.from(document.querySelectorAll(".js--section"));
 
-  const onSectionReachedInternal = typeof onSectionReached === 'function'
-    ? onSectionReached
-    : () => {};
+  const onSectionReachedInternal =
+    typeof onSectionReached === "function" ? onSectionReached : () => {};
 
   const sectionWaypoints = sections.map(section => {
     return {
@@ -270,7 +267,8 @@ function initSectionWaypoints(onSectionReached) {
       }),
       bottomInView: new Waypoint({
         element: section,
-        handler: direction => onSectionReachedInternal(section, direction, true),
+        handler: direction =>
+          onSectionReachedInternal(section, direction, true),
         offset: "bottom-in-view"
       })
     };
@@ -283,7 +281,7 @@ function initSectionWaypoints(onSectionReached) {
         sectionWaypoint.bottomInView.destroy();
       });
     }
-  }
+  };
 }
 
 /**
@@ -297,11 +295,13 @@ function initNativeEvents() {
 
   return {
     unsubscribe() {
-      window.removeEventListener("orientationchange", reloadOnOrientationChange);
+      window.removeEventListener(
+        "orientationchange",
+        reloadOnOrientationChange
+      );
     }
-  }
+  };
 }
-
 
 /**
  * toggles top navigation depending on scroll direction,

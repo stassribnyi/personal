@@ -28,7 +28,12 @@ export function canNavigateInsidePage(element) {
   return samePathname & sameHostname;
 }
 
-export function scrollToAnchor(anchor, scroller, setAnchorAsHash = true) {
+export function scrollToAnchor(
+  anchor,
+  scroller,
+  offset = 0,
+  setAnchorAsHash = true
+) {
   const anchorElement =
     anchor !== "#" ? document.querySelector(anchor) : document.body;
 
@@ -36,7 +41,7 @@ export function scrollToAnchor(anchor, scroller, setAnchorAsHash = true) {
     return;
   }
 
-  scroller.toElement(anchorElement);
+  scroller.toElement(anchorElement, { offset });
 
   if (setAnchorAsHash) {
     setHash(anchor);
