@@ -24,12 +24,12 @@ const CAREER_START = "2015-08-01";
 const EMAIL_ADDRESS = "stas.sribnyi@gmail.com";
 
 const APP_ROUTES = Object.freeze({
-  ABOUT: 'about',
-  SKILLS: 'skills',
-  CAREER: 'career',
-  PROJECTS: 'projects',
-  CONTACTS: 'contacts',
-  CV: 'cv',
+  ABOUT: "about",
+  SKILLS: "skills",
+  CAREER: "career",
+  PROJECTS: "projects",
+  CONTACTS: "contacts",
+  CV: "cv"
 });
 
 /**
@@ -115,7 +115,7 @@ function initNavChevron(scroller) {
       return;
     }
 
-    const anchor = chevronDown ? APP_ROUTES.ABOUT : '';
+    const anchor = chevronDown ? APP_ROUTES.ABOUT : "";
 
     scrollToAnchor(`#${anchor}`, scroller);
 
@@ -211,7 +211,14 @@ function initAllLinks(scroller) {
 
   allLinks.forEach(link => link.addEventListener("click", linkClickToScroll));
 
-  scrollToAnchor(location.hash, scroller, getScrollOffset(location.hash), false);
+  if (!!location.hash) {
+    scrollToAnchor(
+      location.hash,
+      scroller,
+      getScrollOffset(location.hash),
+      false
+    );
+  }
 
   return {
     btnLinks,
@@ -274,7 +281,7 @@ function initSectionWaypoints(onSectionReached) {
       topInView: new Waypoint({
         element: section,
         handler: direction => onSectionReachedInternal(section, direction),
-        offset: '7%'
+        offset: "7%"
       }),
       bottomInView: new Waypoint({
         element: section,
