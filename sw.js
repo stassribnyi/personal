@@ -1,4 +1,6 @@
 const CACHE_KEY = "personal-cache-v1";
+const OFFLINE = "/offline";
+
 const FILES = getFilesToCache();
 
 self.addEventListener("install", event => {
@@ -17,34 +19,21 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   const request = event.request;
-  const url = new URL(request.url);
 
   if (request.cache === "only-if-cached" && request.mode !== "same-origin") {
     return;
   }
 
-  if (url.origin === self.location.origin) {
-    event.respondWith(cacheFirst(request));
-  } else {
-    event.respondWith(networkAndCache(request));
+  const isSameOrigin = request.url.startsWith(self.location.origin);
+
+  if (!isSameOrigin || request.method !== "GET") {
+    event.respondWith(fetch(request));
+
+    return;
   }
+
+  event.respondWith(networkAndCache(request));
 });
-
-/**
- * returns cached value, if none exists executes fetch
- * @param {*} request fetch request
- */
-async function cacheFirst(request) {
-  const cache = await caches.open(CACHE_KEY);
-  const cached = await cache.match(request);
-  try {
-    return cached || fetch(request);
-  } catch (error) {
-    console.log(error);
-
-    throw error;
-  }
-}
 
 /**
  * executes fetch first and falls back to cache in case of error
@@ -59,7 +48,13 @@ async function networkAndCache(request) {
 
     return fresh;
   } catch (error) {
-    return await cache.match(request);
+    const cachedResponse = await caches.match(request);
+
+    if (cachedResponse) {
+      return cachedResponse;
+    }
+
+    return await cache.match(new Request(OFFLINE));
   }
 }
 
@@ -91,9 +86,11 @@ function getFilesToCache() {
   const manifestImg = getManifestImg();
 
   return [
-    "index.html",
-    "manifest.webmanifest",
+    "/",
+    "sw.js",
+    OFFLINE,
     "favicon.ico",
+    "manifest.webmanifest",
     ...addPrefixPath(staticAssets, "static"),
     ...addPrefixPath(manifestImg, "images")
   ];
