@@ -11,8 +11,8 @@
   .welcome {
     padding: 5% 5% 3em 5%;
     background-image: linear-gradient(
-        rgba(var(--dark-accent, 50, 89, 99), 0.9),
-        rgba(var(--dark-accent, 50, 89, 99), 0.9)
+        rgba(50, 89, 99, 0.9),
+        rgba(50, 89, 99, 0.9)
       ),
       url(img/welcome-min.jpg);
 
