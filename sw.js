@@ -1,32 +1,23 @@
-const CACHE_KEY = "personal-cache-v1";
-const OFFLINE = "/offline";
-
-const FILES = getFilesToCache();
+const CACHE_NAME = "personal-cache-v1";
 
 self.addEventListener("install", event => {
-  event.waitUntil(addToCache(CACHE_KEY, FILES).then(() => self.skipWaiting()));
+  self.skipWaiting();
+  event.waitUntil(addToCache(CACHE_NAME, getFilesToCache()));
 });
 
 self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches
-      .keys()
-      .then(cacheKeys => cacheKeys.filter(name => name !== CACHE_KEY))
-      .then(oldKeys => Promise.all(oldKeys.map(name => caches.delete(name))))
-      .then(() => self.clients.claim())
-  );
+  event.waitUntil(deleteCacheExcept(CACHE_NAME));
 });
 
 self.addEventListener("fetch", event => {
   const request = event.request;
+  const url = new URL(request.url);
 
   if (request.cache === "only-if-cached" && request.mode !== "same-origin") {
     return;
   }
 
-  const isSameOrigin = request.url.startsWith(self.location.origin);
-
-  if (!isSameOrigin || request.method !== "GET") {
+  if (url.origin !== self.location.origin || request.method !== "GET") {
     event.respondWith(fetch(request));
 
     return;
@@ -40,28 +31,37 @@ self.addEventListener("fetch", event => {
  * @param {*} request fetch request
  */
 async function networkAndCache(request) {
-  const cache = await caches.open(CACHE_KEY);
-
   try {
-    const fresh = await fetch(request);
-    await cache.put(request, fresh.clone());
+    const response = await fetch(request);
 
-    return fresh;
-  } catch (error) {
+    caches.open(CACHE_NAME).then(cache => cache.put(request, response));
+
+    return response.clone();
+  } catch {
     const cachedResponse = await caches.match(request);
 
-    if (cachedResponse) {
-      return cachedResponse;
-    }
-
-    return await cache.match(new Request(OFFLINE));
+    return cachedResponse || Promise.reject("no-match");
   }
+}
+
+/**
+ * deletes all caches except specified one
+ * @param {string} exceptName cache name to avoid
+ */
+async function deleteCacheExcept(exceptName) {
+  const cacheNames = await caches.keys();
+
+  const obsoleteNames = cacheNames.filter(name => name !== exceptName);
+
+  await Promise.all(obsoleteNames.map(name => caches.delete(name)));
+
+  return self.clients.claim();
 }
 
 /**
  * adds files to cache by specific name
  * @param {string} cacheName cache name key
- * @param {array} filesToCache array of file names to cache
+ * @param {string[]} filesToCache array of file names to cache
  */
 async function addToCache(cacheName, filesToCache) {
   const cache = await caches.open(cacheName);
@@ -86,9 +86,7 @@ function getFilesToCache() {
   const manifestImg = getManifestImg();
 
   return [
-    "/",
-    "sw.js",
-    OFFLINE,
+    "index.html",
     "favicon.ico",
     "manifest.webmanifest",
     ...addPrefixPath(staticAssets, "static"),
@@ -179,7 +177,13 @@ function getStaticImg() {
  * gets js modules used across and app
  */
 function getStaticJS() {
-  return ["app.js", "index.js", "libs.js", "utilities.js"];
+  return [
+    "app.js",
+    "index.js",
+    "libs.js",
+    "utilities.js",
+    "registerServiceWorker.js"
+  ];
 }
 
 /**
@@ -239,8 +243,8 @@ function getManifestImg() {
 }
 
 /**
- * Adds a prefix path to each file
- * @param {array} files to add prefix to
+ * Adds a prefix path to each files
+ * @param {string[]} files to add prefix to
  * @param {string} prefix which will be added to each file
  */
 function addPrefixPath(files, prefix) {
