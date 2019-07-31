@@ -52,6 +52,15 @@ export function Application() {
 
   const sectionNavigation = initSectionNavigation(allLinks.navLinks);
 
+  if (!!location.hash) {
+    scrollToAnchor(
+      location.hash,
+      scroller,
+      getScrollOffset(location.hash),
+      false
+    );
+  }
+
   registerSW()
     .then(() => console.info("The service worker successfully registered"))
     .catch(() => console.warn("Unable to register service worker"));
@@ -210,15 +219,6 @@ function initAllLinks(scroller) {
   };
 
   allLinks.forEach(link => link.addEventListener("click", linkClickToScroll));
-
-  if (!!location.hash) {
-    scrollToAnchor(
-      location.hash,
-      scroller,
-      getScrollOffset(location.hash),
-      false
-    );
-  }
 
   return {
     btnLinks,
