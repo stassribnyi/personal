@@ -52,7 +52,7 @@
 
   font-size: 1em;
   line-height: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 .my-greeting {
@@ -85,9 +85,8 @@
 
 .welcome__cite {
   width: 50%;
-  margin-top: 3em;
-  margin-left: 50%;
   position: relative;
+  margin: 3em 0 1em 50%;
 
   display: flex;
   flex-direction: column;
