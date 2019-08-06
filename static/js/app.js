@@ -278,7 +278,7 @@ function initEnterLeaveTrigger(elements, onSectionReached) {
     typeof onSectionReached === "function" ? onSectionReached : () => {};
 
   scrollTrigger
-    .setup({ step: elements })
+    .setup({ step: elements, offset: 0.15 })
     .onStepEnter(({ element, direction }) => {
       onSectionReachedInternal(element, direction, StepDirection.ENTER);
     })
