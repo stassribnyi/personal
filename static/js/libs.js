@@ -15,8 +15,7 @@ export const GLIDE_CONFIG_DEFAULT = {
 
 export const SWEET_SCROLL_CONFIG_DEFAULT ={
   offset: 1,
-  duration: 3500,
-  easing: "easeOutQuint"
+  easing: "easeInOutSine"
 };
 
 export const Direction = Object.freeze({
