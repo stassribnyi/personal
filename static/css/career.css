@@ -111,8 +111,8 @@
   text-align: center;
 }
 
-.career__company > img,
-.career__institution > img {
+.career__company img,
+.career__institution img {
   width: 100px;
   height: 100px;
   margin-bottom: 1em;
@@ -214,7 +214,7 @@
   border: 2px solid var(--color-dark-accent, rgb(50, 89, 99));
 }
 
-.recommendation__author-photo > img {
+.recommendation__author-photo img {
   width: 100%;
   height: 100%;
   border-radius: 50%;
