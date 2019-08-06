@@ -10,9 +10,10 @@ import {
 import {
   lozad,
   Glide,
-  Waypoint,
-  Direction,
+  scrollama,
   SweetScroll,
+  MoveDirection,
+  StepDirection,
   GLIDE_CONFIG_DEFAULT,
   SWEET_SCROLL_CONFIG_DEFAULT
 } from "./libs.js";
@@ -50,7 +51,7 @@ export function Application() {
   const navChevron = initNavChevron(scroller);
   const nativeSubscription = initNativeEvents();
 
-  const sectionNavigation = initSectionNavigation(allLinks.navLinks);
+  const sectionNavigation = initNavHighlightTrigger(allLinks.navLinks);
 
   if (!!location.hash) {
     scrollToAnchor(
@@ -92,7 +93,7 @@ function initLozad() {
 }
 
 /**
- * initializes dates to avoid hard codded dates
+ * initializes dates to avoid hard codded values
  */
 function initDates() {
   const age = document.getElementById("js--age");
@@ -232,72 +233,66 @@ function initAllLinks(scroller) {
 }
 
 /**
- * initializes callbacks which will be called when a section is in the viewport for performing side effects
+ * initializes trigger on section enter/leave to select current navigation link
+ * and show/hide navigation depending on section
  * @param navLinks to select/deselect if section is/is not in viewport
- * @returns {{destroy(): void}} object with destroy callback to destroy all waypoints
+ * @returns {{destroy(): void}} object with destroy callback to destroy trigger
  */
-function initSectionNavigation(navLinks) {
-  const sectionWaypoints = initSectionWaypoints(
-    (section, direction, bottomInView = false) => {
-      if (section.id === "about" && !bottomInView) {
-        toggleNav(direction);
+function initNavHighlightTrigger(navLinks) {
+  const sections = Array.from(document.querySelectorAll(".js--section"));
 
-        if (direction === Direction.UP) {
-          selectLinksBySection(`#`, navLinks);
-
-          return;
-        }
-      }
-
+  return initEnterLeaveTrigger(sections, (section, direction, step) => {
+    if (section.id === "about") {
       if (
-        (!bottomInView && direction === Direction.DOWN) ||
-        (bottomInView && direction === Direction.UP)
+        (direction === MoveDirection.UP && step === StepDirection.EXIT) ||
+        (direction === MoveDirection.DOWN && step === StepDirection.ENTER)
       ) {
-        selectLinksBySection(`#${section.id}`, navLinks);
+        toggleNav(direction);
+      }
+
+      if (direction === MoveDirection.UP && step === StepDirection.EXIT) {
+        selectLinksBySection(`#`, navLinks);
+
+        return;
       }
     }
-  );
 
-  return {
-    destroy: () => {
-      sectionWaypoints.destroy();
+    if (step !== StepDirection.ENTER) {
+      return;
     }
-  };
+
+    selectLinksBySection(`#${section.id}`, navLinks);
+  });
 }
 
 /**
- * initializes waypoint listeners to each section item
- * @param onSectionReached callback to be called once section is in viewport
- * @returns {{destroy: destroy}} object with destroy callback to destroy all waypoints
+ * initialize trigger on element enter/leave viewport
+ * @param elements elements to trigger callback once in viewport
+ * @param onSectionReached callback to be called once element is in viewport
+ * @returns {{destroy: destroy}} object with destroy callback to destroy trigger
  */
-function initSectionWaypoints(onSectionReached) {
-  const sections = Array.from(document.querySelectorAll(".js--section"));
+function initEnterLeaveTrigger(elements, onSectionReached) {
+  const scrollTrigger = scrollama();
 
   const onSectionReachedInternal =
     typeof onSectionReached === "function" ? onSectionReached : () => {};
 
-  const sectionWaypoints = sections.map(section => {
-    return {
-      topInView: new Waypoint({
-        element: section,
-        handler: direction => onSectionReachedInternal(section, direction),
-        offset: "7%"
-      }),
-      bottomInView: new Waypoint({
-        element: section,
-        handler: direction =>
-          onSectionReachedInternal(section, direction, true),
-        offset: "bottom-in-view"
-      })
-    };
-  });
+  scrollTrigger
+    .setup({ step: elements, offset: 0.15 })
+    .onStepEnter(({ element, direction }) => {
+      onSectionReachedInternal(element, direction, StepDirection.ENTER);
+    })
+    .onStepExit(({ element, direction }) => {
+      onSectionReachedInternal(element, direction, StepDirection.EXIT);
+    });
+
+  window.addEventListener("resize", scrollTrigger.resize);
 
   return {
     destroy: () => {
-      sectionWaypoints.forEach(sectionWaypoint => {
-        sectionWaypoint.topInView.destroy();
-        sectionWaypoint.bottomInView.destroy();
-      });
+      window.removeEventListener("resize", scrollTrigger.resize);
+
+      scrollTrigger.destroy();
     }
   };
 }
@@ -335,11 +330,11 @@ function toggleNav(direction) {
   const chevronDownClass = "ion-chevron-down";
 
   switch (direction) {
-    case Direction.DOWN:
+    case MoveDirection.DOWN:
       nav.classList.add(navTopClass);
       replaceClass(navChevron, chevronDownClass, chevronUpClass);
       break;
-    case Direction.UP:
+    case MoveDirection.UP:
       nav.classList.remove(navTopClass);
       replaceClass(navChevron, chevronUpClass, chevronDownClass);
       break;
