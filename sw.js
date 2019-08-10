@@ -166,7 +166,6 @@ function getStaticImg() {
   ];
 
   return [
-    "stassribnyi.jpg",
     ...placeholders,
     ...addPrefixPath(careerImg, "career"),
     ...addPrefixPath(projectImg, "projects")
