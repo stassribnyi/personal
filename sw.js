@@ -150,6 +150,7 @@ function getStaticCSS() {
  */
 function getStaticImg() {
   const projectImg = getProjectImg();
+  const profileImg = getProfileImg();
 
   const careerImg = [
     "altexsoft-labs.png",
@@ -168,7 +169,8 @@ function getStaticImg() {
   return [
     ...placeholders,
     ...addPrefixPath(careerImg, "career"),
-    ...addPrefixPath(projectImg, "projects")
+    ...addPrefixPath(projectImg, "projects"),
+    ...addPrefixPath(profileImg, "profiles")
   ];
 }
 
@@ -182,6 +184,20 @@ function getStaticJS() {
     "libs.js",
     "utilities.js",
     "registerServiceWorker.js"
+  ];
+}
+
+/**
+ * gets profile img used in about and recommendation sections
+ */
+function getProfileImg() {
+  return [
+    "antonvasko.jpg",
+    "stassribnyi.jpg",
+    "zakirnuriev.jpg",
+    "nickolaysredin.jpg",
+    "beatadobosiewicz.jpg",
+    "vitaliygordiyenko.jpg"
   ];
 }
 
