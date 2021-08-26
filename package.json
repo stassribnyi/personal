@@ -1,0 +1,9 @@
+{
+  "name": "personal",
+  "version": "1.0.0",
+  "description": "My personal website",
+  "main": "index.js",
+  "repository": "https://github.com/stassribnyi/personal.git",
+  "author": "stas.sribnyi@gmail.com",
+  "license": "MIT"
+}
