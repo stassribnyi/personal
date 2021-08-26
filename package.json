@@ -10,6 +10,7 @@
     "develop": "gatsby develop"
   },
   "dependencies": {
+    "@fontsource/roboto-condensed": "^4.5.0",
     "gatsby": "^3.12.0",
     "gatsby-plugin-linaria": "^2.2.0",
     "linaria": "^3.0.0-beta.3",

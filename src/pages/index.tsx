@@ -1,11 +1,16 @@
 import React from 'react';
-import { styled } from 'linaria/react';
 
-const Heading = styled.h1`
-  color: red;
-`
+import { Section, Layout } from '../components';
+import { About } from '../sections';
 
-const Home: React.FC = () => <Heading>Hello Gatsby!</Heading>
+
+const Home: React.FC = () => (
+  <Layout>
+    <Section id="about" title="About">
+      <About />
+    </Section>
+  </Layout>
+)
 
 export default Home;
 
