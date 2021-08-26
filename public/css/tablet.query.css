@@ -1,0 +1,168 @@
+@media (min-width: 481px) and (max-width: 767px) {
+  body {
+    font-size: 18px;
+  }
+
+  .section__title,
+  .section__content {
+    width: 90%;
+  }
+
+  .welcome {
+    padding: 5% 5% 3em 5%;
+    background-image: linear-gradient(
+        rgba(50, 89, 99, 0.9),
+        rgba(50, 89, 99, 0.9)
+      ),
+      url(img/welcome-min.jpg);
+
+    flex-direction: column;
+  }
+
+  .welcome__content,
+  .welcome__actions {
+    padding: 0;
+    flex: auto;
+    max-width: 100%;
+    background: none;
+  }
+
+  .welcome__actions::after {
+    display: none;
+  }
+
+  .my-name {
+    font-size: 1.4em;
+  }
+
+  .my-title {
+    font-size: 1.6em;
+  }
+
+  .welcome .nav {
+    display: none;
+  }
+
+  .nav--bottom {
+    display: flex;
+  }
+
+  .skills__category,
+  .skills__category:not(:nth-child(2n + 0)) {
+    flex: 0 1 100%;
+    margin-right: 0;
+  }
+
+  .skills__category:not(:last-child) {
+    margin-bottom: 5%;
+  }
+
+  .career__content {
+    width: 90%;
+  }
+
+  .career__work-stages::before,
+  .career__education-stages::before {
+    display: none;
+  }
+
+  .career__work-stage,
+  .career__education-stage {
+    margin: 0;
+  }
+
+  .career__work-stage:not(:last-child),
+  .career__education-stage:not(:last-child) {
+    margin-bottom: 10%;
+  }
+
+  .career__work-stage:not(:first-child):before,
+  .career__work-stage:first-child::after,
+  .career__education-stage:before {
+    display: none;
+  }
+
+  .career__company,
+  .career__institution,
+  .career__position,
+  .career__education {
+    padding: 0;
+    flex: 0 1 100%;
+  }
+
+  .career__company,
+  .career__institution {
+    margin-bottom: 5%;
+  }
+
+  .career__position h4,
+  .career__education h4 {
+    text-align: center;
+  }
+
+  .career__technologies {
+    justify-content: center;
+  }
+
+  .projects__item-details {
+    font-size: 0.9em;
+  }
+
+  .projects__item-name {
+    margin-bottom: 0.5em;
+  }
+
+  .projects__item {
+    flex: 0 1 100%;
+    margin-bottom: 5%;
+  }
+
+  .projects__item:nth-child(2n + 1) {
+    margin-right: 0;
+  }
+
+  .contacts {
+    padding-bottom: 4em;
+  }
+
+  .contacts__content {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .contacts__group {
+    flex: auto;
+    width: 70%;
+  }
+
+  .contacts__group:nth-child(2n + 1) {
+    margin: 0;
+  }
+
+  .contacts__group-title {
+    display: none;
+  }
+
+  .socials {
+    flex-direction: row;
+  }
+
+  .socials__link {
+    margin: 0 0.2em;
+  }
+
+  .socials__link-text {
+    display: none;
+  }
+
+  .socials__link-icon {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) and (orientation: landscape) {
+  .welcome,
+  .contacts {
+    height: auto;
+  }
+}

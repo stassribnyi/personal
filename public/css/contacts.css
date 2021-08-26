@@ -1,0 +1,138 @@
+.contacts {
+  min-height: 100vh;
+  position: relative;
+  color: var(--color-light, rgb(243, 242, 239));
+  background-color: var(--color-dark, rgb(51, 51, 51));
+}
+
+.contacts__content {
+  display: flex;
+}
+
+.contacts__group {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 calc(50% - 2.5%);
+}
+
+.contacts__group:nth-child(2n + 1) {
+  margin-right: 5%;
+}
+
+.socials {
+  list-style: none;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+}
+
+.socials li {
+  display: flex;
+  margin-bottom: 0.8em;
+}
+
+.socials__link:link,
+.socials__link:visited {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-light, rgb(243, 242, 239));
+
+  padding-bottom: 0.2em;
+  transition: color 0.5s;
+}
+
+.socials__link:link:hover,
+.socials__link:visited:hover {
+  position: relative;
+  color: var(--color-light-accent, rgb(244, 121, 124));
+}
+
+.socials__link:link:before,
+.socials__link:visited:before {
+  content: "";
+  width: 100%;
+  height: 0.1em;
+
+  left: 0;
+  bottom: 0;
+  display: block;
+  position: absolute;
+
+  background-color: transparent;
+  transition: background-color 1s;
+}
+
+.socials__link:link:hover::before,
+.socials__link:link:visited::before {
+  background-color: currentColor;
+}
+
+.socials__link-icon {
+  width: 1em;
+  font-size: 2em;
+  text-align: center;
+  margin-right: 0.2em;
+}
+
+.contacts__form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.contacts__group-title {
+  font-size: 1.5em;
+  font-weight: 300;
+  line-height: 1.2em;
+  margin-bottom: 1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.contacts__group-title::after {
+  content: "";
+  width: 10em;
+  display: flex;
+  height: 0.05em;
+  margin: 0.1em auto 0 auto;
+  background-color: var(--color-light-accent, rgb(244, 121, 124));
+}
+
+.contacts__form textarea {
+  flex: 1;
+  resize: none;
+}
+
+.contacts__form .input:last-of-type {
+  margin-bottom: 2em;
+}
+
+.contacts__form .btn {
+  align-self: center;
+}
+
+.contacts__title {
+  font-size: 2em;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: center;
+  margin-bottom: 1.25em;
+  text-transform: uppercase;
+}
+
+.contacts__title::after {
+  content: "";
+  width: 5em;
+  height: 0.1em;
+  display: flex;
+  margin: 0.2em auto 0 auto;
+  background-color: var(--color-light-accent, rgb(244, 121, 124));
+}
+
+
+@supports (padding: max(0px)) {
+  .contacts {
+    padding-bottom: max(4em, env(safe-area-inset-bottom));;
+  }
+}

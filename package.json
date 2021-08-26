@@ -5,5 +5,15 @@
   "main": "index.js",
   "repository": "https://github.com/stassribnyi/personal.git",
   "author": "stas.sribnyi@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "develop": "gatsby develop"
+  },
+  "dependencies": {
+    "gatsby": "^3.12.0",
+    "gatsby-plugin-linaria": "^2.2.0",
+    "linaria": "^3.0.0-beta.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
 }
