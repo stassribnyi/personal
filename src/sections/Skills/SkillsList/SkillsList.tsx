@@ -10,15 +10,15 @@ type Skill = Readonly<{
 }>
 
 export type SkillsListProps = Readonly<{
-    skills: Array<Skill>
+    items: Array<Skill>
 }>;
 
-export const SkillsList: React.FC<SkillsListProps> = ({ skills }) => (
+export const SkillsList: React.FC<SkillsListProps> = ({ items }) => (
     <Styled.List>
-        {skills.map((i, idx) => (
+        {items.map(({ skill, strength }, idx) => (
             <Styled.Item key={idx}>
-                <Styled.Skill>{i.skill}</Styled.Skill>
-                <Rating rating={i.strength} />
+                <Styled.Skill>{skill}</Styled.Skill>
+                <Rating rating={strength} />
             </Styled.Item>
         ))}
     </Styled.List>
