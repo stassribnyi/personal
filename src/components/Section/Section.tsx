@@ -8,8 +8,8 @@ export type SectionProps = Readonly<{
   className?: string
 }>;
 
-export const Section: React.FC<SectionProps> = ({ id, title, children }) => (
-  <Styled.Container id={id}>
+export const Section: React.FC<SectionProps> = ({ id, title, children, className }) => (
+  <Styled.Container id={id} className={className}>
     <Styled.Title>{title}</Styled.Title>
     <Styled.Content>{children}</Styled.Content>
   </Styled.Container>

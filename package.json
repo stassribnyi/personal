@@ -7,7 +7,8 @@
   "author": "stas.sribnyi@gmail.com",
   "license": "MIT",
   "scripts": {
-    "develop": "gatsby develop"
+    "develop": "gatsby develop",
+    "build": "gatsby build"
   },
   "dependencies": {
     "@fontsource/roboto-condensed": "^4.5.0",

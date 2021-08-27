@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Section, Layout } from '../components';
-import { About } from '../sections';
+import { About, Skills } from '../sections';
 
 
 const Home: React.FC = () => (
@@ -9,7 +9,8 @@ const Home: React.FC = () => (
     <Section id="about" title="About">
       <About />
     </Section>
-  </Layout>
+    <Skills />
+  </Layout >
 )
 
 export default Home;
