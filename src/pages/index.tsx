@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { Section, Layout } from '../components';
-import { About, Skills } from '../sections';
+import { Layout } from '../components';
+import { About, Career, Skills, Welcome } from '../sections';
 
 
 const Home: React.FC = () => (
   <Layout>
-    <Section id="about" title="About">
-      <About />
-    </Section>
+    <Welcome />
+    <About />
     <Skills />
+    <Career />
   </Layout >
 )
 

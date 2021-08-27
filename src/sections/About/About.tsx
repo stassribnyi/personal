@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { Button } from '../../components/Button';
-
-import { Photo } from './Photo';
+import { Button, Section, Image } from '../../components';
 import { Details } from './Details';
 
 import { Styled } from './About.styles';
@@ -39,9 +37,9 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <>
+    <Section id="about" title="About">
       <Styled.Figure>
-        <Photo src={photoUrl} alt={displayName} />
+        <Styled.Photo src={photoUrl} alt={displayName} variant="rounded" />
         <figcaption>
           <Details items={details} />
         </figcaption>
@@ -54,6 +52,6 @@ export const About: React.FC = () => {
       <Button href={cvUrl}>
         Download regular version of my CV
       </Button>
-    </>
+    </Section>
   )
 }
