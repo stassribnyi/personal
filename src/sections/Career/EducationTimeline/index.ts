@@ -1,0 +1,1 @@
+export { EducationTimeline } from './EducationTimeline'

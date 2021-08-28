@@ -4,7 +4,7 @@ import React from 'react';
 
 import { Section } from '../../components';
 
-import { Education } from './Education';
+import { EducationTimeline } from './EducationTimeline';
 import { Recommendations } from './Recommendations';
 import { Experience } from './Experience';
 
@@ -245,15 +245,17 @@ const List = styled.ul`
 
 export const Career: React.FC = () => {
 
-    return (
-        <Section id="career" title="Career" >
-            <List>
-                {/* <Experience /> */}
+  return (
+    <Section id="career" title="Career" >
+      <List>
+        {/* <Experience /> */}
 
-                <Education />
-
-                {/* <Recommendations /> */}
-            </List>
-        </Section>
-    )
+        <li className="career__group">
+          <h3 className="career__group-title">Education</h3>
+          <EducationTimeline />
+        </li>
+        {/* <Recommendations /> */}
+      </List>
+    </Section>
+  )
 }

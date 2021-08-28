@@ -6,6 +6,8 @@ type ContainerProps = Readonly<{
 }>;
 
 const Container = styled.div<ContainerProps>`
+  display: inline-block;
+
   &[data-variant="rounded"] {
     border-radius: 50%;
     border: 0.2em solid var(--color-dark-accent, rgb(50, 89, 99));
