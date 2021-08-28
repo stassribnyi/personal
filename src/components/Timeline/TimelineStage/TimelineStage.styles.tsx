@@ -23,6 +23,19 @@ const Item = styled.li`
         background-color: var(--color-white);
         border: 0.25em solid var(--color-light-accent, rgb(244, 121, 124));
     }
+
+    &:first-child::after {
+        left: calc(25% + ${COLUMN_GAP} + ${SEPARATOR_WIDTH} / 2);
+        top: -0.2em;
+        content: "";
+        width: 1.8em;
+        height: 1.8em;
+        display: flex;
+        position: absolute;
+        transform: translateX(-50%);
+        background-image: url(/css/img/first-point.svg);
+        background-size: cover;
+    }
 `;
 
 const Separator = styled.div`

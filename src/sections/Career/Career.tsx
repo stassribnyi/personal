@@ -43,13 +43,11 @@ const List = styled.ul`
   background-color: var(--color-light-accent, rgb(244, 121, 124));
 }
 
-.career__work-stages,
-.career__education-stages {
+.career__work-stages{
   position: relative;
 }
 
-.career__work-stages::before,
-.career__education-stages::before {
+.career__work-stages::before {
   top: 0;
   left: 25%;
   bottom: 0;
@@ -74,8 +72,7 @@ const List = styled.ul`
     position: relative;
 }
 
-.career__work-stage:not(:first-child)::before,
-.career__education-stage::before {
+.career__work-stage:not(:first-child)::before {
   top: 0;
   left: 25%;
   content: "";
@@ -102,22 +99,19 @@ const List = styled.ul`
   background-size: cover;
 }
 
-.career__company,
-.career__institution {
+.career__company {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.career__company p,
-.career__institution p {
+.career__company p {
   /*TODO*/
   text-indent: 0;
   text-align: center;
 }
 
-.career__company img,
-.career__institution img {
+.career__company img {
   width: 100px;
   height: 100px;
   margin-bottom: 1em;
@@ -127,33 +121,18 @@ const List = styled.ul`
   font-weight: 400;
 }
 
-.career__position,
-.career__education {
+.career__position{
   display: flex;
   flex-direction: column;
 }
 
-.career__position h4,
-.career__education h4 {
+.career__position h4 {
   /*TODO*/
   line-height: 1.45em;
   margin-bottom: 0.5em;
   color: var(--color-dark-accent, rgb(50, 89, 99));
 }
 
-.career__education-degree,
-.career__education-field-of-study {
-  /*TODO*/
-  text-indent: 0;
-}
-
-.career__education-degree {
-  font-weight: 400;
-}
-
-.career__education-degree::after {
-  content: ",";
-}
 
 .career__technologies {
   display: flex;
