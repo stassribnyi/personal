@@ -3,7 +3,11 @@ import { styled } from '@linaria/react';
 const SEPARATOR_WIDTH = '0.2rem';
 const COLUMN_GAP = '1.5rem';
 
-const Item = styled.li`
+const MARKER_LEFT_SHIFT = `calc(25% + ${COLUMN_GAP} + ${SEPARATOR_WIDTH} / 2)`;
+
+type ItemProps = Readonly<{ 'data-variant'?: 'primary' }>;
+
+const Item = styled.li<ItemProps>`
     display: grid;
     grid-template-columns: 25% ${SEPARATOR_WIDTH} auto;
     grid-column-gap: 1.5rem;
@@ -12,29 +16,28 @@ const Item = styled.li`
 
     &::before {
         top: 0;
-        left: calc(25% + ${COLUMN_GAP} + ${SEPARATOR_WIDTH} / 2);
-        content: "";
-        width: 0.8em;
-        height: 0.8em;
-        display: flex;
-        position: absolute;
-        border-radius: 50%;
-        transform: translateX(-50%);
-        background-color: var(--color-white);
-        border: 0.25em solid var(--color-light-accent, rgb(244, 121, 124));
-    }
+        left: ${MARKER_LEFT_SHIFT};
 
-    &:first-child::after {
-        left: calc(25% + ${COLUMN_GAP} + ${SEPARATOR_WIDTH} / 2);
-        top: -0.2em;
+        width: 1.25em;
+        height: 1.25em;
+
         content: "";
-        width: 1.8em;
-        height: 1.8em;
+        
         display: flex;
         position: absolute;
+        box-sizing: border-box;
         transform: translateX(-50%);
-        background-image: url(/css/img/first-point.svg);
+      }
+
+      &:not([data-variant="primary"]):before{
+            border-radius: 50%;
+            background-color: var(--color-white);
+            border: 0.25em solid var(--color-light-accent, rgb(244, 121, 124));
+      }
+
+    &[data-variant="primary"]:before {
         background-size: cover;
+        background-image: url(/css/img/first-point.svg);
     }
 `;
 

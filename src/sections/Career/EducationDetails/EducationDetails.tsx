@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Styled } from './Details.styles';
+import { Styled } from './EducationDetails.styles';
 
 type DetailsProps = Readonly<{
     title: string;
@@ -8,7 +8,7 @@ type DetailsProps = Readonly<{
     fieldOfStudy: string;
 }>;
 
-export const Details: React.FC<DetailsProps> = ({ title, degree, fieldOfStudy }) => (
+export const EducationDetails: React.FC<DetailsProps> = ({ title, degree, fieldOfStudy }) => (
     <>
         <Styled.Title>{title}</Styled.Title>
         <Styled.Degree>{degree},</Styled.Degree>

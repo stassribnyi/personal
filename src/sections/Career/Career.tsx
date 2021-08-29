@@ -2,11 +2,14 @@ import { styled } from '@linaria/react';
 import React from 'react';
 
 
-import { Section } from '../../components';
+import { Section, Timeline, TimelineLogo } from '../../components';
 
 import { EducationTimeline } from './EducationTimeline';
 import { Recommendations } from './Recommendations';
 import { Experience } from './Experience';
+import { EducationDetails } from './EducationDetails';
+import { EDUCATION_STAGES, WORK_STAGES } from './Career.data';
+import { WorkDetails } from './WorkDetails';
 
 const List = styled.ul`
 
@@ -99,32 +102,6 @@ const List = styled.ul`
   background-size: cover;
 }
 
-.career__company {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.career__company p {
-  /*TODO*/
-  text-indent: 0;
-  text-align: center;
-}
-
-.career__company img {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 1em;
-}
-
-.career__company-name {
-  font-weight: 400;
-}
-
-.career__position{
-  display: flex;
-  flex-direction: column;
-}
 
 .career__position h4 {
   /*TODO*/
@@ -133,12 +110,6 @@ const List = styled.ul`
   color: var(--color-dark-accent, rgb(50, 89, 99));
 }
 
-
-.career__technologies {
-  display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-}
 
 .career__responsibilities {
   list-style: disc;
@@ -150,18 +121,6 @@ const List = styled.ul`
   line-height: 1.45em;
 }
 
-.career__technologies > li {
-  /*TODO*/
-  padding: 0.2em 0.6em;
-  margin: 0 0.5em 0.3em 0;
-
-  line-height: 1;
-  font-size: 0.9em;
-  color: var(--color-dark-accent, rgb(50, 89, 99));
-
-  border-radius: 16px;
-  border: 1px solid var(--color-dark-accent, rgb(50, 89, 99));
-}
 
 .career__recommendation {
   display: flex;
@@ -223,16 +182,52 @@ const List = styled.ul`
 `;
 
 export const Career: React.FC = () => {
+  const educationTimeline = EDUCATION_STAGES.map((institution) => {
+    const left = <TimelineLogo
+      src={institution.logoUrl}
+      alt={institution.institution}
+      period={institution.period}
+    />;
+
+    const right = <EducationDetails
+      title={institution.institution}
+      degree={institution.degree}
+      fieldOfStudy={institution.fieldOfStudy}
+    />
+
+    return ({ left, right });
+  });
+
+  const workTimeline = WORK_STAGES.map((company) => {
+    const left = <TimelineLogo
+      src={company.logoUrl}
+      alt={company.name}
+      title={company.name}
+      period={company.period}
+    />;
+
+    const right = <WorkDetails
+      position={company.position}
+      responsibilities={company.responsibilities}
+      technologies={company.technologies}
+    />
+
+    return ({ left, right });
+  });
 
   return (
     <Section id="career" title="Career" >
       <List>
-        {/* <Experience /> */}
+        <li className="career__group">
+          <h3 className="career__group-title">Work</h3>
+          <Timeline isRoot items={workTimeline} />
+        </li>
 
         <li className="career__group">
           <h3 className="career__group-title">Education</h3>
-          <EducationTimeline />
+          <Timeline items={educationTimeline} />
         </li>
+
         {/* <Recommendations /> */}
       </List>
     </Section>

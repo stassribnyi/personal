@@ -1,5 +1,14 @@
-import React from 'react';
-import { Timeline, TimelineLogo } from '../../../components';
+type EducationStageItem = Readonly<{
+    logoUrl: string;
+    institution: string;
+    period: {
+        from: string;
+        to: string;
+    }
+    degree: string;
+    fieldOfStudy: string;
+}>;
+
 
 type WorkStageItem = Readonly<{
     logoUrl: string;
@@ -13,7 +22,7 @@ type WorkStageItem = Readonly<{
     technologies: Array<string>;
 }>;
 
-const WORK_STAGES: Array<WorkStageItem> = [
+export const WORK_STAGES: Array<WorkStageItem> = [
     {
         logoUrl: "/img/career/innovecs.png",
         name: "Innovecs",
@@ -139,33 +148,36 @@ const WORK_STAGES: Array<WorkStageItem> = [
     }
 ];
 
-export const Experience: React.FC = () => {
-    const timeline = WORK_STAGES.map((company) => {
-        const left = <TimelineLogo
-            src={company.logoUrl}
-            alt={company.name}
-            title={company.name}
-            period={company.period}
-        />;
+export const EDUCATION_STAGES: Array<EducationStageItem> = [
+    {
+        logoUrl: "/img/career/krnu.png",
+        institution: "Kremenchuk State Polytechnical University",
+        period: {
+            from: "Sept 2016",
+            to: "Aug 2018",
+        },
+        degree: "Master's degree",
+        fieldOfStudy: "Automation Engineer Technology/Technician",
+    },
+    {
+        logoUrl: "/img/career/altexsoft-labs.png",
+        period: {
+            from: "Oct 2014",
+            to: "Jul 2015",
+        },
+        institution: "AltexSoft Lab (.NET Tech Full-Stack)",
+        degree: "Junior Software Engineer",
+        fieldOfStudy: "Full-Stack .NET (C#/ASP.NET/EF/ADO.NET/WPF) and UI (HTML5, CSS3, JS, AngularJS) platforms development",
+    },
+    {
+        logoUrl: "/img/career/krnu.png",
+        institution: "Kremenchuk State Polytechnical University",
+        period: {
+            from: "Sept 2012",
+            to: "Aug 2016",
+        },
+        degree: "Bachelor's degree",
+        fieldOfStudy: "Automation Engineer Technology/Technician",
+    },
+]
 
-        const right = <div className="career__position">
-            <h4>{company.position}</h4>
-            <ul className="career__responsibilities">
-                {company.responsibilities.map((r, idx) => (
-                    <li key={idx}>{r}.</li>
-                ))}
-            </ul>
-            <ul className="career__technologies">
-                {company.technologies.map((t, idx) => (
-                    <li key={idx}>{t}</li>
-                ))}
-            </ul>
-        </div>
-
-        return ({ left, right });
-    });
-
-    return (
-        <Timeline isRoot items={timeline} />
-    )
-}

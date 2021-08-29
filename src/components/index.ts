@@ -5,3 +5,5 @@ export * from './Image';
 export * from './Button';
 export * from './Rating';
 export * from './Timeline';
+export * from './Chip';
+export * from './ChipList';
