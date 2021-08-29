@@ -2,10 +2,10 @@ import { styled } from "@linaria/react"
 
 import { Chip } from "../Chip";
 
-const List = styled.li`
+const List = styled.ul`
     display: flex;
-  flex-wrap: wrap;
-  list-style: none;
+    flex-wrap: wrap;
+    list-style: none;
 `;
 
 const Item = styled(Chip)`
