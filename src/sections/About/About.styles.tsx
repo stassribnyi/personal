@@ -1,6 +1,12 @@
 import { styled } from '@linaria/react';
 import { Image } from '../../components';
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 const Description = styled.p`
   font-size: 1em;
   text-indent: 2em;
@@ -24,6 +30,7 @@ const Photo = styled(Image)`
 `
 
 export const Styled = {
+  Container,
   Description,
   Figure,
   Photo

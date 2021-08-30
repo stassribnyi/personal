@@ -38,20 +38,22 @@ export const About: React.FC = () => {
 
   return (
     <Section id="about" title="About">
-      <Styled.Figure>
-        <Styled.Photo src={photoUrl} alt={displayName} variant="rounded" />
-        <figcaption>
-          <Details items={details} />
-        </figcaption>
-      </Styled.Figure>
+      <Styled.Container>
+        <Styled.Figure>
+          <Styled.Photo src={photoUrl} alt={displayName} variant="rounded" />
+          <figcaption>
+            <Details items={details} />
+          </figcaption>
+        </Styled.Figure>
 
-      <Styled.Description>
-        {description}
-      </Styled.Description>
+        <Styled.Description>
+          {description}
+        </Styled.Description>
 
-      <Button href={cvUrl}>
-        Download regular version of my CV
-      </Button>
+        <Button href={cvUrl}>
+          Download regular version of my CV
+        </Button>
+      </Styled.Container>
     </Section>
   )
 }

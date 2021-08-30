@@ -4,9 +4,7 @@ import React from 'react';
 
 import { Section, Timeline, TimelineLogo } from '../../components';
 
-import { EducationTimeline } from './EducationTimeline';
 import { Recommendations } from './Recommendations';
-import { Experience } from './Experience';
 import { EducationDetails } from './EducationDetails';
 import { EDUCATION_STAGES, WORK_STAGES } from './Career.data';
 import { WorkDetails } from './WorkDetails';
@@ -89,7 +87,6 @@ const List = styled.ul`
 .recommendation__details:hover .recommendation__author-info > h4 {
   text-decoration: underline;
 }
-
 `;
 
 
@@ -164,7 +161,10 @@ export const Career: React.FC = () => {
           <Timeline items={educationTimeline} />
         </Item>
 
-        {/* <Recommendations /> */}
+        <Item>
+          <Title data-variant="underlined">Recommendations</Title>
+          <Recommendations />
+        </Item>
       </List>
     </Section>
   )

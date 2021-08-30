@@ -3,7 +3,7 @@ import { styled } from '@linaria/react';
 import { Section as DefaultSection } from '../../components';
 
 const Section = styled(DefaultSection)`
-    display: flex;
+    /* display: flex; */
     color: var(--color-light, rgb(243, 242, 239));
     background-color: var(--color-dark-accent, rgb(50, 89, 99));
 `;

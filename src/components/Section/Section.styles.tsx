@@ -3,9 +3,9 @@ import { styled } from '@linaria/react';
 
 const Container = styled.section`
   padding: 7% 0;
-  display: flex;
+  /* display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; */
 `;
 
 
@@ -33,15 +33,16 @@ const Title = styled.h2`
 const Content = styled.div`
   width: 70%;
   margin: 0 auto;
+ 
   max-width: var(--max-content-width, 1140px);
 
-  display: flex;
+  /* display: flex; 
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; */
 `;
 
 export const Styled = {
-    Container,
-    Content,
-    Title
+  Container,
+  Content,
+  Title
 }
