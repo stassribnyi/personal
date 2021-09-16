@@ -17,7 +17,7 @@ export const SkillsList: React.FC<SkillsListProps> = ({ items }) => (
     <Styled.List>
         {items.map(({ skill, strength }, idx) => (
             <Styled.Item key={idx}>
-                <Styled.Skill>{skill}</Styled.Skill>
+                <p>{skill}</p>
                 <Rating rating={strength} />
             </Styled.Item>
         ))}

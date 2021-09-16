@@ -1,16 +1,14 @@
 import { styled } from '@linaria/react';
 
 const List = styled.ul`
-    display: flex;
     list-style: none;
-    flex-direction: column;
 `;
 
 const Item = styled.li`
+    gap: 1rem;
     display: flex;
-    padding: 0 0.1em;
     align-items: center;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.25rem;
     justify-content: space-between;
 
     transform: scale(1);
@@ -25,15 +23,7 @@ const Item = styled.li`
     }
 `;
 
-const Skill = styled.p`
-    /*TODO*/
-    margin: 0;
-    text-indent: 0;
-    margin-right: 1em;
-`;
-
 export const Styled = {
     Item,
     List,
-    Skill
 }

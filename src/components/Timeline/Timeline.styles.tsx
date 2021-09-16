@@ -19,36 +19,41 @@ const List = styled.ul<ItemProps>`
 
 const Item = styled.li`
     display: grid;
-    grid-template-columns: 25% ${SEPARATOR_WIDTH} auto;
-    grid-column-gap: 1.5rem;
+    grid-template-rows: auto auto;
     position: relative;
 
+    @media screen and (min-width: 768px)  {
+        grid-template-rows: unset;
 
-    &:before {
-        top: 0;
-        left: ${MARKER_LEFT_SHIFT};
+        grid-template-columns: 25% ${SEPARATOR_WIDTH} auto;
+        grid-column-gap: 1.5rem;
 
-        width: 1.25em;
-        height: 1.25em;
+        &:before {
+            top: 0;
+            left: ${MARKER_LEFT_SHIFT};
 
-        content: "";
+            width: 1.25em;
+            height: 1.25em;
 
-        display: flex;
-        position: absolute;
-        box-sizing: border-box;
-        transform: translateX(-50%);
+            content: "";
 
-        border-radius: 50%;
-        background-color: var(--color-white);
-        border: 0.25em solid var(--color-light-accent, rgb(244, 121, 124));
-    }
+            display: flex;
+            position: absolute;
+            box-sizing: border-box;
+            transform: translateX(-50%);
 
-    &:last-child > hr {
-        background: linear-gradient(
-            to bottom,
-            var(--color-light, rgb(243, 242, 239)) 80%,
-            rgba(var(--white, 255, 255, 255), 0) 100%
-        );
+            border-radius: 50%;
+            background-color: var(--color-white);
+            border: 0.25em solid var(--color-light-accent, rgb(244, 121, 124));
+        }
+
+        &:last-child > hr {
+            background: linear-gradient(
+                to bottom,
+                var(--color-light, rgb(243, 242, 239)) 80%,
+                rgba(var(--white, 255, 255, 255), 0) 100%
+            );
+        }
     }
 `;
 

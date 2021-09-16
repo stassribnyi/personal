@@ -1,11 +1,16 @@
 import { styled } from '@linaria/react';
+import { ChipList } from '../../../components';
 
 const Title = styled.h4`
   /*TODO*/
   line-height: 1.45em;
   margin-bottom: 0.5em;
   color: var(--color-dark-accent, rgb(50, 89, 99));
+  text-align: center;
 
+  @media screen and (min-width: 768px)  {
+    text-align: initial;
+  }
 `;
 
 const ResponsibilitiesList = styled.ul`
@@ -18,8 +23,16 @@ const ResponsibilitiesList = styled.ul`
   line-height: 1.45em;
 `;
 
+const Technologies = styled(ChipList)`
+  justify-content: center;
+
+  @media screen and (min-width: 768px)  {
+    justify-content: initial;
+  }
+`;
 
 export const Styled = {
-  Title,
   ResponsibilitiesList,
+  Technologies,
+  Title,
 }

@@ -17,6 +17,6 @@ export const WorkDetails: React.FC<DetailsProps> = ({ position, responsibilities
                 <li key={idx}>{r}.</li>
             ))}
         </Styled.ResponsibilitiesList>
-        <ChipList items={technologies} />
+        <Styled.Technologies items={technologies} />
     </>
 )

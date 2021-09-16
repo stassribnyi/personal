@@ -155,34 +155,36 @@ const Cite = styled.cite`
 
 
 export const Welcome: React.FC = () => (
-  <Header>
-    <div className="welcome__content">
-      <div className="welcome__column">
-        <h1 className="welcome__title">
-          <em className="my-greeting">Hello, I am</em>
-          <span className="my-name line-on-sides">Stas Sribnyi</span>
-          <strong className="my-title">Front-End Engineer</strong>
-        </h1>
-        <p>
-          Nice to see you here. I am a skilled front-end engineer with more
-          than <span id="js--career-start">5</span> years of working
-          experience both with front-end and back-end. I develop single-page
-          web applications using a variety of frameworks such as React and
-          Angular. I will be glad to collaborate with you.
-        </p>
-        <Blockquote>
-          When it is obvious that the goals cannot be reached, don't adjust
-          the goals, adjust the action steps.
-          <Cite>Confucius</Cite>
-        </Blockquote>
-      </div>
-    </div>
-    <div className="welcome__actions">
-      <div className="welcome__column">
-        <Button href="#contacts">Hire me</Button>
-        <Button href="#contacts" variant="secondary">Contact me</Button>
-      </div>
-    </div>
-    <Navigation />
-  </Header>
+  // <Header>
+  //   <div className="welcome__content">
+  //     <div className="welcome__column">
+  //       <h1 className="welcome__title">
+  //         <em className="my-greeting">Hello, I am</em>
+  //         <span className="my-name line-on-sides">Stas Sribnyi</span>
+  //         <strong className="my-title">Front-End Engineer</strong>
+  //       </h1>
+  //       <p>
+  //         Nice to see you here. I am a skilled front-end engineer with more
+  //         than <span id="js--career-start">5</span> years of working
+  //         experience both with front-end and back-end. I develop single-page
+  //         web applications using a variety of frameworks such as React and
+  //         Angular. I will be glad to collaborate with you.
+  //       </p>
+  //       <Blockquote>
+  //         When it is obvious that the goals cannot be reached, don't adjust
+  //         the goals, adjust the action steps.
+  //         <Cite>Confucius</Cite>
+  //       </Blockquote>
+  //     </div>
+  //   </div>
+  //   <div className="welcome__actions">
+  //     <div className="welcome__column">
+  //       <Button href="#contacts">Hire me</Button>
+  //       <Button href="#contacts" variant="secondary">Contact me</Button>
+  //     </div>
+  //   </div>
+  //   <Navigation />
+  // </Header>
+  <Navigation />
+
 )

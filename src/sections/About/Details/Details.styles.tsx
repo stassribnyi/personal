@@ -1,32 +1,33 @@
 
-import { styled } from 'linaria/react';
+import { styled } from '@linaria/react';
 
-const DetailsList = styled.ul`
+const List = styled.ul`
   list-style: none;
 `;
 
-const DetailItem = styled.li`
+const Item = styled.li`
   display: flex;
   align-items: center;
-  margin-bottom: 0.5em;
   flex-direction: column;
 
-  &:first-child {
-    margin-bottom: 1em;
-  }
-
-  & > span {
-    font-size: 0.9em;
-    line-height: 1.25em;
-  }
-
-  & > span:first-child {
-    font-weight: 700;
-    margin-bottom: 0.2em;
+  &:not(:last-child) {
+    margin-bottom: 0.5rem;
   }
 `;
 
+const Label = styled.span`
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+`;
+
+const Text = styled.span`
+    font-size: 0.9em;
+    line-height: 1.25em;
+`;
+
 export const Styled = {
-  DetailsList,
-  DetailItem
+  Label,
+  Item,
+  List,
+  Text
 };

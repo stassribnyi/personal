@@ -48,7 +48,11 @@ export const globals = css`
 
     html,
     body {
-      font-size: 20px;
+      font-size: 16px;
+    }
+
+    body {
+      font-size: 18px;
       font-weight: 300;
       color: var(--color-dark, rgb(51, 51, 51));
       font-family: "Roboto Condensed", -apple-system, system-ui, BlinkMacSystemFont,
@@ -62,11 +66,6 @@ export const globals = css`
       border-radius: 0;
       -webkit-appearance: none;
     }
-
-
-
-
-
   }
 `;
 

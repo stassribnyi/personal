@@ -10,8 +10,8 @@ const Container = styled.div`
 const Description = styled.p`
   font-size: 1em;
   text-indent: 2em;
-  margin-bottom: 2em;
-  line-height: 1.45em;
+  margin-bottom: 2rem;
+  line-height: 1.45;
   text-align: justify;
 `;
 
@@ -21,12 +21,12 @@ const Figure = styled.figure`
     grid-column-gap: 1rem;
     grid-template-columns: auto auto;
 
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 `;
 
 const Photo = styled(Image)`
-  width: 150px;
-  height: 150px;
+  width: 7.8125rem;
+  height: 7.8125rem;
 `
 
 export const Styled = {

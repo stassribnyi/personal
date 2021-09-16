@@ -6,7 +6,7 @@ import { About, Career, Skills, Welcome } from '../sections';
 
 const Home: React.FC = () => (
   <Layout>
-    <Welcome />
+    {/* <Welcome /> */}
     <About />
     <Skills />
     <Career />

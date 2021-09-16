@@ -12,12 +12,12 @@ export type DetailsProps = Readonly<{
 }>
 
 export const Details: React.FC<DetailsProps> = ({ items }) => (
-    <Styled.DetailsList>
+    <Styled.List>
         {items.map(({ label, value }, idx) => (
-            <Styled.DetailItem key={idx}>
-                <span>{label}:</span>
-                <span>{value}</span>
-            </Styled.DetailItem>
+            <Styled.Item key={idx}>
+                <Styled.Label>{label}:</Styled.Label>
+                <Styled.Text>{value}</Styled.Text>
+            </Styled.Item>
         ))}
-    </Styled.DetailsList>
+    </Styled.List>
 );
