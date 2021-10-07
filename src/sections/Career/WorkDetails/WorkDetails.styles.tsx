@@ -25,6 +25,7 @@ const ResponsibilitiesList = styled.ul`
 
 const Technologies = styled(ChipList)`
   justify-content: center;
+  color: var(--color-dark-accent, rgb(50, 89, 99));
 
   @media screen and (min-width: 768px)  {
     justify-content: initial;

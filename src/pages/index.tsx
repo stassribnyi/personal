@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Layout } from '../components';
-import { About, Career, Skills, Welcome } from '../sections';
+import { About, Career, Projects, Skills, Welcome } from '../sections';
 
 
 const Home: React.FC = () => (
@@ -10,6 +10,7 @@ const Home: React.FC = () => (
     <About />
     <Skills />
     <Career />
+    <Projects />
   </Layout >
 )
 

@@ -6,10 +6,9 @@ const Item = styled.li`
 
     line-height: 1;
     font-size: 0.9em;
-    color: var(--color-dark-accent, rgb(50, 89, 99));
 
     border-radius: 16px;
-    border: 1px solid var(--color-dark-accent, rgb(50, 89, 99));
+    border: 1px solid currentColor;
 `;
 
 export const Styled = {

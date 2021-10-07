@@ -1,18 +1,14 @@
 import { styled } from "@linaria/react"
 
-import { Chip } from "../Chip";
-
 const List = styled.ul`
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-`;
+    
+    gap: 0.3em 0.5em ;
 
-const Item = styled(Chip)`
-  margin: 0 0.5em 0.3em 0;
 `;
 
 export const Styled = {
-    Item,
-    List
+  List
 }
