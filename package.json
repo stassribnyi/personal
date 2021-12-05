@@ -7,7 +7,7 @@
   "author": "stas.sribnyi@gmail.com",
   "license": "MIT",
   "scripts": {
-    "develop": "gatsby develop",
+    "start": "gatsby develop",
     "build": "gatsby build"
   },
   "dependencies": {

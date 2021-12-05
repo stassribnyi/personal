@@ -10,9 +10,9 @@ export type ButtonProps = Readonly<{
 
 export const Button: React.FC<ButtonProps> = ({ variant = "primary", ...props }) => {
     if (props.href) {
-        return <Styled.Button as="a" variant={variant} {...props} />;
+        return <Styled.Button as="a" data-variant={variant} {...props} />;
     }
 
-    return <Styled.Button variant={variant}  {...props} />;
+    return <Styled.Button data-variant={variant}  {...props} />;
 }
 

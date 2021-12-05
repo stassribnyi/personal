@@ -10,16 +10,17 @@ const ICON_NAMES = [
     'chevron-up',
     'chevron-down',
     'flask',
-    'social-github',
-    'social-facebook',
-    'social-linkedin',
-    'social-instagram'
+    'logo-github',
+    'logo-facebook',
+    'logo-linkedin',
+    'logo-instagram'
 ] as const;
 
 type IconName = typeof ICON_NAMES[number];
 
 export type IconProps = Readonly<{
     name: IconName;
+    className?:string;
     disabled?: boolean;
 }>;
 

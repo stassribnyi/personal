@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react';
 
-type ButtonProps = Readonly<{ variant: 'primary' | 'secondary' }>;
+type ButtonProps = Readonly<{ 'data-variant': 'primary' | 'secondary' }>;
 
 const Button = styled.button<ButtonProps>`
     &,
@@ -26,11 +26,14 @@ const Button = styled.button<ButtonProps>`
         transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
         will-change: transform;
 
-        background-color: ${({ variant }) =>
-        variant === 'primary'
-            ? 'var(--color-light-accent, rgb(244, 121, 124))'
-            : 'var(--color-dark-accent, rgb(50, 89, 99))'
-    };
+
+        &[data-variant="primary"]{
+            background-color: var(--color-light-accent, rgb(244, 121, 124));
+        }
+
+        &[data-variant="secondary"]{
+            background-color: var(--color-dark-accent, rgb(50, 89, 99));
+        }
     }
 
     &:hover,
@@ -63,5 +66,5 @@ const Button = styled.button<ButtonProps>`
 `;
 
 export const Styled = {
-    Button
-}
+  Button,
+};
