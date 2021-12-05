@@ -1,6 +1,6 @@
 import styled  from 'styled-components';
 
-const ICON_NAMES = [
+export const ICON_NAMES = [
     'at',
     'link',
     'flash',
@@ -25,6 +25,7 @@ export type IconProps = Readonly<{
 }>;
 
 const Icon = styled.span<IconProps>`
+    display: inline-block;
     height: 1em;
     width: 1em;
 

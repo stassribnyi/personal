@@ -8,7 +8,7 @@ export type CarouselProps = Readonly<{
     options?: Options
 }>;
 
-const DEFAULT_OPTIONS: Options = {
+export const DEFAULT_OPTIONS: Options = {
     autoplay: 15000,
     type: "carousel",
     dragThreshold: 60,

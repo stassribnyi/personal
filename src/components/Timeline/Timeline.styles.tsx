@@ -8,7 +8,7 @@ const MARKER_LEFT_SHIFT = `calc(25% + ${COLUMN_GAP} + ${SEPARATOR_WIDTH} / 2)`;
 type ItemProps = Readonly<{ 'data-root'?: boolean }>;
 
 const List = styled.ul<ItemProps>`
-    &[data-root] > li {
+    &[data-root="true"] > li {
         &:first-child:before{
             border: none;
             background-size: cover;
