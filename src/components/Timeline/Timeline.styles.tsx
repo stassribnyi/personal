@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled  from 'styled-components';
 
 const SEPARATOR_WIDTH = '0.2rem';
 const COLUMN_GAP = '1.5rem';

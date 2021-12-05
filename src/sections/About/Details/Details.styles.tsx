@@ -1,5 +1,5 @@
 
-import { styled } from '@linaria/react';
+import styled  from 'styled-components';
 
 const List = styled.ul`
   list-style: none;

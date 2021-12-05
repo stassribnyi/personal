@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled  from 'styled-components';
 import React from 'react';
 
 import { Button, Icon, Section } from '../../components';

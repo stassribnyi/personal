@@ -1,4 +1,4 @@
-import { styled } from "@linaria/react";
+import styled  from 'styled-components';
 import React from "react";
 import { ChipList, Section } from "../../components";
 import { Styled } from "./Projects.styles";

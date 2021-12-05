@@ -1,14 +1,12 @@
 import React from 'react';
-import { css } from 'linaria';
+import { createGlobalStyle } from 'styled-components';
 
-import "@fontsource/roboto-condensed/300.css";
-import "@fontsource/roboto-condensed/300-italic.css";
-import "@fontsource/roboto-condensed/400.css";
-import "@fontsource/roboto-condensed/700.css";
+import '@fontsource/roboto-condensed/300.css';
+import '@fontsource/roboto-condensed/300-italic.css';
+import '@fontsource/roboto-condensed/400.css';
+import '@fontsource/roboto-condensed/700.css';
 
-
-export const globals = css`
-  :global() {
+export const GlobalStyle = createGlobalStyle`
     :root {
       --black: 0, 0, 0;
       --white: 255, 255, 255;
@@ -66,11 +64,11 @@ export const globals = css`
       border-radius: 0;
       -webkit-appearance: none;
     }
-  }
 `;
 
 export const Layout: React.FC = ({ children }) => (
   <>
+    <GlobalStyle />
     {children}
   </>
-)
+);

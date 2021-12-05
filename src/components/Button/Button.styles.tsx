@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react';
+import styled  from 'styled-components';
 
 type ButtonProps = Readonly<{ 'data-variant': 'primary' | 'secondary' }>;
 

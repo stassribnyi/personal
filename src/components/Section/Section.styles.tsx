@@ -1,5 +1,5 @@
 
-import { styled } from '@linaria/react';
+import styled  from 'styled-components';
 
 const Container = styled.section`
     padding: 2.25rem 0;
