@@ -3,7 +3,7 @@ import React from 'react';
 import { Button, Section, Image } from '../../components';
 import { Details } from './Details';
 
-import { Styled } from './About.styles';
+import { Typography, Grid, Avatar } from '@mui/material';
 
 const ME = {
   photoUrl: '/img/profiles/stassribnyi.jpg',
@@ -22,11 +22,12 @@ const ME = {
   then I worked with several companies, with the different teams, hold
   different positions and I am here, to provide you with all that
   experience to make you happy 😎.`,
-  cvUrl: 'https://drive.google.com/open?id=0B4WwhDkyLxKpSDZzdzU4YUdBX1k'
-}
+  cvUrl: 'https://drive.google.com/open?id=0B4WwhDkyLxKpSDZzdzU4YUdBX1k',
+};
 
 export const About: React.FC = () => {
-  const { age, cvUrl, description, firstName, lastName, location, photoUrl } = ME;
+  const { age, cvUrl, description, firstName, lastName, location, photoUrl } =
+    ME;
 
   const displayName = `${firstName} ${lastName}`;
 
@@ -37,23 +38,37 @@ export const About: React.FC = () => {
   ];
 
   return (
-    <Section id="about" title="About">
-      <Styled.Container>
-        <Styled.Figure>
-          <Styled.Photo src={photoUrl} alt={displayName} variant="rounded" />
-          <figcaption>
+    <Section id='about' title='About'>
+      <Grid container direction='column' alignItems='center'>
+        <Grid
+          container
+          columnGap='1rem'
+          justifyContent='center'
+          alignItems='center'
+          marginBottom='1.5rem'
+        >
+          <Avatar
+            src={photoUrl}
+            alt={displayName}
+            sx={{ width: 100, height: 100 }}
+          />
+          <Typography component='figcaption'>
             <Details items={details} />
-          </figcaption>
-        </Styled.Figure>
+          </Typography>
+        </Grid>
 
-        <Styled.Description>
+        <Typography
+          variant='body1'
+          sx={{
+            textIndent: '2em',
+            marginBottom: '2rem',
+          }}
+        >
           {description}
-        </Styled.Description>
+        </Typography>
 
-        <Button href={cvUrl}>
-          Download regular version of my CV
-        </Button>
-      </Styled.Container>
+        <Button href={cvUrl}>Download regular version of my CV</Button>
+      </Grid>
     </Section>
-  )
-}
+  );
+};

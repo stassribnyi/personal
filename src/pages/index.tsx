@@ -1,19 +1,24 @@
 import React from 'react';
 
 import { Layout } from '../components';
-import { About, Career, Projects, Skills, Contacts } from '../sections';
-
+import {
+  About,
+  Career,
+  Projects,
+  Skills,
+  Contacts,
+  Welcome,
+} from '../sections';
 
 const Home: React.FC = () => (
   <Layout>
-    {/* <Welcome /> */}
+    <Welcome />
     <About />
     <Skills />
     <Career />
     <Projects />
     <Contacts />
-  </Layout >
-)
+  </Layout>
+);
 
 export default Home;
-

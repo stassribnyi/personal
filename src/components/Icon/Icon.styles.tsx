@@ -28,6 +28,7 @@ const Icon = styled.span<IconProps>`
     display: inline-block;
     height: 1em;
     width: 1em;
+    line-height: 1;
 
     &::before {
         content: "";
