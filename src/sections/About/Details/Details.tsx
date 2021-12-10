@@ -19,7 +19,7 @@ export const Details: React.FC<DetailsProps> = ({ items }) => (
         <ListItemText
           primary={`${label}:`}
           secondary={value}
-          primaryTypographyProps={{ align: 'center' }}
+          primaryTypographyProps={{ align: 'center', fontWeight: 500 }}
           secondaryTypographyProps={{ align: 'center' }}
         />
       </ListItem>

@@ -13404,7 +13404,7 @@ react-refresh@^0.9.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.9.0.tgz#71863337adc3e5c2f8a6bfddd12ae3bfe32aafbf"
   integrity sha512-Gvzk7OZpiqKSkxsQvO/mbTN1poglhmAV7gR/DdIrRrSMXraRQQlfikRJOr3Nb9GTMPC5kof948Zy6jJZIFtDvQ==
 
-react-router-dom@^6.0.0:
+react-router-dom@^6.0.0, react-router-dom@^6.0.2:
   version "6.0.2"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.0.2.tgz#860cefa697b9d4965eced3f91e82cdbc5995f3ad"
   integrity sha512-cOpJ4B6raFutr0EG8O/M2fEoyQmwvZWomf1c6W2YXBZuFBx8oTk/zqjXghwScyhfrtnt0lANXV2182NQblRxFA==
@@ -13418,6 +13418,11 @@ react-router@6.0.2, react-router@^6.0.0:
   integrity sha512-8/Wm3Ed8t7TuedXjAvV39+c8j0vwrI5qVsYqjFr5WkJjsJpEvNSoLRUbtqSEYzqaTUj1IV+sbPJxvO+accvU0Q==
   dependencies:
     history "^5.1.0"
+
+react-scrollama@^2.2.16:
+  version "2.2.16"
+  resolved "https://registry.yarnpkg.com/react-scrollama/-/react-scrollama-2.2.16.tgz#21e0c0ce9c7fc57ccac07e119819bf2f641b1233"
+  integrity sha512-rkd05GPuzqFPypRyxI5wUnNilzqybDTODGCoY7UKQ7sl4mpjzREeQ6BT2Hvq4r4DSQPB7aix8r4ibWaZAXVG4g==
 
 react-sizeme@^3.0.1:
   version "3.0.2"

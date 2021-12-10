@@ -1,5 +1,8 @@
-import { Stack, Typography } from '@mui/material';
-import React from 'react';
+import {
+  Stack,
+  Typography,
+} from '@mui/material';
+import React, {  } from 'react';
 
 import styled from 'styled-components';
 import { Button } from '../../components';
@@ -153,38 +156,43 @@ const Cite = styled.cite`
   line-height: 1.45em;
 `;
 
-export const Welcome: React.FC = () => (
-  <Header>
-    <div className='welcome__content'>
-      <div className='welcome__column'>
-        <Typography variant="h1" className='welcome__title'>
-          <em className='my-greeting'>Hello, I am</em>
-          <span className='my-name line-on-sides'>Stas Sribnyi</span>
-          <strong className='my-title'>Front-End Engineer</strong>
-        </Typography>
-        <Typography variant="body2">
-          Nice to see you here. I am a skilled front-end engineer with more than{' '}
-          <span id='js--career-start'>5</span> years of working experience both
-          with front-end and back-end. I develop single-page web applications
-          using a variety of frameworks such as React and Angular. I will be
-          glad to collaborate with you.
-        </Typography>
-        <Typography component="blockquote">
-          When it is obvious that the goals cannot be reached, don't adjust the
-          goals, adjust the action steps.
-          <Typography component="cite">Confucius</Typography>
-        </Typography>
-      </div>
-    </div>
-    <div className='welcome__actions'>
-      <div className='welcome__column'>
-        <Stack spacing={2} direction='row'>
-          <Button href='#contacts'>Hire me</Button>
-          <Button href='#contacts' color='secondary'>
-            Contact me
-          </Button>
-        </Stack>
-      </div>
-    </div>
-  </Header>
-);
+export const Welcome: React.FC = () => {
+  return (
+    <>
+      <Header>
+        <div className='welcome__content'>
+          <div className='welcome__column'>
+            <Typography variant='h1' className='welcome__title'>
+              <em className='my-greeting'>Hello, I am</em>
+              <span className='my-name line-on-sides'>Stas Sribnyi</span>
+              <strong className='my-title'>Front-End Engineer</strong>
+            </Typography>
+            <Typography variant='body2'>
+              Nice to see you here. I am a skilled front-end engineer with more
+              than <span id='js--career-start'>5</span> years of working
+              experience both with front-end and back-end. I develop single-page
+              web applications using a variety of frameworks such as React and
+              Angular. I will be glad to collaborate with you.
+            </Typography>
+            <Typography component='blockquote'>
+              When it is obvious that the goals cannot be reached, don't adjust
+              the goals, adjust the action steps.
+              <Typography component='cite'>Confucius</Typography>
+            </Typography>
+          </div>
+        </div>
+        <div className='welcome__actions'>
+          <div className='welcome__column'>
+            <Stack spacing={2} direction='row'>
+              <Button href='#contacts'>Hire me</Button>
+              <Button href='#contacts' color='secondary'>
+                Contact me
+              </Button>
+            </Stack>
+          </div>
+        </div>
+      </Header>
+      <Navigation />
+    </>
+  );
+};

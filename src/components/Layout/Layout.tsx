@@ -5,6 +5,7 @@ import {
   rgbToHex,
   CssBaseline,
 } from '@mui/material';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import type {} from '@mui/lab/themeAugmentation';
 
@@ -12,7 +13,6 @@ import '@fontsource/roboto-condensed/300.css';
 import '@fontsource/roboto-condensed/300-italic.css';
 import '@fontsource/roboto-condensed/400.css';
 import '@fontsource/roboto-condensed/700.css';
-import { Navigation } from '../../sections/Welcome/Navigation';
 
 const COLORS = {
   common: {
@@ -149,15 +149,15 @@ const theme = createTheme({
               content: '""',
               display: 'flex',
               position: 'absolute',
-              
+
               left: '50%',
               width: '150%',
               height: '0.1em',
               minWidth: '5em',
               margin: '0.25em auto 0 auto',
-              
+
               transform: 'translateX(-50%)',
-              
+
               backgroundColor: COLORS.accent.light,
             },
           },
@@ -168,7 +168,6 @@ const theme = createTheme({
           props: { variant: 'h5' },
           style: {
             '&[data-underline]': {
-  
               '&::after': {
                 minWidth: '10em',
                 height: '0.05em',
@@ -177,7 +176,7 @@ const theme = createTheme({
             },
           },
         },
-      ]
+      ],
     },
     MuiBottomNavigation: {
       styleOverrides: {
@@ -193,9 +192,9 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           color: COLORS.common.light,
-        },
-        selected: {
-          color: COLORS.accent.light,
+          '&.Mui-selected': {
+            color: COLORS.accent.light,
+          },
         },
       },
     },
@@ -209,9 +208,9 @@ const theme = createTheme({
     MuiTimelineOppositeContent: {
       styleOverrides: {
         root: {
-          flex: 0.35
-        }
-      }
+          flex: 0.35,
+        },
+      },
     },
     MuiTimelineDot: {
       styleOverrides: {
@@ -237,7 +236,7 @@ const theme = createTheme({
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
-              
+
               content: '""',
               display: 'flex',
               position: 'absolute',
@@ -267,7 +266,7 @@ const theme = createTheme({
     borderRadius: 0,
   },
   typography: {
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: [
       '"Roboto Condensed"',
       '-apple-system',
@@ -285,6 +284,10 @@ const theme = createTheme({
 });
 
 export const GlobalStyle = createGlobalStyle`
+html{
+ scroll-behavior: smooth;
+
+}
     /* :root {
       --black: 0, 0, 0;
       --white: 255, 255, 255;
@@ -349,8 +352,7 @@ export const Layout: React.FC = ({ children }) => (
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <GlobalStyle />
-      {children}
-      <Navigation />
+      <Router>{children}</Router>
     </MuiThemeProvider>
   </ThemeProvider>
 );
