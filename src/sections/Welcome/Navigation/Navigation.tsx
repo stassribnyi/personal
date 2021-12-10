@@ -19,6 +19,7 @@ import {
   Toolbar,
   useMediaQuery,
 } from '@mui/material';
+import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router';
 import {
@@ -41,7 +42,7 @@ const capitalize = (str: string): string =>
 export const Navigation: React.FC = () => {
   const navigate = useNavigate();
   const isDesktop = useMediaQuery<Theme>((theme) => theme.breakpoints.up('lg'));
-  
+
   const current = useScrollamaContext();
   const { hash } = useLocation();
   const [showNav, setShowNav] = useState(false);
@@ -75,12 +76,52 @@ export const Navigation: React.FC = () => {
   }, [current]);
 
   if (isDesktop) {
+    if (!showNav) {
+      return (
+        <Box
+          sx={{
+            bottom: 0,
+            position: 'absolute',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            color: 'white',
+          }}
+        >
+          Whanna know more about me?
+          <Link
+            href='#about'
+            underline='none'
+            sx={{
+              animationName: 'chevronUpDown',
+              animationDuration: '1s',
+              animationDirection: 'alternate',
+              animationIterationCount: 'infinite',
+              animationTimingFunction: 'ease-in-out',
+            }}
+          >
+            <KeyboardArrowDown sx={{ fontSize: 48 }} />
+          </Link>
+        </Box>
+      );
+    }
+
     return (
       <AppBar
-        position='sticky'
+        position={showNav ? 'fixed' : 'sticky'}
         sx={{
-          mt: '-48px',
-          bgcolor: showNav ? 'common.dark' : 'transparent',
+          transition: 'background-color 0.5s',
+          ...(showNav
+            ? {
+                mt: 0,
+                bgcolor: 'common.dark',
+              }
+            : {
+                mt: '-48px',
+                bgcolor: 'transparent',
+              }),
         }}
       >
         <Toolbar variant='dense'>
@@ -91,7 +132,7 @@ export const Navigation: React.FC = () => {
                   href='#about'
                   underline='none'
                   variant='h6'
-                  sx={{ color: hash === '#about' ? 'red' : 'white' }}
+                  sx={{ color: hash === '#about' ? 'rgb(244, 121, 124)' : 'white' }}
                 >
                   /about
                 </Link>
@@ -99,7 +140,7 @@ export const Navigation: React.FC = () => {
                   href='#skills'
                   underline='none'
                   variant='h6'
-                  sx={{ color: hash === '#skills' ? 'red' : 'white' }}
+                  sx={{ color: hash === '#skills' ? 'rgb(244, 121, 124)' : 'white' }}
                 >
                   /skills
                 </Link>
@@ -107,26 +148,24 @@ export const Navigation: React.FC = () => {
                   href='#career'
                   underline='none'
                   variant='h6'
-                  sx={{ color: hash === '#abcareerout' ? 'red' : 'white' }}
+                  sx={{ color: hash === '#career' ? 'rgb(244, 121, 124)' : 'white' }}
                 >
                   /career
                 </Link>
               </Stack>
-              {showNav ? (
-                <Link href='#' underline='none'>
-                  <KeyboardArrowUp sx={{ fontSize: 48 }} />
-                </Link>
-              ) : (
-                <Link href='#about' underline='none'>
-                  <KeyboardArrowDown sx={{ fontSize: 48 }} />
-                </Link>
-              )}
+
+              <Link underline='none' onClick={() => window.scrollTo({
+                top: document.getElementById('career').offsetTop - 48
+              })}>
+                <KeyboardArrowUp sx={{ fontSize: 48 }} />
+              </Link>
+
               <Stack flex='1' direction='row' justifyContent='space-around'>
                 <Link
                   href='#projects'
                   underline='none'
                   variant='h6'
-                  sx={{ color: hash === '#projects' ? 'red' : 'white' }}
+                  sx={{ color: hash === '#projects' ? 'accent.light' : 'white' }}
                 >
                   /projects
                 </Link>
@@ -134,7 +173,7 @@ export const Navigation: React.FC = () => {
                   href='#contacts'
                   underline='none'
                   variant='h6'
-                  sx={{ color: hash === '#contacts' ? 'red' : 'white' }}
+                  sx={{ color: hash === '#contacts' ? 'accent.light' : 'white' }}
                 >
                   /contacts
                 </Link>

@@ -345,6 +345,16 @@ html{
       border-radius: 0;
       -webkit-appearance: none;
     } */
+
+    @keyframes chevronUpDown {
+  from {
+    transform: translateY(-25%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
 `;
 
 export const Layout: React.FC = ({ children }) => (

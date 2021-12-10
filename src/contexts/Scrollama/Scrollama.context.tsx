@@ -39,7 +39,7 @@ export const ScrollamaProvider: React.FC = ({ children }) => {
   return (
     <ScrollamaContext.Provider value={scrollamaCurrent}>
       <Scrollama
-        offset={0.15}
+        offset={0.1}
         onStepEnter={({ data, direction }) => {
           onSectionReachedInternal(data, direction, StepDirection.ENTER);
         }}

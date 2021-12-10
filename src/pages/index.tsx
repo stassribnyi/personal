@@ -10,6 +10,7 @@ import {
   Contacts,
   Welcome,
 } from '../sections';
+import { Navigation } from '../sections/Welcome/Navigation';
 
 const Home: React.FC = () => {
   return (

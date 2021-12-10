@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { Button } from '../../components';
 import { Navigation } from './Navigation';
 
-const Header = styled.header`
+const Header = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
   position: relative;
