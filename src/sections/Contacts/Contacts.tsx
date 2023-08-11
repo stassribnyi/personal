@@ -8,8 +8,11 @@ import {
   List,
   ListItem,
   MenuItem,
+  Stack,
   TextField,
+  Theme,
   Typography,
+  useMediaQuery,
 } from '@mui/material';
 import {
   Email,
@@ -22,12 +25,15 @@ import {
 const Footer = styled(Section)`
   min-height: 100vh;
   position: relative;
-  color: ${({theme}) => theme.palette.common.white};
-  background-color: ${({theme}) => theme.palette.common.black};
-  /* background-color: var(--color-dark, rgb(51, 51, 51)); */
+  color: ${({ theme }) => theme.palette.common.white};
+  background-color: ${({ theme }) => theme.palette.common.dark};
 `;
 
 export const Contacts: React.FC = () => {
+  const isMobile = useMediaQuery<Theme>((theme) =>
+    theme.breakpoints.down('md')
+  );
+
   const LINKS = [
     {
       href: 'https://www.linkedin.com/in/stassribnyi',
@@ -63,41 +69,43 @@ export const Contacts: React.FC = () => {
 
   return (
     <Footer id='contacts' title='Contacts'>
-      <Grid sx={{ margin: '0 auto' }} container sm={10} xs={12} spacing={2}>
+      <Grid container spacing={2}>
         <Grid
           item
           container
           flexDirection='column'
           alignItems='center'
-          sm={6}
+          md={5}
           xs={12}
         >
-          <Typography component="h3" data-underline variant='h5' className='contacts__group-title' textAlign="center">
-            Links
-          </Typography>
-          <List>
+          {!isMobile && (
+            <Typography variant='h3' className='contacts__group-title'>
+              Links
+            </Typography>
+          )}
+          <Stack direction={isMobile ? 'row' : 'column'} gap={2}>
             {LINKS.map(({ href, icon, label, ariaLabel }, idx) => (
-              <ListItem key={idx} disableGutters>
-                <Link href={href} aria-label={ariaLabel}>
-                  {icon}
-                  {label}
-                </Link>
-              </ListItem>
+              <Link key={idx} href={href} aria-label={ariaLabel}>
+                {icon}
+                {!isMobile && label}
+              </Link>
             ))}
-          </List>
+          </Stack>
         </Grid>
 
         <Grid
           item
           xs={12}
-          sm={6}
+          md={7}
           container
           flexDirection='column'
           alignItems='center'
         >
-          <Typography component="h3" data-underline variant='h5' className='contacts__group-title' textAlign="center">
-            Contact me
-          </Typography>
+          {!isMobile && (
+            <Typography variant='h3' className='contacts__group-title'>
+              Contact me
+            </Typography>
+          )}
           <Grid container component='form' flexDirection='column' gap={2.5}>
             <Grid item container flexDirection='column'>
               <Typography component='label' htmlFor='name'>
@@ -121,6 +129,7 @@ export const Contacts: React.FC = () => {
                 select
                 focused
                 id='subject'
+                variant="outlined"
                 placeholder='A message you would like to send me...'
                 defaultValue='Hire You'
               >
@@ -137,6 +146,7 @@ export const Contacts: React.FC = () => {
                 focused
                 multiline
                 id='body'
+                variant="outlined"
                 rows='3'
                 placeholder='A message you would like to send me...'
               />

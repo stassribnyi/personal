@@ -25,10 +25,10 @@ export const Section: React.FC<SectionProps> = ({
     // sx={{
     //   padding: '2.25rem 0',
     // }}
-    pt={4.5}
-    pb={4.5}
+    pt={14.256}
+    pb={14.256}
   >
-    <Typography variant='h4' component='h2' gutterBottom data-underline>
+    <Typography variant='h2' gutterBottom data-underline>
       {title.toUpperCase()}
     </Typography>
     <Container>{children}</Container>

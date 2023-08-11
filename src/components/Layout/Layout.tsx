@@ -44,9 +44,12 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
+          fontSize: '1.125rem',
+          lineHeight: '1.275',
+          fontWeight: 400,
+
           textTransform: 'initial',
           color: COLORS.common.light,
-
           border: `0.1em solid ${COLORS.common.light}`,
 
           boxShadow: `2px 2px 2px rgba(0, 0, 0, 0.4)`, // ToDo
@@ -56,7 +59,6 @@ const theme = createTheme({
       defaultProps: {
         variant: 'contained',
         color: 'primary',
-        size: 'large',
       },
     },
     MuiLink: {
@@ -130,6 +132,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: COLORS.common.white,
+          boxShadow: `2px 2px 2px rgba(0, 0, 0, 0.4)`,
         },
       },
       defaultProps: {
@@ -142,37 +145,43 @@ const theme = createTheme({
     MuiTypography: {
       styleOverrides: {
         root: {
-          '&[data-underline]': {
-            position: 'relative',
-
-            '&::after': {
-              content: '""',
-              display: 'flex',
-              position: 'absolute',
-
-              left: '50%',
-              width: '150%',
-              height: '0.1em',
-              minWidth: '5em',
-              margin: '0.25em auto 0 auto',
-
-              transform: 'translateX(-50%)',
-
-              backgroundColor: COLORS.accent.light,
-            },
+          '&.MuiTypography-gutterBottom': {
+            marginBottom: '1.25em',
           },
         },
       },
       variants: [
         {
-          props: { variant: 'h5' },
+          props: { variant: 'h2' },
           style: {
-            '&[data-underline]': {
-              '&::after': {
-                minWidth: '10em',
-                height: '0.05em',
-                margin: '0.1em auto 0 auto',
-              },
+            position: 'relative',
+
+            '&::after': {
+              content: '""',
+              display: 'flex',
+
+              height: '0.1em',
+              minWidth: '5em',
+              margin: '0.25em auto 0 auto',
+
+              backgroundColor: COLORS.accent.light,
+            },
+          },
+        },
+        {
+          props: { variant: 'h3' },
+          style: {
+            position: 'relative',
+
+            '&::after': {
+              content: '""',
+              display: 'flex',
+
+              height: '0.05em',
+              minWidth: '10em',
+              margin: '0.1em auto 0 auto',
+
+              backgroundColor: COLORS.accent.light,
             },
           },
         },
@@ -247,6 +256,16 @@ const theme = createTheme({
         },
       ],
     },
+    MuiSvgIcon: {
+      variants: [
+        {
+          props: { fontSize: 'medium' },
+          style: {
+            fontSize: '2.25rem',
+          },
+        },
+      ],
+    },
   },
   palette: {
     primary: {
@@ -266,7 +285,7 @@ const theme = createTheme({
     borderRadius: 0,
   },
   typography: {
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: [
       '"Roboto Condensed"',
       '-apple-system',
@@ -280,6 +299,33 @@ const theme = createTheme({
     ].join(','),
     fontWeightRegular: 300,
     fontWeightBold: 700,
+
+    h2: {
+      fontSize: '2em',
+      fontWeight: '400',
+      lineHeight: '1.45',
+      textAlign: 'center',
+      marginBottom: '1.25em',
+      textTransform: 'uppercase',
+    },
+    h3: {
+      fontSize: '1.5em',
+      fontWeight: '300',
+      lineHeight: '1.2',
+      textAlign: 'center',
+      marginBottom: '1.25em',
+      textTransform: 'uppercase',
+    },
+    body1: {
+      fontSize: '1.125rem',
+      textAlign: 'justify',
+      lineHeight: '1.45em',
+    },
+    body2: {
+      fontSize: '0.9em',
+      textAlign: 'justify',
+      lineHeight: '1.45em',
+    },
   },
 });
 
@@ -358,7 +404,7 @@ html{
 `;
 
 export const Layout: React.FC = ({ children }) => (
-  <ThemeProvider theme={{ THEME }}>
+  <ThemeProvider theme={THEME}>
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <GlobalStyle />
