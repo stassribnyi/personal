@@ -46,7 +46,7 @@ export const ScrollamaProvider: React.FC = ({ children }) => {
         onStepExit={({ data, direction }) => {
           onSectionReachedInternal(data, direction, StepDirection.EXIT);
         }}
-        debug
+        // debug
       >
         {children}
       </Scrollama>

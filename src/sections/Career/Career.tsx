@@ -177,7 +177,7 @@ export const Career: React.FC = () => {
 
         <ListItem disableGutters>
           <Grid container flexDirection='column'  alignItems="center">
-          <Typography component='h3' variant='h5' data-underline>
+          <Typography gutterBottom component='h3' variant='h5' data-underline>
             Recommendations
           </Typography>
           <Recommendations />

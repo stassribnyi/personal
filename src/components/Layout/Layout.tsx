@@ -265,22 +265,7 @@ const theme = createTheme({
           },
         },
       ],
-    },
-    MuiGrid: {
-      variants: [
-        {
-          props: { variant: 'section' },
-          style: {
-            // container: true,
-            component: 'section',
-            alignItems: 'center',
-            flexDirection: 'column',
-            pt: 14.256,
-            pb: 14.256,
-          },
-        },
-      ],
-    },
+    }
   },
   palette: {
     primary: {

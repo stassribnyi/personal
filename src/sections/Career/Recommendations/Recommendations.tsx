@@ -1,31 +1,141 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Carousel, Image } from '../../../components';
+import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+
+import { Pagination, Stack, styled } from '@mui/material';
+
 import { RECOMMENDATIONS } from './Recommendation.data';
+import {
+  Avatar,
+  Card,
+  CardContent,
+  Typography,
+  // MobileStepper,
+} from '@mui/material';
 
-export const Recommendations: React.FC = () => (
-  <Carousel>
-    {RECOMMENDATIONS.map((recommendation, idx) => (
-      <blockquote key={idx} className='career__recommendation'>
-        {recommendation.description}
-        <cite>
-          <a
-            className='recommendation__details'
-            href={recommendation.profileUrl}
-          >
-            <Image
-              variant='rounded'
-              src={recommendation.photoUrl}
-              alt={recommendation.displayName}
-            />
-            <div className='recommendation__author-info'>
-              <h4>{recommendation.displayName}</h4>
-              <p>{recommendation.position}</p>
-              <p>{recommendation.relation}</p>
-            </div>
-          </a>
-        </cite>
-      </blockquote>
+const MobileStepper = ({ activeStep, steps, onStepClick }) => (
+  <StepsContainer>
+    {Array.from(Array(steps).keys()).map(step => (
+      <Step key={step} onClick={() => onStepClick(step)} active={activeStep === step} />
     ))}
-  </Carousel>
+  </StepsContainer>
 );
+
+// export default MobileStepper;
+
+const StepsContainer = styled(Stack)(({ theme }) => ({
+  backgroundColor: 'transparent',
+  justifyContent: 'center',
+  marginTop: theme.spacing(3),
+  flexDirection: 'row',
+  gap: theme.spacing(0.5),
+  padding: theme.spacing(1),
+}));
+
+const Step = styled('button')(({ theme, active }) => ({
+  height: '8px',
+  width: '8px',
+  borderRadius: '50%',
+  backgroundColor: active ? theme.palette.primary.main : theme.palette.grey[400],
+  cursor: 'pointer',
+}));
+
+
+export const Recommendations: React.FC = () => {
+  const [slideIdx, setSlideIdx] = useState(0);
+
+  const handleNext = () => {
+    setSlideIdx((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setSlideIdx((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  return (
+    <>
+      <AutoPlaySwipeableViews
+        animateHeight
+        enableMouseEvents
+        interval={5000}
+        index={slideIdx}
+        onChangeIndex={(index) => setSlideIdx(index)}
+      >
+        {RECOMMENDATIONS.map((recommendation, idx) => (
+          <Card
+            key={idx}
+            component='blockquote'
+            sx={{
+              maxWidth: 800,
+              margin: '-1rem auto',
+              boxShadow: '2px 2px 2px 0px rgba(var(--dark, 51, 51, 51), 0.2)',
+              // borderRadius: "40px",
+              backgroundColor: "rgb(50, 89, 99)",
+              color: "#cecece",
+              padding: "1rem 2rem"
+            }}
+          >
+            <CardContent>
+              <Typography
+                component='cite'
+                gutterBottom
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                }}
+              >
+                <Avatar
+                  src={recommendation.photoUrl}
+                  alt={recommendation.displayName}
+                  sx={{
+                    width: 106,
+                    height: 106,
+                    border: '4px solid white',
+                    marginBottom: "2rem"
+                  }}
+                />
+                <Typography
+                  sx={{ fontStyle: 'normal', color: "white", fontWeight: "bold"}}
+                  variant='h5'
+                  component='a'
+                  href={recommendation.profileUrl}
+                >
+                  {recommendation.displayName}
+                </Typography>
+                <Typography variant='body2' sx={{ fontStyle: 'italic' }}>
+                  {recommendation.position}
+                </Typography>
+                <Typography variant='body2' sx={{ fontStyle: 'normal' }}>
+                  {recommendation.relation}
+                </Typography>
+              </Typography>
+              <Typography
+                component='p'
+                gutterBottom
+                sx={{ textIndent: '2rem' }}
+              >
+                {recommendation.description}
+              </Typography>
+            </CardContent>
+          </Card>
+        ))}
+      </AutoPlaySwipeableViews>
+      <MobileStepper
+        variant='dots'
+        steps={RECOMMENDATIONS.length}
+        position='static'
+        activeStep={slideIdx}
+        onStepClick={setSlideIdx}
+        nextButton={null}
+        backButton={null}
+        sx={{ maxWidth: 400, flexGrow: 1 }}
+      />
+
+<Pagination page={slideIdx+1} count={RECOMMENDATIONS.length} size="small" onChange={(_, pageNumber) => setSlideIdx(pageNumber-1)} />
+    </>
+  );
+};

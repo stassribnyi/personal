@@ -7,4 +7,3 @@ export * from './Rating';
 export * from './Timeline';
 export * from './Chip';
 export * from './ChipList';
-export * from './Carousel';
