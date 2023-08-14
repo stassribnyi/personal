@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Button, Section, Image } from '../../components';
+import { Button, Section } from '../../components';
 import { Details } from './Details';
 
 import { Typography, Grid, Avatar } from '@mui/material';

@@ -11,22 +11,26 @@ export enum StepDirection {
   EXIT,
 }
 
+const DEFAULT_STATE = {
+  data: {
+    id: '',
+  },
+  direction: MoveDirection.DOWN,
+  step: StepDirection.ENTER,
+};
+
 const ScrollamaContext = createContext<{
   data: {
     id: string;
   };
   direction: MoveDirection;
   step: StepDirection;
-}>(null);
+}>(DEFAULT_STATE);
 
-export const ScrollamaProvider: React.FC = ({ children }) => {
-  const [scrollamaCurrent, setScrollamaCurrent] = useState({
-    data: {
-      id: '',
-    },
-    direction: MoveDirection.DOWN,
-    step: StepDirection.ENTER,
-  });
+export const ScrollamaProvider: React.FC<React.PropsWithChildren> = ({
+  children,
+}) => {
+  const [scrollamaCurrent, setScrollamaCurrent] = useState(DEFAULT_STATE);
 
   const onSectionReachedInternal = (data, direction, step) => {
     setScrollamaCurrent({

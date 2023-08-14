@@ -1,8 +1,6 @@
 import { List, ListItem, ListItemText } from '@mui/material';
 import React from 'react';
 
-import { Styled } from './Details.styles';
-
 type DetailItem = Readonly<{
   label: string;
   value: string;

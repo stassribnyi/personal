@@ -16,7 +16,6 @@
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto-condensed": "^5.0.8",
-    "@glidejs/glide": "^3.6.0",
     "@mui/icons-material": "^5.14.3",
     "@mui/lab": "^5.0.0-alpha.139",
     "@mui/material": "^5.14.4",
@@ -31,7 +30,6 @@
     "styled-components": "^6.0.7"
   },
   "devDependencies": {
-    "@types/glidejs__glide": "^3.6.1",
     "@types/react-swipeable-views": "^0.13.2",
     "@types/react-swipeable-views-utils": "^0.13.4",
     "@types/styled-components": "^5.1.26"

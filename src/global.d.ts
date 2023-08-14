@@ -1,12 +1,6 @@
 
 import "@mui/material/styles/createPalette";
 
-declare namespace Glide {
-  interface Static {
-    new(selector: HTMLDivElement, options?: Options): Static;
-  }
-}
-
 declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     'h3-underlined': true;

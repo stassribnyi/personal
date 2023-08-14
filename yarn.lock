@@ -1330,11 +1330,6 @@
     html-entities "^2.3.3"
     strip-ansi "^6.0.0"
 
-"@glidejs/glide@^3.6.0":
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/@glidejs/glide/-/glide-3.6.0.tgz#d13fd57de8473a2d86022ac601b5cbc98c9dcfe5"
-  integrity sha512-47Aa+JmYjY4xTFpTtYCwrqirmI1arnp1UZETwtWpbTPisXUAuxrdJxKJLH8KHFWMsSrLi9+AcfyfzDIuO75rEA==
-
 "@graphql-codegen/add@^3.2.3":
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/@graphql-codegen/add/-/add-3.2.3.tgz#f1ecee085987e7c21841edc4b1fd48877c663e1a"
@@ -2414,11 +2409,6 @@
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@types/get-port/-/get-port-3.2.0.tgz#f9e0a11443cc21336470185eae3dfba4495d29bc"
   integrity sha512-TiNg8R1kjDde5Pub9F9vCwZA/BNW9HeXP5b9j7Qucqncy/McfPZ6xze/EyBdXS5FhMIGN6Fx3vg75l5KHy3V1Q==
-
-"@types/glidejs__glide@^3.6.1":
-  version "3.6.1"
-  resolved "https://registry.yarnpkg.com/@types/glidejs__glide/-/glidejs__glide-3.6.1.tgz#51da2cfdb33e24fa8f036640d2e72a3145566898"
-  integrity sha512-+HNjIPLtyRHhyswWSJ9hJjFMw6F9PEpwA+aZGKxh6RE8MceQMrTBeIj5JNc8GwnwdPwb/MLR6aKnkE87usxd9A==
 
 "@types/glob@*":
   version "8.1.0"

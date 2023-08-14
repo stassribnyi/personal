@@ -266,7 +266,7 @@ const theme = createTheme({
           },
         },
       ],
-    }
+    },
   },
   palette: {
     primary: {
@@ -404,7 +404,7 @@ html{
 }
 `;
 
-export const Layout: React.FC = ({ children }) => (
+export const Layout: React.FC<React.PropsWithChildren> = ({ children }) => (
   <ThemeProvider theme={THEME}>
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
