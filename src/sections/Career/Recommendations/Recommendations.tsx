@@ -1,64 +1,23 @@
 import React, { useState } from 'react';
 
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
-
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-
-import { Link, Pagination, Stack, styled } from '@mui/material';
-
-import { RECOMMENDATIONS } from './Recommendation.data';
 import {
   Avatar,
   Card,
   CardContent,
+  Link,
+  Pagination,
   Typography,
-  // MobileStepper,
 } from '@mui/material';
 
-const MobileStepper = ({ activeStep, steps, onStepClick }) => (
-  <StepsContainer>
-    {Array.from(Array(steps).keys()).map((step) => (
-      <Step
-        key={step}
-        onClick={() => onStepClick(step)}
-        active={activeStep === step}
-      />
-    ))}
-  </StepsContainer>
-);
+import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
 
-// export default MobileStepper;
+import { RECOMMENDATIONS } from './Recommendation.data';
 
-const StepsContainer = styled(Stack)(({ theme }) => ({
-  backgroundColor: 'transparent',
-  justifyContent: 'center',
-  marginTop: theme.spacing(3),
-  flexDirection: 'row',
-  gap: theme.spacing(0.5),
-  padding: theme.spacing(1),
-}));
-
-const Step = styled('button')(({ theme, active }) => ({
-  height: '8px',
-  width: '8px',
-  borderRadius: '50%',
-  backgroundColor: active
-    ? theme.palette.primary.main
-    : theme.palette.grey[400],
-  cursor: 'pointer',
-}));
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export const Recommendations: React.FC = () => {
   const [slideIdx, setSlideIdx] = useState(0);
-
-  const handleNext = () => {
-    setSlideIdx((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setSlideIdx((prevActiveStep) => prevActiveStep - 1);
-  };
 
   return (
     <>
@@ -134,16 +93,6 @@ export const Recommendations: React.FC = () => {
           </Card>
         ))}
       </AutoPlaySwipeableViews>
-      {/* <MobileStepper
-        variant='dots'
-        steps={RECOMMENDATIONS.length}
-        position='static'
-        activeStep={slideIdx}
-        onStepClick={setSlideIdx}
-        nextButton={null}
-        backButton={null}
-        sx={{ maxWidth: 400, flexGrow: 1 }}
-      /> */}
 
       <Pagination
         page={slideIdx + 1}

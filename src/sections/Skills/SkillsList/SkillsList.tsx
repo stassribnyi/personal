@@ -1,25 +1,61 @@
 import React from 'react';
 
-import { Rating } from '../../../components';
-
-import { Styled } from './SkillsList.styles';
-
-type Skill = Readonly<{
-    skill: string;
-    strength: number;
-}>
+import { List, ListItem, ListItemText, Rating, Stack } from '@mui/material';
+import { Bolt } from '@mui/icons-material';
 
 export type SkillsListProps = Readonly<{
-    items: Array<Skill>
+  items: Array<
+    Readonly<{
+      skill: string;
+      strength: number;
+    }>
+  >;
 }>;
 
 export const SkillsList: React.FC<SkillsListProps> = ({ items }) => (
-    <Styled.List>
-        {items.map(({ skill, strength }, idx) => (
-            <Styled.Item key={idx}>
-                <p>{skill}</p>
-                <Rating rating={strength} />
-            </Styled.Item>
-        ))}
-    </Styled.List>
-)
+  <List>
+    {items.map(({ skill, strength }, idx) => (
+      <ListItem
+        key={idx}
+        disablePadding
+        sx={{
+          transition: 'transform 0.5s, background-color 0.5s',
+
+          willChange: 'transform',
+
+          '&:hover': {
+            transform: 'scale(1.05)',
+            backgroundColor: ' rgba(var(--black, 0, 0, 0), 0.1)',
+          },
+        }}
+      >
+        <ListItemText>
+          <Stack
+            alignItems='center'
+            component='span'
+            direction='row'
+            justifyContent='space-between'
+          >
+            {skill}
+            <Rating
+              emptyIcon={
+                <Bolt
+                  fontSize='inherit'
+                  sx={{ color: 'common.light', opacity: 0.5 }}
+                />
+              }
+              icon={<Bolt fontSize='inherit' />}
+              readOnly
+              size='small'
+              sx={{
+                // TODO: use color from theme
+                color: 'rgb(244, 121, 124)',
+              }}
+              value={strength}
+            />
+          </Stack>
+        </ListItemText>
+      </ListItem>
+    ))}
+  </List>
+);

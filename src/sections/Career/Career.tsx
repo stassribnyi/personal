@@ -1,13 +1,12 @@
-import styled from 'styled-components';
 import React from 'react';
+import { Grid, List, ListItem, Typography } from '@mui/material';
 
 import { Section, Timeline, TimelineLogo } from '../../components';
-
-import { Recommendations } from './Recommendations';
 import { EducationDetails } from './EducationDetails';
-import { EDUCATION_STAGES, WORK_STAGES } from './Career.data';
+import { Recommendations } from './Recommendations';
 import { WorkDetails } from './WorkDetails';
-import { Grid, List, ListItem, Typography } from '@mui/material';
+
+import { EDUCATION_STAGES, WORK_STAGES } from './Career.data';
 
 export const Career: React.FC = () => {
   const educationTimeline = EDUCATION_STAGES.map((institution) => {
@@ -54,7 +53,7 @@ export const Career: React.FC = () => {
   return (
     <Section id='career' title='Career'>
       <List disablePadding>
-        <ListItem disableGutters sx={{ mb: "4rem"}}>
+        <ListItem disableGutters sx={{ mb: '4rem' }}>
           <Grid container flexDirection='column' alignItems='center'>
             <Typography gutterBottom variant='h3'>
               Work
@@ -63,7 +62,7 @@ export const Career: React.FC = () => {
           </Grid>
         </ListItem>
 
-        <ListItem disableGutters sx={{ mb: "4rem"}}>
+        <ListItem disableGutters sx={{ mb: '4rem' }}>
           <Grid container flexDirection='column' alignItems='center'>
             <Typography gutterBottom variant='h3'>
               Education
@@ -72,7 +71,7 @@ export const Career: React.FC = () => {
           </Grid>
         </ListItem>
 
-        <ListItem disableGutters sx={{ mb: "4rem"}}>
+        <ListItem disableGutters sx={{ mb: '4rem' }}>
           <Grid container flexDirection='column' alignItems='center'>
             <Typography gutterBottom variant='h3'>
               Recommendations
