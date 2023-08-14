@@ -17,6 +17,7 @@ import {
   Stack,
   Theme,
   Toolbar,
+  Typography,
   useMediaQuery,
 } from '@mui/material';
 import { Box } from '@mui/system';
@@ -90,7 +91,7 @@ export const Navigation: React.FC = () => {
             color: 'white',
           }}
         >
-          Whanna know more about me?
+          <Typography variant='h6'>Whanna know more about me?</Typography>
           <Link
             href='#about'
             underline='none'
@@ -102,7 +103,7 @@ export const Navigation: React.FC = () => {
               animationTimingFunction: 'ease-in-out',
             }}
           >
-            <KeyboardArrowDown sx={{ fontSize: 48 }} />
+            <KeyboardArrowDown fontSize='large' />
           </Link>
         </Box>
       );
@@ -155,9 +156,9 @@ export const Navigation: React.FC = () => {
               </Stack>
 
               <Link underline='none' onClick={() => window.scrollTo({
-                top: document.getElementById('career').offsetTop - 48
+                top: 0
               })}>
-                <KeyboardArrowUp sx={{ fontSize: 48 }} />
+                <KeyboardArrowUp fontSize='large' />
               </Link>
 
               <Stack flex='1' direction='row' justifyContent='space-around'>

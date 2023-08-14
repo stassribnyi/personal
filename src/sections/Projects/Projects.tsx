@@ -44,7 +44,7 @@ export const Projects: React.FC = () => {
                 <Link variant='h5' color='secondary' href={project.link}>
                   {project.name}
                 </Link>
-                <Typography gutterBottom variant='body2' sx={{ minHeight: 50 }}>
+                <Typography gutterBottom variant='body2' sx={{ minHeight: 55 }}>
                   {project.description}
                 </Typography>
                 <Stack direction='row' spacing={1}>

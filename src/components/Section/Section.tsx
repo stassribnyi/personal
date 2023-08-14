@@ -15,7 +15,7 @@ export const Section: React.FC<SectionProps> = ({
   title,
   children,
   className,
-  sx
+  sx,
 }) => {
   const theme = useTheme();
 
@@ -29,7 +29,7 @@ export const Section: React.FC<SectionProps> = ({
       className={className}
       sx={{ padding: theme.spacing(9, 0), ...sx }}
     >
-      <Typography variant='h2' gutterBottom>
+      <Typography gutterBottom align='center' component='h2' variant='h3'>
         {title.toUpperCase()}
       </Typography>
       <Container>{children}</Container>

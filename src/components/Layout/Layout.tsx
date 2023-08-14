@@ -44,15 +44,10 @@ const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         root: {
-          fontSize: '1.125rem',
-          lineHeight: '1.275',
-          fontWeight: 400,
-
-          textTransform: 'initial',
           color: COLORS.common.light,
           border: `0.1em solid ${COLORS.common.light}`,
 
-          boxShadow: `2px 2px 2px rgba(0, 0, 0, 0.4)`, // ToDo
+          boxShadow: `2px 2px 2px rgba(0, 0, 0, 0.4)`, // TODO: reuse
           textShadow: `2px 2px 2px rgba(0, 0, 0, 0.4)`,
         },
       },
@@ -178,8 +173,9 @@ const theme = createTheme({
               display: 'flex',
 
               height: '0.05em',
-              minWidth: '10em',
-              margin: '0.1em auto 0 auto',
+              minWidth: '120%',
+              marginTop: '0.1em',
+              marginLeft: '-10%',
 
               backgroundColor: COLORS.accent.light,
             },
@@ -286,7 +282,7 @@ const theme = createTheme({
     borderRadius: 0,
   },
   typography: {
-    fontSize: 16,
+    fontSize: 20,
     fontFamily: [
       '"Roboto Condensed"',
       '-apple-system',
@@ -298,35 +294,6 @@ const theme = createTheme({
       'Arial',
       'sans-serif',
     ].join(','),
-    fontWeightRegular: 300,
-    fontWeightBold: 700,
-
-    h2: {
-      fontSize: '2em',
-      fontWeight: '400',
-      lineHeight: '1.45',
-      textAlign: 'center',
-      marginBottom: '1.25em',
-      textTransform: 'uppercase',
-    },
-    h3: {
-      fontSize: '1.5em',
-      fontWeight: '300',
-      lineHeight: '1.2',
-      textAlign: 'center',
-      marginBottom: '1.25em',
-      textTransform: 'uppercase',
-    },
-    body1: {
-      fontSize: '1.125rem',
-      textAlign: 'justify',
-      lineHeight: '1.45em',
-    },
-    body2: {
-      fontSize: '0.9em',
-      textAlign: 'justify',
-      lineHeight: '1.45em',
-    },
   },
 });
 

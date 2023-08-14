@@ -22,12 +22,13 @@ export const Contacts: React.FC = () => {
         backgroundColor: `${theme.palette.common.dark}`,
       }}
     >
-      <Grid container spacing={2}>
+      <Grid container spacing={8}>
         <Grid
           item
           container
           alignItems='center'
           flexDirection='column'
+          gap={8}
           md={5}
           xs={12}
         >
@@ -38,6 +39,7 @@ export const Contacts: React.FC = () => {
         <Grid
           item
           xs={12}
+          gap={8}
           md={7}
           container
           flexDirection='column'
