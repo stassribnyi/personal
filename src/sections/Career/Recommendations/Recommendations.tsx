@@ -5,7 +5,7 @@ import { autoPlay } from 'react-swipeable-views-utils';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
-import { Pagination, Stack, styled } from '@mui/material';
+import { Link, Pagination, Stack, styled } from '@mui/material';
 
 import { RECOMMENDATIONS } from './Recommendation.data';
 import {
@@ -68,6 +68,7 @@ export const Recommendations: React.FC = () => {
         interval={5000}
         index={slideIdx}
         onChangeIndex={(index) => setSlideIdx(index)}
+        style={{ width: '100%' }}
       >
         {RECOMMENDATIONS.map((recommendation, idx) => (
           <Card
@@ -75,12 +76,13 @@ export const Recommendations: React.FC = () => {
             component='blockquote'
             sx={{
               maxWidth: 800,
+              minHeight: 560,
               margin: '-1rem auto',
               boxShadow: '2px 2px 2px 0px rgba(var(--dark, 51, 51, 51), 0.2)',
               // borderRadius: "40px",
               backgroundColor: 'rgb(50, 89, 99)',
               color: '#cecece',
-              padding: '1rem 2rem',
+              padding: '2rem',
             }}
           >
             <CardContent>
@@ -103,18 +105,17 @@ export const Recommendations: React.FC = () => {
                     marginBottom: '2rem',
                   }}
                 />
-                <Typography
+                <Link
                   sx={{
                     fontStyle: 'normal',
                     color: 'white',
                     fontWeight: 'bold',
                   }}
                   variant='h5'
-                  component='a'
                   href={recommendation.profileUrl}
                 >
                   {recommendation.displayName}
-                </Typography>
+                </Link>
                 <Typography variant='body2' sx={{ fontStyle: 'italic' }}>
                   {recommendation.position}
                 </Typography>
@@ -148,6 +149,7 @@ export const Recommendations: React.FC = () => {
         page={slideIdx + 1}
         count={RECOMMENDATIONS.length}
         size='small'
+        color='primary'
         onChange={(_, pageNumber) => setSlideIdx(pageNumber - 1)}
       />
     </>

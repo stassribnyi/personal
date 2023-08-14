@@ -54,30 +54,30 @@ export const Career: React.FC = () => {
   return (
     <Section id='career' title='Career'>
       <List disablePadding>
-        <ListItem disableGutters>
-          <Grid container flexDirection='column' alignItems="center">
-            <Typography component='h3' variant='h5' data-underline>
+        <ListItem disableGutters sx={{ mb: "4rem"}}>
+          <Grid container flexDirection='column' alignItems='center'>
+            <Typography gutterBottom variant='h3'>
               Work
             </Typography>
             <Timeline isRoot items={workTimeline} />
           </Grid>
         </ListItem>
 
-        <ListItem disableGutters>
-          <Grid container flexDirection='column'  alignItems="center">
-          <Typography component='h3' variant='h5' data-underline>
-            Education
-          </Typography>
-          <Timeline items={educationTimeline} />
+        <ListItem disableGutters sx={{ mb: "4rem"}}>
+          <Grid container flexDirection='column' alignItems='center'>
+            <Typography gutterBottom variant='h3'>
+              Education
+            </Typography>
+            <Timeline items={educationTimeline} />
           </Grid>
         </ListItem>
 
-        <ListItem disableGutters>
-          <Grid container flexDirection='column'  alignItems="center">
-          <Typography gutterBottom component='h3' variant='h5' data-underline>
-            Recommendations
-          </Typography>
-          <Recommendations />
+        <ListItem disableGutters sx={{ mb: "4rem"}}>
+          <Grid container flexDirection='column' alignItems='center'>
+            <Typography gutterBottom variant='h3'>
+              Recommendations
+            </Typography>
+            <Recommendations />
           </Grid>
         </ListItem>
       </List>

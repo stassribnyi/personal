@@ -10,6 +10,7 @@ import {
   Stack,
   //   Grid,
   Unstable_Grid2 as Grid,
+  Link,
 } from '@mui/material';
 
 import { Section } from '../../components';
@@ -40,9 +41,9 @@ export const Projects: React.FC = () => {
                 title={project.name}
               />
               <CardContent>
-                <Typography variant='h5' component='div'>
+                <Link variant='h5' color='secondary' href={project.link}>
                   {project.name}
-                </Typography>
+                </Link>
                 <Typography gutterBottom variant='body2' sx={{ minHeight: 50 }}>
                   {project.description}
                 </Typography>

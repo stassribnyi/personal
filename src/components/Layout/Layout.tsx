@@ -233,6 +233,7 @@ const theme = createTheme({
         {
           props: { variant: 'filled' },
           style: {
+            boxShadow: 'none',
             position: 'relative',
             backgroundColor: 'transparent',
             borderColor: COLORS.accent.light,
