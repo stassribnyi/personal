@@ -18,8 +18,12 @@ import {
 
 const MobileStepper = ({ activeStep, steps, onStepClick }) => (
   <StepsContainer>
-    {Array.from(Array(steps).keys()).map(step => (
-      <Step key={step} onClick={() => onStepClick(step)} active={activeStep === step} />
+    {Array.from(Array(steps).keys()).map((step) => (
+      <Step
+        key={step}
+        onClick={() => onStepClick(step)}
+        active={activeStep === step}
+      />
     ))}
   </StepsContainer>
 );
@@ -39,10 +43,11 @@ const Step = styled('button')(({ theme, active }) => ({
   height: '8px',
   width: '8px',
   borderRadius: '50%',
-  backgroundColor: active ? theme.palette.primary.main : theme.palette.grey[400],
+  backgroundColor: active
+    ? theme.palette.primary.main
+    : theme.palette.grey[400],
   cursor: 'pointer',
 }));
-
 
 export const Recommendations: React.FC = () => {
   const [slideIdx, setSlideIdx] = useState(0);
@@ -73,9 +78,9 @@ export const Recommendations: React.FC = () => {
               margin: '-1rem auto',
               boxShadow: '2px 2px 2px 0px rgba(var(--dark, 51, 51, 51), 0.2)',
               // borderRadius: "40px",
-              backgroundColor: "rgb(50, 89, 99)",
-              color: "#cecece",
-              padding: "1rem 2rem"
+              backgroundColor: 'rgb(50, 89, 99)',
+              color: '#cecece',
+              padding: '1rem 2rem',
             }}
           >
             <CardContent>
@@ -95,11 +100,15 @@ export const Recommendations: React.FC = () => {
                     width: 106,
                     height: 106,
                     border: '4px solid white',
-                    marginBottom: "2rem"
+                    marginBottom: '2rem',
                   }}
                 />
                 <Typography
-                  sx={{ fontStyle: 'normal', color: "white", fontWeight: "bold"}}
+                  sx={{
+                    fontStyle: 'normal',
+                    color: 'white',
+                    fontWeight: 'bold',
+                  }}
                   variant='h5'
                   component='a'
                   href={recommendation.profileUrl}
@@ -124,7 +133,7 @@ export const Recommendations: React.FC = () => {
           </Card>
         ))}
       </AutoPlaySwipeableViews>
-      <MobileStepper
+      {/* <MobileStepper
         variant='dots'
         steps={RECOMMENDATIONS.length}
         position='static'
@@ -133,9 +142,14 @@ export const Recommendations: React.FC = () => {
         nextButton={null}
         backButton={null}
         sx={{ maxWidth: 400, flexGrow: 1 }}
-      />
+      /> */}
 
-<Pagination page={slideIdx+1} count={RECOMMENDATIONS.length} size="small" onChange={(_, pageNumber) => setSlideIdx(pageNumber-1)} />
+      <Pagination
+        page={slideIdx + 1}
+        count={RECOMMENDATIONS.length}
+        size='small'
+        onChange={(_, pageNumber) => setSlideIdx(pageNumber - 1)}
+      />
     </>
   );
 };

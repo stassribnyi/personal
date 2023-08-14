@@ -1,22 +1,45 @@
 import React from 'react';
-import { ChipList } from '../../../components';
+import {
+  Chip,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Stack,
+  Typography,
+} from '@mui/material';
 
-import { Styled } from './WorkDetails.styles';
+import CheckIcon from '@mui/icons-material/Check';
 
 type DetailsProps = Readonly<{
-    position: string;
-    responsibilities: Array<string>;
-    technologies: Array<string>;
+  position: string;
+  responsibilities: Array<string>;
+  technologies: Array<string>;
 }>;
 
-export const WorkDetails: React.FC<DetailsProps> = ({ position, responsibilities, technologies }) => (
-    <>
-        <Styled.Title>{position}</Styled.Title>
-        <Styled.ResponsibilitiesList>
-            {responsibilities.map((r, idx) => (
-                <li key={idx}>{r}.</li>
-            ))}
-        </Styled.ResponsibilitiesList>
-        <Styled.Technologies items={technologies} />
-    </>
-)
+export const WorkDetails: React.FC<DetailsProps> = ({
+  position,
+  responsibilities,
+  technologies,
+}) => (
+  <>
+    <Typography variant='h6' color='secondary'>
+      {position}
+    </Typography>
+    <List dense>
+      {responsibilities.map((info, idx) => (
+        <ListItem key={idx}>
+          <ListItemIcon sx={{ minWidth: '2.5rem' }}>
+            <CheckIcon fontSize='small' />
+          </ListItemIcon>
+          <ListItemText primary={info} />
+        </ListItem>
+      ))}
+    </List>
+    <Stack flexWrap='wrap' direction='row' gap={1}>
+      {technologies.map((tech, idx) => (
+        <Chip key={idx} label={tech} />
+      ))}
+    </Stack>
+  </>
+);

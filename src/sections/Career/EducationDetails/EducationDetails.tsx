@@ -1,17 +1,30 @@
 import React from 'react';
-
-import { Styled } from './EducationDetails.styles';
+import {
+  Chip,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Stack,
+  Typography,
+} from '@mui/material';
 
 type DetailsProps = Readonly<{
-    title: string;
-    degree: string;
-    fieldOfStudy: string;
+  title: string;
+  degree: string;
+  fieldOfStudy: string;
 }>;
 
-export const EducationDetails: React.FC<DetailsProps> = ({ title, degree, fieldOfStudy }) => (
-    <>
-        <Styled.Title>{title}</Styled.Title>
-        <Styled.Degree>{degree},</Styled.Degree>
-        <Styled.FieldOfStudy>{fieldOfStudy}</Styled.FieldOfStudy>
-    </>
-)
+export const EducationDetails: React.FC<DetailsProps> = ({
+  title,
+  degree,
+  fieldOfStudy,
+}) => (
+  <>
+    <Typography variant='h6' color='secondary'>
+      {title}
+    </Typography>
+    <Typography fontWeight={400}>{degree}</Typography>
+    <Typography>{fieldOfStudy}</Typography>
+  </>
+);
