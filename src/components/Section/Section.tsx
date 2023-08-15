@@ -1,14 +1,14 @@
-import React from 'react';
-import { Container, Grid, Typography, useTheme } from '@mui/material';
+import React from 'react'
+import { Container, Grid, Typography, useTheme } from '@mui/material'
 
 export type SectionProps = Readonly<
   React.PropsWithChildren<{
-    id: string;
-    title: string;
-    className?: string;
-    sx?: object;
+    id: string
+    title: string
+    className?: string
+    sx?: object
   }>
->;
+>
 
 export const Section: React.FC<SectionProps> = ({
   id,
@@ -17,22 +17,26 @@ export const Section: React.FC<SectionProps> = ({
   className,
   sx,
 }) => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <Grid
       container
-      component='section'
-      alignItems='center'
-      flexDirection='column'
+      component="section"
+      alignItems="center"
+      flexDirection="column"
       id={id}
       className={className}
-      sx={{ padding: theme.spacing(9, 0), ...sx }}
+      sx={{
+        minHeight: '100vh',
+        padding: theme.spacing(9, 0),
+        ...sx,
+      }}
     >
-      <Typography gutterBottom align='center' component='h2' variant='h3'>
+      <Typography gutterBottom align="center" component="h2" variant="h3">
         {title.toUpperCase()}
       </Typography>
       <Container>{children}</Container>
     </Grid>
-  );
-};
+  )
+}

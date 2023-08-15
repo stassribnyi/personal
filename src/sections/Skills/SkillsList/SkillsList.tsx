@@ -1,16 +1,16 @@
-import React from 'react';
+import React from 'react'
 
-import { List, ListItem, ListItemText, Rating, Stack } from '@mui/material';
-import { Bolt } from '@mui/icons-material';
+import { List, ListItem, ListItemText, Rating, Stack } from '@mui/material'
+import { Bolt } from '@mui/icons-material'
 
 export type SkillsListProps = Readonly<{
   items: Array<
     Readonly<{
-      skill: string;
-      strength: number;
+      skill: string
+      strength: number
     }>
-  >;
-}>;
+  >
+}>
 
 export const SkillsList: React.FC<SkillsListProps> = ({ items }) => (
   <List>
@@ -31,22 +31,22 @@ export const SkillsList: React.FC<SkillsListProps> = ({ items }) => (
       >
         <ListItemText>
           <Stack
-            alignItems='center'
-            component='span'
-            direction='row'
-            justifyContent='space-between'
+            alignItems="center"
+            component="span"
+            direction="row"
+            justifyContent="space-between"
           >
             {skill}
             <Rating
               emptyIcon={
                 <Bolt
-                  fontSize='inherit'
+                  fontSize="inherit"
                   sx={{ color: 'common.light', opacity: 0.5 }}
                 />
               }
-              icon={<Bolt fontSize='inherit' />}
+              icon={<Bolt fontSize="inherit" />}
               readOnly
-              size='small'
+              size="small"
               sx={{
                 // TODO: use color from theme
                 color: 'rgb(244, 121, 124)',
@@ -58,4 +58,4 @@ export const SkillsList: React.FC<SkillsListProps> = ({ items }) => (
       </ListItem>
     ))}
   </List>
-);
+)

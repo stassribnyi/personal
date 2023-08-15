@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import {
   Email,
@@ -6,7 +6,7 @@ import {
   GitHub,
   Instagram,
   LinkedIn,
-} from '@mui/icons-material';
+} from '@mui/icons-material'
 
 export const LINKS = [
   {
@@ -39,4 +39,4 @@ export const LINKS = [
     icon: <Facebook />,
     ariaLabel: 'Facebook',
   },
-];
+]

@@ -1,6 +1,6 @@
-export { About } from './About';
-export { Career } from './Career';
-export { Skills } from './Skills';
-export { Welcome } from './Welcome';
-export { Projects } from './Projects';
-export { Contacts } from './Contacts';
+export { About } from './About'
+export { Career } from './Career'
+export { Skills } from './Skills'
+export { Welcome } from './Welcome'
+export { Projects } from './Projects'
+export { Contacts } from './Contacts'

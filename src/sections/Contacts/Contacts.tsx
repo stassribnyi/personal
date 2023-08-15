@@ -1,23 +1,21 @@
-import React from 'react';
-import { Grid, Typography, useMediaQuery, useTheme } from '@mui/material';
+import React from 'react'
+import { Grid, Typography, useMediaQuery, useTheme } from '@mui/material'
 
-import { Section } from '../../components';
-import { Links } from './Links';
-import { Form } from './Form';
+import { Section } from '../../components'
+import { Links } from './Links'
+import { Form } from './Form'
 
-import { LINKS } from './Contacts.data';
+import { LINKS } from './Contacts.data'
 
 export const Contacts: React.FC = () => {
-  const theme = useTheme();
-   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
   return (
     <Section
-      id='contacts'
-      title='Contacts'
+      id="contacts"
+      title="Contacts"
       sx={{
-        minHeight: '100vh',
-        position: 'relative',
         color: `${theme.palette.common.white}`,
         backgroundColor: `${theme.palette.common.dark}`,
       }}
@@ -26,13 +24,13 @@ export const Contacts: React.FC = () => {
         <Grid
           item
           container
-          alignItems='center'
-          flexDirection='column'
+          alignItems="center"
+          flexDirection="column"
           gap={8}
           md={5}
           xs={12}
         >
-          {!isMobile && <Typography variant='h3'>Links</Typography>}
+          {!isMobile && <Typography variant="h3">Links</Typography>}
           <Links variant={isMobile ? 'compact' : 'full'} items={LINKS} />
         </Grid>
 
@@ -42,13 +40,13 @@ export const Contacts: React.FC = () => {
           gap={8}
           md={7}
           container
-          flexDirection='column'
-          alignItems='center'
+          flexDirection="column"
+          alignItems="center"
         >
-          {!isMobile && <Typography variant='h3'>Contact me</Typography>}
+          {!isMobile && <Typography variant="h3">Contact me</Typography>}
           <Form />
         </Grid>
       </Grid>
     </Section>
-  );
-};
+  )
+}

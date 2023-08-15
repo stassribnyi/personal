@@ -1,18 +1,19 @@
-import React from 'react';
+import React from 'react'
 import {
   createTheme,
   ThemeProvider as MuiThemeProvider,
   rgbToHex,
   CssBaseline,
-} from '@mui/material';
-import { BrowserRouter as Router } from 'react-router-dom';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import type {} from '@mui/lab/themeAugmentation';
+  Box,
+} from '@mui/material'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import type {} from '@mui/lab/themeAugmentation'
 
-import '@fontsource/roboto-condensed/300.css';
-import '@fontsource/roboto-condensed/300-italic.css';
-import '@fontsource/roboto-condensed/400.css';
-import '@fontsource/roboto-condensed/700.css';
+import '@fontsource/roboto-condensed/300.css'
+import '@fontsource/roboto-condensed/300-italic.css'
+import '@fontsource/roboto-condensed/400.css'
+import '@fontsource/roboto-condensed/700.css'
 
 const COLORS = {
   common: {
@@ -26,9 +27,9 @@ const COLORS = {
     dark: 'rgb(50, 89, 99)',
     light: 'rgb(244, 121, 124)',
   },
-} as const;
+} as const
 
-const DEVICE_SIZE = {};
+const DEVICE_SIZE = {}
 
 const THEME = {
   palette: {
@@ -37,7 +38,7 @@ const THEME = {
   typography: {
     ...COLORS,
   },
-};
+}
 
 const theme = createTheme({
   components: {
@@ -295,7 +296,7 @@ const theme = createTheme({
       'sans-serif',
     ].join(','),
   },
-});
+})
 
 export const GlobalStyle = createGlobalStyle`
 html{
@@ -369,14 +370,16 @@ html{
     transform: translateY(0);
   }
 }
-`;
+`
 
 export const Layout: React.FC<React.PropsWithChildren> = ({ children }) => (
   <ThemeProvider theme={THEME}>
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <GlobalStyle />
-      <Router>{children}</Router>
+      <Router>
+        <Box sx={{ position: 'relative' }}>{children}</Box>
+      </Router>
     </MuiThemeProvider>
   </ThemeProvider>
-);
+)

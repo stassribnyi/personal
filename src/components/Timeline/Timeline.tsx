@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import {
   TimelineContent,
@@ -8,18 +8,18 @@ import {
   TimelineSeparator,
   TimelineOppositeContent,
   Timeline as MuiTimeline,
-} from '@mui/lab';
+} from '@mui/lab'
 
 export type TimelineStageProps = Readonly<{
-  left: React.ReactNode;
-  right: React.ReactNode;
-  variant?: 'primary';
-}>;
+  left: React.ReactNode
+  right: React.ReactNode
+  variant?: 'primary'
+}>
 
 export type TimelineProps = Readonly<{
-  items: Array<TimelineStageProps>;
-  isRoot?: boolean;
-}>;
+  items: Array<TimelineStageProps>
+  isRoot?: boolean
+}>
 
 export const Timeline: React.FC<TimelineProps> = ({ items, isRoot }) => (
   <MuiTimeline>
@@ -29,7 +29,7 @@ export const Timeline: React.FC<TimelineProps> = ({ items, isRoot }) => (
         <TimelineSeparator>
           <TimelineDot
             variant={idx === 0 && isRoot ? 'filled' : 'outlined'}
-            color='primary'
+            color="primary"
           />
           <TimelineConnector sx={{ bgcolor: 'common.light' }} />
         </TimelineSeparator>
@@ -37,4 +37,4 @@ export const Timeline: React.FC<TimelineProps> = ({ items, isRoot }) => (
       </TimelineItem>
     ))}
   </MuiTimeline>
-);
+)

@@ -1,20 +1,16 @@
-import React from 'react';
-import { Step } from 'react-scrollama';
-import { Layout } from '../components';
-import { ScrollamaProvider } from '../contexts';
-import {
-  About,
-  Career,
-  Projects,
-  Skills,
-  Contacts,
-  Welcome,
-} from '../sections';
+import React from 'react'
+import { Step } from 'react-scrollama'
+import { Layout } from '../components'
+import { ScrollamaProvider } from '../contexts'
+import { About, Career, Projects, Skills, Contacts, Welcome } from '../sections'
+
+import { Navigation } from '../sections/Welcome/Navigation'
 
 const Home: React.FC = () => {
   return (
     <Layout>
       <ScrollamaProvider>
+        <Navigation />
         <Step data={{ id: '' }}>
           <div>
             <Welcome />
@@ -52,7 +48,7 @@ const Home: React.FC = () => {
         </Step>
       </ScrollamaProvider>
     </Layout>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

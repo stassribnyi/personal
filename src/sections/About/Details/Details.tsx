@@ -1,14 +1,14 @@
-import { List, ListItem, ListItemText } from '@mui/material';
-import React from 'react';
+import { List, ListItem, ListItemText } from '@mui/material'
+import React from 'react'
 
 type DetailItem = Readonly<{
-  label: string;
-  value: string;
-}>;
+  label: string
+  value: string
+}>
 
 export type DetailsProps = Readonly<{
-  items: Array<DetailItem>;
-}>;
+  items: Array<DetailItem>
+}>
 
 export const Details: React.FC<DetailsProps> = ({ items }) => (
   <List disablePadding>
@@ -23,4 +23,4 @@ export const Details: React.FC<DetailsProps> = ({ items }) => (
       </ListItem>
     ))}
   </List>
-);
+)

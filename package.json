@@ -9,6 +9,7 @@
   "scripts": {
     "start": "gatsby develop",
     "build": "gatsby build",
+    "format": "prettier --write \"src/**/*.(ts|tsx)\"",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -32,6 +33,7 @@
   "devDependencies": {
     "@types/react-swipeable-views": "^0.13.2",
     "@types/react-swipeable-views-utils": "^0.13.4",
-    "@types/styled-components": "^5.1.26"
+    "@types/styled-components": "^5.1.26",
+    "prettier": "^3.0.1"
   }
 }

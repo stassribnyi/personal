@@ -1,17 +1,17 @@
-import React from 'react';
-import { Link, Stack } from '@mui/material';
+import React from 'react'
+import { Link, Stack } from '@mui/material'
 
 export type LinksProps = Readonly<{
-  variant: 'compact' | 'full';
+  variant: 'compact' | 'full'
   items: Array<
     Readonly<{
-      href: string;
-      label: string;
-      icon: React.JSX.Element;
-      ariaLabel: string;
+      href: string
+      label: string
+      icon: React.JSX.Element
+      ariaLabel: string
     }>
-  >;
-}>;
+  >
+}>
 
 export const Links: React.FC<LinksProps> = ({ variant, items }) => (
   <Stack direction={variant === 'compact' ? 'row' : 'column'} gap={2}>
@@ -22,4 +22,4 @@ export const Links: React.FC<LinksProps> = ({ variant, items }) => (
       </Link>
     ))}
   </Stack>
-);
+)

@@ -3,4 +3,4 @@ export {
   StepDirection,
   ScrollamaProvider,
   useScrollamaContext,
-} from './Scrollama.context';
+} from './Scrollama.context'

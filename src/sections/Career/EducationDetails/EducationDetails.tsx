@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   Chip,
   List,
@@ -7,13 +7,13 @@ import {
   ListItemText,
   Stack,
   Typography,
-} from '@mui/material';
+} from '@mui/material'
 
 type DetailsProps = Readonly<{
-  title: string;
-  degree: string;
-  fieldOfStudy: string;
-}>;
+  title: string
+  degree: string
+  fieldOfStudy: string
+}>
 
 export const EducationDetails: React.FC<DetailsProps> = ({
   title,
@@ -21,10 +21,10 @@ export const EducationDetails: React.FC<DetailsProps> = ({
   fieldOfStudy,
 }) => (
   <>
-    <Typography variant='h6' color='secondary'>
+    <Typography variant="h6" color="secondary">
       {title}
     </Typography>
     <Typography fontWeight={400}>{degree}</Typography>
     <Typography>{fieldOfStudy}</Typography>
   </>
-);
+)

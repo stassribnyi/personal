@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import {
   useTheme,
@@ -11,19 +11,19 @@ import {
   //   Grid,
   Unstable_Grid2 as Grid,
   Link,
-} from '@mui/material';
+} from '@mui/material'
 
-import { Section } from '../../components';
+import { Section } from '../../components'
 
-import { PROJECTS } from './Projects.data';
+import { PROJECTS } from './Projects.data'
 
 export const Projects: React.FC = () => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <Section
-      id='projects'
-      title='Projects'
+      id="projects"
+      title="Projects"
       sx={{ backgroundColor: theme.palette.common.light }}
     >
       <Grid container spacing={4}>
@@ -41,15 +41,15 @@ export const Projects: React.FC = () => {
                 title={project.name}
               />
               <CardContent>
-                <Link variant='h5' color='secondary' href={project.link}>
+                <Link variant="h5" color="secondary" href={project.link}>
                   {project.name}
                 </Link>
-                <Typography gutterBottom variant='body2' sx={{ minHeight: 55 }}>
+                <Typography gutterBottom variant="body2" sx={{ minHeight: 55 }}>
                   {project.description}
                 </Typography>
-                <Stack direction='row' spacing={1}>
-                  {project.technologies.map((tech) => (
-                    <Chip label={tech} />
+                <Stack direction="row" spacing={1}>
+                  {project.technologies.map((tech, techIdx) => (
+                    <Chip key={techIdx} label={tech} />
                   ))}
                 </Stack>
               </CardContent>
@@ -58,5 +58,5 @@ export const Projects: React.FC = () => {
         ))}
       </Grid>
     </Section>
-  );
-};
+  )
+}

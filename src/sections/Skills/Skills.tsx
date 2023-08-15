@@ -1,16 +1,15 @@
-import React from 'react';
+import React from 'react'
 
-import { SkillsList } from './SkillsList';
+import { SkillsList } from './SkillsList'
 
-import { Styled } from './Skills.styles';
-import { SKILL_GROUPS } from './Skills.data';
-import { Section } from '../../components';
-import { Typography, Unstable_Grid2 as Grid, Divider } from '@mui/material';
+import { SKILL_GROUPS } from './Skills.data'
+import { Section } from '../../components'
+import { Typography, Unstable_Grid2 as Grid, Divider } from '@mui/material'
 
 export const Skills: React.FC = () => (
   <Section
-    id='skills'
-    title='Skills'
+    id="skills"
+    title="Skills"
     sx={{
       color: 'common.light',
       // TODO: use theme color
@@ -18,11 +17,11 @@ export const Skills: React.FC = () => (
     }}
   >
     {SKILL_GROUPS.map((group, idx) => (
-      <>
-        <Grid container key={idx} spacing={8}>
+      <React.Fragment key={idx}>
+        <Grid container spacing={8}>
           {group.map(({ name, skills }, idx) => (
             <Grid xs={12} md={6} key={idx}>
-              <Typography variant='h5' component='h3' align='center'>
+              <Typography variant="h5" component="h3" align="center">
                 {name}
               </Typography>
               <SkillsList items={skills} />
@@ -35,7 +34,7 @@ export const Skills: React.FC = () => (
             margin: '2rem 0',
           }}
         />
-      </>
+      </React.Fragment>
     ))}
   </Section>
-);
+)

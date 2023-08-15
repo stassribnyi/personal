@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 import {
   Avatar,
@@ -7,17 +7,17 @@ import {
   Link,
   Pagination,
   Typography,
-} from '@mui/material';
+} from '@mui/material'
 
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
+import SwipeableViews from 'react-swipeable-views'
+import { autoPlay } from 'react-swipeable-views-utils'
 
-import { RECOMMENDATIONS } from './Recommendation.data';
+import { RECOMMENDATIONS } from './Recommendation.data'
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews)
 
 export const Recommendations: React.FC = () => {
-  const [slideIdx, setSlideIdx] = useState(0);
+  const [slideIdx, setSlideIdx] = useState(0)
 
   return (
     <>
@@ -32,7 +32,7 @@ export const Recommendations: React.FC = () => {
         {RECOMMENDATIONS.map((recommendation, idx) => (
           <Card
             key={idx}
-            component='blockquote'
+            component="blockquote"
             sx={{
               maxWidth: 800,
               minHeight: 560,
@@ -41,11 +41,12 @@ export const Recommendations: React.FC = () => {
               backgroundColor: 'rgb(50, 89, 99)',
               color: '#cecece',
               padding: '2rem',
+              userSelect: 'none',
             }}
           >
             <CardContent>
               <Typography
-                component='cite'
+                component="cite"
                 gutterBottom
                 sx={{
                   display: 'flex',
@@ -69,20 +70,20 @@ export const Recommendations: React.FC = () => {
                     color: 'white',
                     fontWeight: 'bold',
                   }}
-                  variant='h5'
+                  variant="h5"
                   href={recommendation.profileUrl}
                 >
                   {recommendation.displayName}
                 </Link>
-                <Typography variant='body2' sx={{ fontStyle: 'italic' }}>
+                <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
                   {recommendation.position}
                 </Typography>
-                <Typography variant='body2' sx={{ fontStyle: 'normal' }}>
+                <Typography variant="body2" sx={{ fontStyle: 'normal' }}>
                   {recommendation.relation}
                 </Typography>
               </Typography>
               <Typography
-                component='p'
+                component="p"
                 gutterBottom
                 sx={{ textIndent: '2rem' }}
               >
@@ -96,10 +97,10 @@ export const Recommendations: React.FC = () => {
       <Pagination
         page={slideIdx + 1}
         count={RECOMMENDATIONS.length}
-        size='small'
-        color='primary'
+        size="small"
+        color="primary"
         onChange={(_, pageNumber) => setSlideIdx(pageNumber - 1)}
       />
     </>
-  );
-};
+  )
+}

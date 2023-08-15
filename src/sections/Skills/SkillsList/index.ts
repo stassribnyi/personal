@@ -1,2 +1,2 @@
-export { SkillsList } from './SkillsList';
-export type { SkillsListProps } from './SkillsList';
+export { SkillsList } from './SkillsList'
+export type { SkillsListProps } from './SkillsList'
