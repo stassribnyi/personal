@@ -7,67 +7,7 @@ import {
 } from '@mui/material'
 import React from 'react'
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote'
-import styled from 'styled-components'
 import { Button } from '../../components'
-
-const Header = styled.section`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-
-  min-height: 100vh;
-  overflow: hidden;
-
-  background-size: cover;
-  color: var(--color-light, rgb(243, 242, 239));
-  background-image: url(https://hips.hearstapps.com/hmg-prod/images/desk-organization-ideas-6441870b4e0ee.png);
-
-  .welcome__content,
-  .welcome__actions {
-    flex: 0 1 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 1.5rem 1.5rem 4rem 1.5rem;
-  }
-
-  .welcome__column {
-    /* max-width: calc(var(--max-content-width, 1140px) / 1.5); */
-    margin: auto 6rem;
-  }
-
-  .welcome__content {
-    flex-direction: column;
-    background-color: rgba(var(--dark-accent, 50, 89, 99), 0.9);
-  }
-
-  .welcome__actions {
-    position: relative;
-    background-color: rgba(var(--light, 243, 242, 239), 0.2);
-  }
-
-  .welcome__actions::after {
-    top: 0;
-    left: 0;
-    bottom: 0;
-    content: '';
-    display: block;
-    position: absolute;
-
-    box-shadow: -1px 0 2px 1px rgba(var(--dark, 51, 51, 51), 0.2);
-  }
-`
-
-{
-  /* <Typography variant='h6' gutterBottom>
-              Nice to see you here. I am a skilled front-end engineer with more
-              than <span id='js--career-start'>5</span> years of working
-              experience both with front-end and back-end. I develop single-page
-              web applications using a variety of frameworks such as React and
-              Angular. I will be glad to collaborate with you.
-            </Typography> */
-}
 
 const Contacts: React.FC = () => (
   <Stack spacing={2} direction="row">
