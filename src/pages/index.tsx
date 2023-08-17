@@ -2,7 +2,7 @@ import React from 'react'
 import { Scrollama, Step } from 'react-scrollama'
 
 import { About, Career, Projects, Skills, Contacts, Welcome } from '../sections'
-import { Layout } from '../components'
+import { Layout, Navigation } from '../components'
 
 import {
   Construction,
@@ -13,7 +13,6 @@ import {
   KeyboardArrowUp,
 } from '@mui/icons-material'
 
-import { Navigation } from '../sections/Welcome/Navigation'
 import { useNavigate } from 'react-router-dom'
 
 const LINKS = [
