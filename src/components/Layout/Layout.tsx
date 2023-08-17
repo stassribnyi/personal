@@ -139,6 +139,23 @@ const theme = createTheme({
       },
       variants: [
         {
+          props: { variant: 'h1' },
+          style: {
+            position: 'relative',
+
+            '&::after': {
+              content: '""',
+              display: 'flex',
+
+              height: '0.525rem',
+              minWidth: '5em',
+              margin: '0.25em auto 0 auto',
+
+              backgroundColor: COLORS.accent.light,
+            },
+          },
+        },
+        {
           props: { variant: 'h2' },
           style: {
             position: 'relative',

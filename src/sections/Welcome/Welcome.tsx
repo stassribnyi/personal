@@ -9,6 +9,9 @@ import React from 'react'
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote'
 import { Button } from '../../components'
 
+// TODO: use simpler implementation
+import Typed from 'react-typed'
+
 const Contacts: React.FC = () => (
   <Stack spacing={2} direction="row">
     <Button href="#contacts" size="large">
@@ -30,9 +33,14 @@ const Intro: React.FC = () => (
       component="strong"
       variant="h2"
       align="center"
-      sx={{ transform: 'rotate(180deg)' }}
+      sx={{
+        // TODO: create separate typography with underline
+        '&:after': {
+          display: 'none',
+        },
+      }}
     >
-      Software Engineer
+      <Typed strings={['Software Engineer']} typeSpeed={40} />
     </Typography>
 
     <Stack component="blockquote" sx={{ maxWidth: 500, ml: 'auto', mr: 0 }}>
