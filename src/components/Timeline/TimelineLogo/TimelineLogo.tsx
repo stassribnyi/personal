@@ -25,7 +25,7 @@ export const TimelineLogo: React.FC<TimelineLogoProps> = ({
           {title}
         </Typography>
       )}
-      <Typography variant="body1">
+      <Typography variant="body1" align='center'>
         {period.from} &mdash; {period.to}
       </Typography>
     </figcaption>

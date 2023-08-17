@@ -24,7 +24,7 @@ const Contacts: React.FC = () => (
 )
 
 const Intro: React.FC = () => (
-  <Stack justifyContent="center" sx={{ width: '100%', padding: 20 }}>
+  <Stack justifyContent="center" sx={{ width: '100%', padding: '10%' }}>
     <Typography variant="h1" sx={{ fontWeight: 600, mb: 4 }} align="center">
       Stas Sribnyi
     </Typography>
@@ -59,6 +59,9 @@ const Intro: React.FC = () => (
         Confucius
       </Typography>
     </Stack>
+    <Box sx={{ display: { xs: 'flex', lg: 'none' }, justifyContent: 'center' }}>
+      <Contacts />
+    </Box>
   </Stack>
 )
 
@@ -67,7 +70,8 @@ export const Welcome: React.FC = () => {
     <>
       <Grid container sx={{ minHeight: '100vh' }}>
         <Grid
-          sm={6}
+          xs={12}
+          lg={6}
           container
           justifyContent="center"
           sx={{
@@ -93,11 +97,12 @@ export const Welcome: React.FC = () => {
           />
         </Grid>
         <Grid
-          sm={6}
+          lg={6}
           sx={{
             backgroundImage: 'url(/img/me.jpg)',
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
+            display: { xs: 'none', lg: 'flex' },
           }}
           container
           justifyContent="center"

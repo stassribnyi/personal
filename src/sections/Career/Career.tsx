@@ -41,7 +41,7 @@ export const Career: React.FC = () => {
 
     const right = (
       <WorkDetails
-        position={company.position}
+        position={`${company.position}`}
         responsibilities={company.responsibilities}
         technologies={company.technologies}
       />

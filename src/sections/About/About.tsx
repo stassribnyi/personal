@@ -34,7 +34,7 @@ export const About: React.FC = () => {
               variant="rounded"
               sx={{
                 width: '100%',
-                height: '100%',
+                height: { xs: 400, lg: '100%'},
                 transform: 'rotateY(180deg)',
                 // TODO: Move into theme configuration
                 boxShadow: '0px 2px 2px 0px rgba(var(--dark, 51, 51, 51), 0.4)',

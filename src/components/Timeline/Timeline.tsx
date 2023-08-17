@@ -25,7 +25,9 @@ export const Timeline: React.FC<TimelineProps> = ({ items, isRoot }) => (
   <MuiTimeline>
     {items.map(({ left, right }, idx) => (
       <TimelineItem key={idx}>
-        <TimelineOppositeContent>{left}</TimelineOppositeContent>
+        <TimelineOppositeContent sx={{ display: { xs: 'none', md: 'block' } }}>
+          {left}
+        </TimelineOppositeContent>
         <TimelineSeparator>
           <TimelineDot
             variant={idx === 0 && isRoot ? 'filled' : 'outlined'}
