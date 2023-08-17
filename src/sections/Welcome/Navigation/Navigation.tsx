@@ -1,82 +1,80 @@
-import {
-  Construction,
-  Email,
-  KeyboardArrowDown,
-  KeyboardArrowUp,
-  Person,
-  Science,
-  Work,
-} from '@mui/icons-material'
+import React, { useEffect, useState } from 'react'
+import { useLocation } from 'react-router'
+
 import {
   BottomNavigation,
   BottomNavigationAction,
-  IconButton,
+  Box,
   Link,
   Paper,
-  Stack,
   Theme,
   Typography,
   Slide,
   useMediaQuery,
+  Fade,
 } from '@mui/material'
-import { Box } from '@mui/system'
-import React, { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router'
-import {
-  useScrollamaContext,
-  MoveDirection,
-  StepDirection,
-} from '../../../contexts'
 
-const LINKS = [
-  { href: '#about', label: 'about', icon: <Person /> },
-  { href: '#skills', label: 'skills', icon: <Construction /> },
-  { href: '#career', label: 'career', icon: <Work /> },
-  { href: '#projects', label: 'projects', icon: <Science /> },
-  { href: '#contacts', label: 'contacts', icon: <Email /> },
-]
+import { KeyboardArrowDown } from '@mui/icons-material'
+
+import { SideNavigation, SideNavigationAction } from './SideNavigation'
 
 const capitalize = (str: string): string =>
   `${str[0].toUpperCase()}${str.slice(1)}`
 
-export const Navigation: React.FC = () => {
-  const navigate = useNavigate()
+const hashNonEmpty = (hash: string) => !['', '#'].includes(hash)
+
+export type NavigationProps = Readonly<{
+  links: Array<
+    Readonly<{
+      href: string
+      label: string
+      icon: React.JSX.Element
+    }>
+  >
+  title: string
+}>
+
+export const Navigation: React.FC<NavigationProps> = ({ links, title }) => {
+  const { hash } = useLocation()
   const isDesktop = useMediaQuery<Theme>((theme) => theme.breakpoints.up('lg'))
 
-  const current = useScrollamaContext()
-  const { hash } = useLocation()
-  const [showNav, setShowNav] = useState(false)
+  const [isSideNavVisible, setSideNavVisible] = useState(false)
 
   useEffect(() => {
-    const { data: section, direction, step } = current
+    setSideNavVisible(hashNonEmpty(hash))
+  }, [hash])
 
-    if (section.id === 'about') {
-      if (
-        (direction === MoveDirection.UP && step === StepDirection.EXIT) ||
-        (direction === MoveDirection.DOWN && step === StepDirection.ENTER)
-      ) {
-        setShowNav(direction === MoveDirection.DOWN)
+  if (!isDesktop) {
+    return (
+      <Paper
+        sx={{
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 1,
+          position: 'fixed',
+        }}
+      >
+        {/* TODO: move to Layout */}
+        <BottomNavigation value={hash} sx={{ height: '5rem' }}>
+          {links
+            .filter(({ href }) => hashNonEmpty(href))
+            .map(({ icon, href, label }) => (
+              <BottomNavigationAction
+                key={label}
+                icon={icon}
+                href={href}
+                label={capitalize(label)}
+              />
+            ))}
+        </BottomNavigation>
+      </Paper>
+    )
+  }
 
-        // toggleNav(direction);
-      }
-
-      if (direction === MoveDirection.UP && step === StepDirection.EXIT) {
-        // selectLinksBySection(`#`, navLinks);
-
-        return
-      }
-    }
-
-    if (step !== StepDirection.ENTER) {
-      return
-    }
-
-    navigate('#' + section.id)
-  }, [current])
-
-  if (isDesktop) {
-    if (!showNav) {
-      return (
+  return (
+    <>
+      <Fade in={!isSideNavVisible}>
         <Box
           sx={{
             top: '100vh',
@@ -90,7 +88,7 @@ export const Navigation: React.FC = () => {
             zIndex: 1,
           }}
         >
-          <Typography variant="h6">Whanna know more about me?</Typography>
+          <Typography variant="h6">{title}</Typography>
           <Link
             href="#about"
             underline="none"
@@ -105,75 +103,24 @@ export const Navigation: React.FC = () => {
             <KeyboardArrowDown fontSize="large" />
           </Link>
         </Box>
-      )
-    }
-
-    return (
-     <Slide in={showNav} direction='right'>
-       <Paper
-        elevation={5}
-        sx={{
-          color: 'common.light',
-          bgcolor: 'common.dark',
-          position: 'fixed',
-          top: '25%',
-          left: '3rem',
-          zIndex: 1,
-          // marginTop: 'translateY(-60%)',
-          borderRadius: '0.5rem',
-          padding: '0.5rem',
-        }}
-      >
-        <Stack gap={3}>
-          {[
-            {
-              href: '#',
-              label: '',
-              icon: <KeyboardArrowUp fontSize="large" />,
-            },
-            ...LINKS,
-          ].map(({ icon, href, label }) => (
-            <IconButton
+      </Fade>
+      <Slide in={isSideNavVisible} direction="right">
+        <SideNavigation value={hash}>
+          {links.map(({ icon, href, label }) => (
+            <SideNavigationAction
               key={label}
-              color={hash === href ? 'primary' : 'inherit'}
-              href={href}
-              title={label}
-              sx={{
-                flexDirection: 'column',
-              }}
-            >
-              {icon}
-              <Typography variant="caption">{label}</Typography>
-            </IconButton>
+              icon={icon}
+              label={label}
+              {...(hashNonEmpty(href)
+                ? { href }
+                : {
+                    showLabel: false,
+                    onClick: () => window.scrollTo({ top: 0 }),
+                  })}
+            />
           ))}
-        </Stack>
-      </Paper>
-     </Slide>
-    )
-  }
-
-  return (
-    <Paper
-      sx={{
-        position: 'fixed',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        zIndex: 9999,
-      }}
-      elevation={3}
-    >
-      <BottomNavigation value={hash}>
-        {LINKS.map(({ icon, href, label }) => (
-          <BottomNavigationAction
-            key={label}
-            icon={icon}
-            href={href}
-            label={capitalize(label)}
-            value={href}
-          />
-        ))}
-      </BottomNavigation>
-    </Paper>
+        </SideNavigation>
+      </Slide>
+    </>
   )
 }

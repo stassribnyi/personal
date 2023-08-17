@@ -55,6 +55,7 @@ export const About: React.FC = () => {
           <Typography
             variant="body1"
             sx={{
+              lineHeight: 1.65,
               textIndent: '2em',
               marginBottom: '2rem',
             }}
@@ -72,7 +73,7 @@ export const About: React.FC = () => {
           alt={displayName}
           variant="rounded"
           sx={{
-            width: 300,
+            width: 345,
             height: 570,
 
             // TODO: Move into theme configuration
