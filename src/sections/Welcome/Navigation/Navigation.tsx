@@ -4,14 +4,13 @@ import { useLocation } from 'react-router'
 import {
   BottomNavigation,
   BottomNavigationAction,
-  Box,
   Link,
-  Paper,
   Theme,
   Typography,
   Slide,
   useMediaQuery,
   Fade,
+  Stack,
 } from '@mui/material'
 
 import { KeyboardArrowDown } from '@mui/icons-material'
@@ -46,63 +45,57 @@ export const Navigation: React.FC<NavigationProps> = ({ links, title }) => {
 
   if (!isDesktop) {
     return (
-      <Paper
+      <BottomNavigation
+        value={hash}
         sx={{
-          left: 0,
-          right: 0,
           bottom: 0,
           zIndex: 1,
+          width: '100%',
+          height: '5rem',
           position: 'fixed',
         }}
       >
-        {/* TODO: move to Layout */}
-        <BottomNavigation value={hash} sx={{ height: '5rem' }}>
-          {links
-            .filter(({ href }) => hashNonEmpty(href))
-            .map(({ icon, href, label }) => (
-              <BottomNavigationAction
-                key={label}
-                icon={icon}
-                href={href}
-                label={capitalize(label)}
-              />
-            ))}
-        </BottomNavigation>
-      </Paper>
+        {links
+          .filter(({ href }) => hashNonEmpty(href))
+          .map(({ icon, href, label }) => (
+            <BottomNavigationAction
+              key={label}
+              icon={icon}
+              href={href}
+              label={capitalize(label)}
+            />
+          ))}
+      </BottomNavigation>
     )
   }
 
   return (
     <>
       <Fade in={!isSideNavVisible}>
-        <Box
+        <Stack
+          alignItems="center"
+          justifyContent="center"
           sx={{
+            zIndex: 1,
+            left: '50%',
             top: '100vh',
             position: 'absolute',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            left: '50%',
             transform: 'translate(-50%, -100%)',
-            color: 'white',
-            zIndex: 1,
           }}
         >
-          <Typography variant="h6">{title}</Typography>
+          <Typography variant="h6" color="white">
+            {title}
+          </Typography>
           <Link
             href="#about"
             underline="none"
             sx={{
-              animationName: 'chevronUpDown',
-              animationDuration: '1s',
-              animationDirection: 'alternate',
-              animationIterationCount: 'infinite',
-              animationTimingFunction: 'ease-in-out',
+              animation: 'chevronUpDown 1s ease-in-out 0s infinite alternate',
             }}
           >
             <KeyboardArrowDown fontSize="large" />
           </Link>
-        </Box>
+        </Stack>
       </Fade>
       <Slide in={isSideNavVisible} direction="right">
         <SideNavigation value={hash}>
