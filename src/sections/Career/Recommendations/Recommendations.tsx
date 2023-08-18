@@ -27,7 +27,7 @@ export const Recommendations: React.FC = () => {
         interval={5000}
         index={slideIdx}
         onChangeIndex={(index) => setSlideIdx(index)}
-        style={{ width: '100%', padding: '0 150px' }}
+        style={{ width: '100%' }}
       >
         {RECOMMENDATIONS.map((recommendation, idx) => (
           <Card

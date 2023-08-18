@@ -33,7 +33,13 @@ export const Section: React.FC<SectionProps> = ({
         ...sx,
       }}
     >
-      <Typography gutterBottom align="center" component="h2" variant="h3">
+      <Typography
+        gutterBottom
+        align="center"
+        component="h2"
+        variant="h3"
+        sx={{ minWidth: `${title.length + 2}ch` }}
+      >
         {title.toUpperCase()}
       </Typography>
       <Container>{children}</Container>

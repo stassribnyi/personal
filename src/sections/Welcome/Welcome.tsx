@@ -1,13 +1,13 @@
 import {
   Box,
+  Button,
   Divider,
   Stack,
   Typography,
   Unstable_Grid2 as Grid,
 } from '@mui/material'
 import React from 'react'
-import FormatQuoteIcon from '@mui/icons-material/FormatQuote'
-import { Button } from '../../components'
+import { FormatQuote } from '@mui/icons-material'
 
 // TODO: use simpler implementation
 import Typed from 'react-typed'
@@ -40,14 +40,14 @@ const Intro: React.FC = () => (
         },
       }}
     >
-      <Typed strings={['Software Engineer']} typeSpeed={40} />
+      <Typed strings={['Software Engineer']} typeSpeed={40} loop backDelay={5000} backSpeed={70} />
     </Typography>
 
-    <Stack component="blockquote" sx={{ maxWidth: 500, ml: 'auto', mr: 0 }}>
-      <Box sx={{ marginLeft: -4 }}>
-        <FormatQuoteIcon fontSize="large" />
+    <Stack component="blockquote" alignItems='end' sx={{ maxWidth: 500, ml: 'auto', mr: 0, mb: 8 }}>
+      <Box sx={{ marginLeft: -4 }} alignSelf='start'>
+        <FormatQuote fontSize="large" />
       </Box>
-      <Typography gutterBottom variant="h6">
+      <Typography gutterBottom variant="h6" align='justify'>
         When it is obvious that the goals cannot be reached, don't adjust the
         goals,&nbsp;
         <Typography variant="inherit" component="span" sx={{ fontWeight: 600 }}>

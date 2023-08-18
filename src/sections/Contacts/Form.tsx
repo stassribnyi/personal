@@ -1,7 +1,5 @@
 import React from 'react'
-import { Grid, MenuItem, TextField, Typography } from '@mui/material'
-
-import { Button } from '../../components'
+import { Button, Grid, MenuItem, TextField, Typography } from '@mui/material'
 
 export const Form: React.FC = () => (
   <Grid container component="form" flexDirection="column" gap={2.5}>

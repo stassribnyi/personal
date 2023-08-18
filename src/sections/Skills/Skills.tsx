@@ -18,7 +18,7 @@ export const Skills: React.FC = () => (
   >
     {SKILL_GROUPS.map((group, idx) => (
       <React.Fragment key={idx}>
-        <Grid container spacing={8}>
+        <Grid container spacing={{ xs: 4, lg: 8 }}>
           {group.map(({ name, skills }, idx) => (
             <Grid xs={12} md={6} key={idx}>
               <Typography variant="h5" component="h3" align="center">

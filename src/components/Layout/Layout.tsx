@@ -38,11 +38,10 @@ const theme = responsiveFontSizes(
       MuiButton: {
         styleOverrides: {
           root: {
-            color: COLORS.common.light,
-            border: `0.1em solid ${COLORS.common.light}`,
+            color: COLORS.common.white,
+            border: `0.1em solid ${COLORS.common.white}`,
 
-            boxShadow: `2px 2px 2px rgba(0, 0, 0, 0.4)`, // TODO: reuse
-            textShadow: `2px 2px 2px rgba(0, 0, 0, 0.4)`,
+            textShadow: `2px 2px 2px rgba(0, 0, 0, 0.4)`, // TODO: reuse
           },
         },
         defaultProps: {
@@ -150,8 +149,8 @@ const theme = responsiveFontSizes(
                 display: 'flex',
 
                 height: '0.525rem',
-                minWidth: '5em',
-                margin: '0.25em auto 0 auto',
+                minWidth: '100%',
+                marginTop: '0.1em',
 
                 backgroundColor: COLORS.accent.light,
               },
@@ -167,8 +166,8 @@ const theme = responsiveFontSizes(
                 display: 'flex',
 
                 height: '0.1em',
-                minWidth: '5em',
-                margin: '0.25em auto 0 auto',
+                minWidth: '100%',
+                marginTop: '0.1em',
 
                 backgroundColor: COLORS.accent.light,
               },
@@ -184,9 +183,8 @@ const theme = responsiveFontSizes(
                 display: 'flex',
 
                 height: '0.05em',
-                minWidth: '120%',
+                minWidth: '100%',
                 marginTop: '0.1em',
-                marginLeft: '-10%',
 
                 backgroundColor: COLORS.accent.light,
               },
