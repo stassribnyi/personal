@@ -1,13 +1,5 @@
 import React from 'react'
-import {
-  Chip,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Stack,
-  Typography,
-} from '@mui/material'
+import { Typography } from '@mui/material'
 
 type DetailsProps = Readonly<{
   title: string
@@ -21,10 +13,12 @@ export const EducationDetails: React.FC<DetailsProps> = ({
   fieldOfStudy,
 }) => (
   <>
-    <Typography variant="h6" color="secondary">
+    <Typography variant="h6" color="secondary" fontWeight="600">
       {title}
     </Typography>
-    <Typography fontWeight={400}>{degree}</Typography>
-    <Typography>{fieldOfStudy}</Typography>
+    <Typography gutterBottom fontWeight={400}>
+      {degree}
+    </Typography>
+    <Typography variant='body2'>{fieldOfStudy}</Typography>
   </>
 )

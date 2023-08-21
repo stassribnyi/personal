@@ -9,11 +9,13 @@ import {
   TimelineOppositeContent,
   Timeline as MuiTimeline,
 } from '@mui/lab'
+import { Avatar } from '@mui/material'
 
 export type TimelineStageProps = Readonly<{
   left: React.ReactNode
   right: React.ReactNode
   variant?: 'primary'
+  logoUrl: string
 }>
 
 export type TimelineProps = Readonly<{
@@ -22,20 +24,16 @@ export type TimelineProps = Readonly<{
 }>
 
 export const Timeline: React.FC<TimelineProps> = ({ items, isRoot }) => (
-  <MuiTimeline>
-    {items.map(({ left, right }, idx) => (
+  <MuiTimeline sx={{ width: '100%' }}>
+    {items.map(({ left, right, logoUrl }, idx) => (
       <TimelineItem key={idx}>
-        <TimelineOppositeContent sx={{ display: { xs: 'none', md: 'block' } }}>
-          {left}
-        </TimelineOppositeContent>
         <TimelineSeparator>
-          <TimelineDot
-            variant={idx === 0 && isRoot ? 'filled' : 'outlined'}
-            color="primary"
-          />
-          <TimelineConnector sx={{ bgcolor: 'common.light' }} />
+          <TimelineDot>
+            <Avatar src={logoUrl} sx={{ width: 64, height: 64 }} />
+          </TimelineDot>
+          <TimelineConnector />
         </TimelineSeparator>
-        <TimelineContent sx={{ maxWidth: 800 }}>{right}</TimelineContent>
+        <TimelineContent sx={{ pt: '1em' }}>{right}</TimelineContent>
       </TimelineItem>
     ))}
   </MuiTimeline>

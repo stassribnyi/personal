@@ -1,7 +1,15 @@
 import React from 'react'
-import { Grid, List, ListItem, Typography } from '@mui/material'
+import { Avatar, Grid, List, ListItem, Typography } from '@mui/material'
+import {
+  TimelineContent,
+  TimelineConnector,
+  TimelineDot,
+  TimelineItem,
+  TimelineSeparator,
+  Timeline,
+} from '@mui/lab'
 
-import { Section, Timeline, TimelineLogo } from '../../components'
+import { Section } from '../../components'
 import { EducationDetails } from './EducationDetails'
 import { Recommendations } from './Recommendations'
 import { WorkDetails } from './WorkDetails'
@@ -9,69 +17,72 @@ import { WorkDetails } from './WorkDetails'
 import { EDUCATION_STAGES, WORK_STAGES } from './Career.data'
 
 export const Career: React.FC = () => {
-  const educationTimeline = EDUCATION_STAGES.map((institution) => {
-    const left = (
-      <TimelineLogo
-        src={institution.logoUrl}
-        alt={institution.institution}
-        period={institution.period}
-      />
-    )
-
-    const right = (
-      <EducationDetails
-        title={institution.institution}
-        degree={institution.degree}
-        fieldOfStudy={institution.fieldOfStudy}
-      />
-    )
-
-    return { left, right }
-  })
-
-  const workTimeline = WORK_STAGES.map((company) => {
-    const left = (
-      <TimelineLogo
-        src={company.logoUrl}
-        alt={company.name}
-        title={company.name}
-        period={company.period}
-      />
-    )
-
-    const right = (
-      <WorkDetails
-        position={`${company.position}`}
-        responsibilities={company.responsibilities}
-        technologies={company.technologies}
-      />
-    )
-
-    return { left, right }
-  })
-
   return (
     <Section id="career" title="Career">
-      <List disablePadding>
-        <ListItem disableGutters sx={{ mb: '4rem' }}>
+      <List>
+        <ListItem>
           <Grid container flexDirection="column" alignItems="center">
             <Typography gutterBottom variant="h3">
               Work
             </Typography>
-            <Timeline isRoot items={workTimeline} />
+            <Timeline>
+              {WORK_STAGES.map((company, idx) => (
+                <TimelineItem key={idx}>
+                  <TimelineSeparator>
+                    <TimelineDot>
+                      <Avatar
+                        src={company.logoUrl}
+                        sx={{ width: 64, height: 64 }}
+                      />
+                    </TimelineDot>
+                    <TimelineConnector />
+                  </TimelineSeparator>
+                  <TimelineContent sx={{ pt: '1em' }}>
+                    <WorkDetails
+                      position={`${
+                        company.position
+                      } at ${company.name.toUpperCase()}`}
+                      responsibilities={company.responsibilities}
+                      technologies={company.technologies}
+                    />
+                  </TimelineContent>
+                </TimelineItem>
+              ))}
+            </Timeline>
           </Grid>
         </ListItem>
 
-        <ListItem disableGutters sx={{ mb: '4rem' }}>
+        <ListItem>
           <Grid container flexDirection="column" alignItems="center">
             <Typography gutterBottom variant="h3">
               Education
             </Typography>
-            <Timeline items={educationTimeline} />
+            <Timeline>
+              {EDUCATION_STAGES.map((institution, idx) => (
+                <TimelineItem key={idx}>
+                  <TimelineSeparator>
+                    <TimelineDot>
+                      <Avatar
+                        src={institution.logoUrl}
+                        sx={{ width: 64, height: 64 }}
+                      />
+                    </TimelineDot>
+                    <TimelineConnector />
+                  </TimelineSeparator>
+                  <TimelineContent sx={{ pt: '1em' }}>
+                    <EducationDetails
+                      title={institution.institution}
+                      degree={institution.degree}
+                      fieldOfStudy={institution.fieldOfStudy}
+                    />
+                  </TimelineContent>
+                </TimelineItem>
+              ))}
+            </Timeline>
           </Grid>
         </ListItem>
 
-        <ListItem disableGutters sx={{ mb: '4rem' }}>
+        <ListItem>
           <Grid container flexDirection="column" alignItems="center">
             <Typography gutterBottom variant="h3">
               Recommendations

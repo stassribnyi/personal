@@ -212,55 +212,42 @@ const theme = responsiveFontSizes(
           },
         },
       },
+      MuiTimeline: {
+        styleOverrides: {
+          root: {
+            width: '100%',
+            marginBottom: '4rem',
+          },
+        },
+      },
       MuiTimelineConnector: {
         styleOverrides: {
           root: {
             width: 4,
+            backgroundColor: COLORS.common.light,
           },
         },
       },
-      MuiTimelineOppositeContent: {
+      MuiTimelineItem: {
         styleOverrides: {
           root: {
-            flex: 0.35,
+            '&:before': {
+              flex: 0,
+              padding: 0,
+            },
           },
         },
       },
       MuiTimelineDot: {
         styleOverrides: {
           root: {
-            width: 24,
-            height: 24,
-            borderWidth: 4,
+            borderWidth: 0,
           },
         },
-        variants: [
-          {
-            props: { variant: 'filled' },
-            style: {
-              boxShadow: 'none',
-              position: 'relative',
-              backgroundColor: 'transparent',
-              borderColor: COLORS.accent.light,
-
-              '&::after': {
-                width: 8,
-                height: 8,
-                borderRadius: '50%',
-
-                top: '50%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-
-                content: '""',
-                display: 'flex',
-                position: 'absolute',
-
-                backgroundColor: COLORS.accent.light,
-              },
-            },
-          },
-        ],
+        defaultProps: {
+          variant: 'outlined',
+          color: 'primary',
+        },
       },
       MuiSvgIcon: {
         variants: [
