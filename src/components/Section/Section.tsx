@@ -4,7 +4,7 @@ import { Container, Grid, Typography, useTheme } from '@mui/material'
 export type SectionProps = Readonly<
   React.PropsWithChildren<{
     id: string
-    title: string
+    title?: string
     className?: string
     sx?: object
   }>
@@ -33,15 +33,17 @@ export const Section: React.FC<SectionProps> = ({
         ...sx,
       }}
     >
-      <Typography
-        gutterBottom
-        align="center"
-        component="h2"
-        variant="h3"
-        sx={{ minWidth: `${title.length + 2}ch` }}
-      >
-        {title.toUpperCase()}
-      </Typography>
+      {title ? (
+        <Typography
+          gutterBottom
+          align="center"
+          component="h2"
+          variant="h3"
+          sx={{ minWidth: `${title.length + 2}ch` }}
+        >
+          {title.toUpperCase()}
+        </Typography>
+      ) : null}
       <Container>{children}</Container>
     </Grid>
   )

@@ -15,9 +15,14 @@ type DetailsProps = Readonly<{
   position: string
   responsibilities: Array<string>
   technologies: Array<string>
+  period: {
+    from: string
+    to: string
+  }
 }>
 
 export const WorkDetails: React.FC<DetailsProps> = ({
+  period,
   position,
   responsibilities,
   technologies,
@@ -26,8 +31,8 @@ export const WorkDetails: React.FC<DetailsProps> = ({
     <Typography variant="h6" color="secondary" fontWeight="600">
       {position}
     </Typography>
-    <Typography variant="body2" >
-      Sept 2012 &mdash; Aug 2016 (4 years 2 month)
+    <Typography variant="body2">
+      {period.from} &mdash; {period.to} (4 years 2 month)
     </Typography>
     <List dense>
       {responsibilities.map((info, idx) => (

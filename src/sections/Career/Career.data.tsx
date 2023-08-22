@@ -148,6 +148,16 @@ export const EDUCATION_STAGES: Array<EducationStageItem> = [
     logoUrl: '/img/career/krnu.png',
     institution: 'Kremenchuk State Polytechnical University',
     period: {
+      from: 'Sept 2018',
+      to: 'Aug 2022',
+    },
+    degree: "Postgraduate studies",
+    fieldOfStudy: 'Informational Technologies',
+  },
+  {
+    logoUrl: '/img/career/krnu.png',
+    institution: 'Kremenchuk State Polytechnical University',
+    period: {
       from: 'Sept 2016',
       to: 'Aug 2018',
     },
