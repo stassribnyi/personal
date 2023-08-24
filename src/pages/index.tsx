@@ -28,12 +28,12 @@ const LINKS = [
     icon: <Person />,
     section: <About />,
   },
-  {
-    href: '#skills',
-    label: 'skills',
-    icon: <Construction />,
-    section: <Skills />,
-  },
+  // {
+  //   href: '#skills',
+  //   label: 'skills',
+  //   icon: <Construction />,
+  //   section: <Skills />,
+  // },
   {
     href: '#career',
     label: 'career',

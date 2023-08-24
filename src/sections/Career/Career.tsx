@@ -18,7 +18,16 @@ import { EDUCATION_STAGES, WORK_STAGES } from './Career.data'
 
 export const Career: React.FC = () => {
   return (
-    <Section id="career">
+    <Section id="career" sx={{
+      backgroundRepeat: 'repeat',
+      backgroundSize: 'contain',
+
+      backgroundImage:
+        'url(https://img.freepik.com/free-vector/linear-flat-abstract-lines-pattern_23-2148940824.jpg?w=1480&t=st=1692893424~exp=1692894024~hmac=031ce18869ad74c194399457ed0e67898824c901dd1949d8dfde34732cfdc5e9)',
+        boxShadow: 'inset 0 0 0 1000px rgba(255, 255, 255, 0.9)',
+      
+     
+    }}>
       <List disablePadding>
         <ListItem disablePadding disableGutters>
           <Grid container flexDirection="column" alignItems="center">

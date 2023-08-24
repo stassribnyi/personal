@@ -22,7 +22,7 @@ export const Recommendations: React.FC = () => {
   return (
     <>
       <AutoPlaySwipeableViews
-        animateHeight
+        // animateHeight
         enableMouseEvents
         interval={5000}
         index={slideIdx}
@@ -34,17 +34,22 @@ export const Recommendations: React.FC = () => {
             key={idx}
             component="blockquote"
             sx={{
-              maxWidth: 800,
-              minHeight: 560,
-              margin: '-1rem auto',
-              boxShadow: '2px 2px 2px 0px rgba(var(--dark, 51, 51, 51), 0.2)',
-              backgroundColor: 'rgb(50, 89, 99)',
-              color: '#cecece',
+              maxWidth: 1000,
+              // minHeight: 560,
+              // margin: '-1rem auto',
+              boxShadow: 'none',
+              // backgroundColor: 'rgb(50, 89, 99)',
+              // color: '#cecece',
               padding: '2rem',
               userSelect: 'none',
+              height: '100%'
+              
             }}
           >
-            <CardContent>
+            <CardContent sx={{
+              height: '100%'
+
+            }}>
               <Typography
                 component="cite"
                 gutterBottom
@@ -64,30 +69,32 @@ export const Recommendations: React.FC = () => {
                     marginBottom: '2rem',
                   }}
                 />
-                <Link
-                  sx={{
-                    fontStyle: 'normal',
-                    color: 'white',
-                    fontWeight: 'bold',
-                  }}
-                  variant="h5"
-                  href={recommendation.profileUrl}
+                <Typography
+                  component="p"
+                  gutterBottom
+                  sx={{ textIndent: '2rem'
+                  // , minHeight: 250
+                 }}
                 >
-                  {recommendation.displayName}
-                </Link>
-                <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
-                  {recommendation.position}
-                </Typography>
-                <Typography variant="body2" sx={{ fontStyle: 'normal' }}>
-                  {recommendation.relation}
+                  "{recommendation.description}"
                 </Typography>
               </Typography>
-              <Typography
-                component="p"
-                gutterBottom
-                sx={{ textIndent: '2rem' }}
+              <Link
+                sx={{
+                  fontStyle: 'normal',
+                  color: 'common.dark',
+                  fontWeight: 'bold',
+                }}
+                variant="h5"
+                href={recommendation.profileUrl}
               >
-                {recommendation.description}
+                {recommendation.displayName}
+              </Link>
+              <Typography variant="body2" sx={{ fontStyle: 'italic' }}>
+                {recommendation.position}
+              </Typography>
+              <Typography variant="body2" sx={{ fontStyle: 'normal' }}>
+                {recommendation.relation}
               </Typography>
             </CardContent>
           </Card>

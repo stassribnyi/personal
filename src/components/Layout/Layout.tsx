@@ -275,7 +275,7 @@ const theme = responsiveFontSizes(
       },
     },
     shape: {
-      borderRadius: 0,
+      // borderRadius: 0,
     },
     typography: {
       fontSize: 20,
