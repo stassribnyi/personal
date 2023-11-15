@@ -223,10 +223,8 @@ function getProjectImg() {
     "image-manager_1024.png"
   ];
 
-  const magicAppReduxImg = [
-    "magic-app-redux_320.png",
-    "magic-app-redux_920.png",
-    "magic-app-redux_1024.png"
+  const ambientImg = [
+    "ambient_1280.jpg"
   ];
 
   const todoListReduxImg = [
@@ -238,7 +236,7 @@ function getProjectImg() {
   return [
     ...canvasPracticeImg,
     ...imageManagerImg,
-    ...magicAppReduxImg,
+    ...ambientImg,
     ...todoListReduxImg
   ];
 }

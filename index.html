@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -332,19 +332,21 @@
             Working with UI is my passion, so I do it using the latest
             technologies such as React and NextJS (React and Typescript is my
             primary focus, but I do enjoy working with NodeJS as well). Some
-            time ago I used to be a full-stack engineer, so I've worked both with
-            back and front end code. Now I use all my knowledge in UI
+            time ago I used to be a full-stack engineer, so I've worked both
+            with back and front end code. Now I use all my knowledge in UI
             development world. I started my wonderful career about eight years
             ago by studying full-stack software engineer courses, I did my best
             to learn the most about software development and apply for a job at
-            my first company. Since then I've worked with several companies, with
-            different teams, hold different positions and I am here to
-            use all that experience to make you happy 😎.
+            my first company. Since then I've worked with several companies,
+            with different teams, hold different positions and I am here to use
+            all that experience to make you happy 😎.
           </p>
           <a
             id="cv"
             class="btn"
             href="https://drive.google.com/file/d/0B4WwhDkyLxKpSDZzdzU4YUdBX1k/view?usp=sharing&resourcekey=0-oaOAnHVUYJH_YuENsY2jXA"
+            target="_blank"
+            rel="noopener"
           >
             Download regular version of my CV
           </a>
@@ -1108,6 +1110,8 @@
                           <a
                             class="recommendation__details"
                             href="https://www.linkedin.com/in/nickolay-sredin-518b2037/"
+                            target="_blank"
+                            rel="noopener"
                           >
                             <div class="recommendation__author-photo">
                               <img
@@ -1143,6 +1147,8 @@
                           <a
                             class="recommendation__details"
                             href="https://www.linkedin.com/in/zakir-nuriev-8373b0a1/"
+                            target="_blank"
+                            rel="noopener"
                           >
                             <div class="recommendation__author-photo">
                               <img
@@ -1180,6 +1186,8 @@
                           <a
                             class="recommendation__details"
                             href="https://www.linkedin.com/in/beata-dobosiewicz-a64802ba/"
+                            target="_blank"
+                            rel="noopener"
                           >
                             <div class="recommendation__author-photo">
                               <img
@@ -1223,6 +1231,8 @@
                           <a
                             class="recommendation__details"
                             href="https://www.linkedin.com/in/vgordiyenko/"
+                            target="_blank"
+                            rel="noopener"
                           >
                             <div class="recommendation__author-photo">
                               <img
@@ -1262,6 +1272,8 @@
                           <a
                             class="recommendation__details"
                             href="https://www.linkedin.com/in/anton-vasko-b87088a2/"
+                            target="_blank"
+                            rel="noopener"
                           >
                             <div class="recommendation__author-photo">
                               <img
@@ -1300,6 +1312,64 @@
         <h2 class="section__title projects__title">Projects</h2>
         <div class="section__content projects__content">
           <ul class="projects__list">
+            <li class="js--projects__item projects__item">
+              <figure>
+                <picture>
+                  <img
+                    sizes="(max-width: 1024px) 100vw, 1024px"
+                    data-srcset="
+                      static/img/projects/ambient_1280.jpg 320w,
+                      static/img/projects/ambient_1280.jpg 920w,
+                      static/img/projects/ambient_1280.jpg 1024w
+                    "
+                    data-src="static/img/projectsambient_1280.jpg"
+                    src="static/img/placeholder-wide.png"
+                    class="projects__item-thumbnail lozad lozad-hidden"
+                    alt="Ambient (Weather Forecast)"
+                  />
+                  <noscript>
+                    <img
+                      sizes="(max-width: 1024px) 100vw, 1024px"
+                      srcset="
+                        static/img/projects/ambient_1280.jpg  320w,
+                        static/img/projects/ambient_1280.jpg  920w,
+                        static/img/projects/ambient_1280.jpg 1024w
+                      "
+                      src="static/img/projects/ambient_1280.jpg"
+                      class="projects__item-thumbnail"
+                      alt=""
+                    />
+                  </noscript>
+                </picture>
+                <figcaption>
+                  <div class="projects__item-details">
+                    <h3 class="projects__item-name">
+                      Ambient (Weather Forecast)
+                    </h3>
+                    <p class="projects__item-description">
+                      A simple and user-friendly page with up-to-date weather
+                      forecasts for your favorite locations.
+                    </p>
+                    <ul class="projects__item-tags">
+                      <li class="projects__item-tag">React</li>
+                      <li class="projects__item-tag">MUI</li>
+                      <li class="projects__item-tag">Vite</li>
+                      <li class="projects__item-tag">TypeScript</li>
+                      <li class="projects__item-tag">Axios</li>
+                      <li class="projects__item-tag">@bybas/weather-icons</li>
+                      <li class="projects__item-tag">date-fns</li>
+                    </ul>
+                  </div>
+                  <a
+                    href="https://stassribnyi.github.io/ambient/"
+                    class="projects__item-link ion-link"
+                    aria-label="Ambient"
+                    target="_blank"
+                    rel="noopener"
+                  ></a>
+                </figcaption>
+              </figure>
+            </li>
             <li class="js--projects__item projects__item">
               <figure>
                 <picture>
@@ -1352,10 +1422,13 @@
                     href="https://stassribnyi.github.io/canvas-practice/"
                     class="projects__item-link ion-link"
                     aria-label="Canvas Practice"
+                    target="_blank"
+                    rel="noopener"
                   ></a>
                 </figcaption>
               </figure>
             </li>
+
             <li class="js--projects__item projects__item">
               <figure>
                 <picture>
@@ -1401,6 +1474,8 @@
                     href="https://stassribnyi.github.io/todo-list-react/#/"
                     class="projects__item-link ion-link"
                     aria-label="ToDo List React"
+                    target="_blank"
+                    rel="noopener"
                   ></a>
                 </figcaption>
               </figure>
@@ -1458,56 +1533,8 @@
                     href="https://stassribnyi.github.io/image-manager/"
                     class="projects__item-link ion-link"
                     aria-label="Image Manager"
-                  ></a>
-                </figcaption>
-              </figure>
-            </li>
-            <li class="js--projects__item projects__item">
-              <figure>
-                <picture>
-                  <img
-                    sizes="(max-width: 1024px) 100vw, 1024px"
-                    data-srcset="
-                      static/img/projects/magic-app-redux_320.png   320w,
-                      static/img/projects/magic-app-redux_920.png   920w,
-                      static/img/projects/magic-app-redux_1024.png 1024w
-                    "
-                    data-src="static/img/projects/magic-app-redux_1024.png"
-                    src="static/img/placeholder-wide.png"
-                    class="projects__item-thumbnail lozad lozad-hidden"
-                    alt="Magic App (Redux)"
-                  />
-                  <noscript>
-                    <img
-                      sizes="(max-width: 1024px) 100vw, 1024px"
-                      srcset="
-                        static/img/projects/magic-app-redux_320.png   320w,
-                        static/img/projects/magic-app-redux_920.png   920w,
-                        static/img/projects/magic-app-redux_1024.png 1024w
-                      "
-                      src="static/img/projects/magic-app-redux_1024.png"
-                      class="projects__item-thumbnail"
-                      alt="Magic App (Redux)"
-                    />
-                  </noscript>
-                </picture>
-                <figcaption>
-                  <div class="projects__item-details">
-                    <h3 class="projects__item-name">Magic App (Redux)</h3>
-                    <p class="projects__item-description">
-                      Understanding and practicing with Redux state container
-                      and Parcel.
-                    </p>
-                    <ul class="projects__item-tags">
-                      <li class="projects__item-tag">React</li>
-                      <li class="projects__item-tag">Redux</li>
-                      <li class="projects__item-tag">Parcel</li>
-                    </ul>
-                  </div>
-                  <a
-                    href="https://stassribnyi.github.io/magic-app-redux/"
-                    class="projects__item-link ion-link"
-                    aria-label="Magic App Redux"
+                    target="_blank"
+                    rel="noopener"
                   ></a>
                 </figcaption>
               </figure>
@@ -1528,6 +1555,8 @@
                 href="https://www.linkedin.com/in/stassribnyi"
                 class="socials__link"
                 aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener"
               >
                 <span class="socials__link-icon ion-social-linkedin"></span>
                 <span class="socials__link-text">
@@ -1540,6 +1569,8 @@
                 href="mailto:stas.sribnyi@gmail.com"
                 class="socials__link"
                 aria-label="E-Mail"
+                target="_blank"
+                rel="noopener"
               >
                 <span class="socials__link-icon ion-at"></span>
                 <span class="socials__link-text">stas.sribnyi@gmail.com</span>
@@ -1550,6 +1581,8 @@
                 href="https://github.com/stassribnyi"
                 class="socials__link"
                 aria-label="GitHub"
+                target="_blank"
+                rel="noopener"
               >
                 <span class="socials__link-icon ion-social-github"></span>
                 <span class="socials__link-text"> github.com/stassribnyi </span>
@@ -1560,6 +1593,8 @@
                 href="https://instagr.am/stas.sribnyi"
                 class="socials__link"
                 aria-label="Instagram"
+                target="_blank"
+                rel="noopener"
               >
                 <span class="socials__link-icon ion-social-instagram"></span>
                 <span class="socials__link-text">
@@ -1572,6 +1607,8 @@
                 href="https://www.fb.com/stassribnyi"
                 class="socials__link"
                 aria-label="Facebook"
+                target="_blank"
+                rel="noopener"
               >
                 <span class="socials__link-icon ion-social-facebook"></span>
                 <span class="socials__link-text"> fb.com/stassribnyi </span>

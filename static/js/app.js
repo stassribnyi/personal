@@ -176,17 +176,36 @@ function initContactForm() {
 function initProjectItems() {
   const projects = Array.from(document.querySelectorAll(".js--projects__item"));
 
-  const touchstartStub = () => {};
+  const touchstartStub = () => { };
 
-  projects.forEach(item =>
-    item.addEventListener("touchstart", touchstartStub, { passive: true })
-  );
+  /**
+   * make project clickable as a temporary measure before UI overhaul 
+   * @param {MouseEvent} e 
+   */
+  const handleProjectClick = (e) => {
+    e.preventDefault();
+
+    const link = e.currentTarget.querySelector('.projects__item-link');
+    if (link) {
+      link.dispatchEvent(new MouseEvent('click', {
+        'view': window,
+        'bubbles': false,
+        'cancelable': true
+      }));
+    }
+  };
+
+  projects.forEach(item => {
+    item.addEventListener("touchstart", touchstartStub, { passive: true });
+    item.addEventListener("click", handleProjectClick);
+  });
 
   return {
     unsubscribe: () => {
-      projects.forEach(item =>
-        item.removeEventListener("touchstart", touchstartStub)
-      );
+      projects.forEach(item => {
+        item.removeEventListener("touchstart", touchstartStub);
+        item.removeEventListener("click", handleProjectClick);
+      });
     }
   };
 }
@@ -275,7 +294,7 @@ function initEnterLeaveTrigger(elements, onSectionReached) {
   const scrollTrigger = scrollama();
 
   const onSectionReachedInternal =
-    typeof onSectionReached === "function" ? onSectionReached : () => {};
+    typeof onSectionReached === "function" ? onSectionReached : () => { };
 
   scrollTrigger
     .setup({ step: elements, offset: 0.15 })
