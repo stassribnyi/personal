@@ -1,5 +1,5 @@
 import React from 'react'
-import { Avatar, Grid, List, ListItem, Typography } from '@mui/material'
+import { Avatar, Grid, List, ListItem, Paper, Typography } from '@mui/material'
 import {
   TimelineContent,
   TimelineConnector,
@@ -18,57 +18,60 @@ import { EDUCATION_STAGES, WORK_STAGES } from './Career.data'
 
 export const Career: React.FC = () => {
   return (
-    <Section id="career" sx={{
-      backgroundRepeat: 'repeat',
-      backgroundSize: 'contain',
+    <Section
+      id="career"
+      sx={{
+        backgroundRepeat: 'repeat',
+        backgroundSize: 'auto',
 
-      backgroundImage:
-        'url(https://img.freepik.com/free-vector/linear-flat-abstract-lines-pattern_23-2148940824.jpg?w=1480&t=st=1692893424~exp=1692894024~hmac=031ce18869ad74c194399457ed0e67898824c901dd1949d8dfde34732cfdc5e9)',
-        boxShadow: 'inset 0 0 0 1000px rgba(255, 255, 255, 0.9)',
-      
-     
-    }}>
+        backgroundImage:
+          'url(https://st3.depositphotos.com/8742624/18816/v/600/depositphotos_188164558-stock-illustration-seamless-embroidered-national-ornament-vector.jpg)',
+        boxShadow: 'inset 0 0 0 100vw rgba(255, 255, 255, 0.79)',
+      }}
+    >
       <List disablePadding>
         <ListItem disablePadding disableGutters>
-          <Grid container flexDirection="column" alignItems="center">
+          <Grid container flexDirection="column" alignItems="center" sx={{ mb: 8 }}> 
             <Typography
               gutterBottom
               component="h2"
               variant="h3"
               sx={{ textTransform: 'uppercase' }}
             >
-              Work
+              Career
             </Typography>
-            <Timeline>
-              {WORK_STAGES.map((company, idx) => (
-                <TimelineItem key={idx}>
-                  <TimelineSeparator>
-                    <TimelineDot>
-                      <Avatar
-                        src={company.logoUrl}
-                        sx={{ width: 64, height: 64 }}
+            <Paper sx={{ p: 4, bgcolor: 'rgb(50, 89, 99)', width: '100%' }}>
+              <Timeline>
+                {WORK_STAGES.map((company, idx) => (
+                  <TimelineItem key={idx}>
+                    <TimelineSeparator>
+                      <TimelineDot>
+                        <Avatar
+                          src={company.logoUrl}
+                          sx={{ width: 64, height: 64 }}
+                        />
+                      </TimelineDot>
+                      <TimelineConnector />
+                    </TimelineSeparator>
+                    <TimelineContent sx={{ pt: '1em' }}>
+                      <WorkDetails
+                        position={`${
+                          company.position
+                        } at ${company.name.toUpperCase()}`}
+                        responsibilities={company.responsibilities}
+                        technologies={company.technologies}
+                        period={company.period}
                       />
-                    </TimelineDot>
-                    <TimelineConnector />
-                  </TimelineSeparator>
-                  <TimelineContent sx={{ pt: '1em' }}>
-                    <WorkDetails
-                      position={`${
-                        company.position
-                      } at ${company.name.toUpperCase()}`}
-                      responsibilities={company.responsibilities}
-                      technologies={company.technologies}
-                      period={company.period}
-                    />
-                  </TimelineContent>
-                </TimelineItem>
-              ))}
-            </Timeline>
+                    </TimelineContent>
+                  </TimelineItem>
+                ))}
+              </Timeline>
+            </Paper>
           </Grid>
         </ListItem>
 
         <ListItem disablePadding disableGutters>
-          <Grid container flexDirection="column" alignItems="center">
+          <Grid container flexDirection="column" alignItems="center" sx={{mb: 8}}>
             <Typography
               gutterBottom
               component="h2"
@@ -77,29 +80,31 @@ export const Career: React.FC = () => {
             >
               Education
             </Typography>
-            <Timeline>
-              {EDUCATION_STAGES.map((institution, idx) => (
-                <TimelineItem key={idx}>
-                  <TimelineSeparator>
-                    <TimelineDot>
-                      <Avatar
-                        src={institution.logoUrl}
-                        sx={{ width: 64, height: 64 }}
+            <Paper  sx={{ p: 4, bgcolor: 'rgb(50, 89, 99)', width: '100%' }}>
+              <Timeline>
+                {EDUCATION_STAGES.map((institution, idx) => (
+                  <TimelineItem key={idx}>
+                    <TimelineSeparator>
+                      <TimelineDot>
+                        <Avatar
+                          src={institution.logoUrl}
+                          sx={{ width: 64, height: 64 }}
+                        />
+                      </TimelineDot>
+                      <TimelineConnector />
+                    </TimelineSeparator>
+                    <TimelineContent sx={{ pt: '1em' }}>
+                      <EducationDetails
+                        title={institution.institution}
+                        degree={institution.degree}
+                        fieldOfStudy={institution.fieldOfStudy}
+                        period={institution.period}
                       />
-                    </TimelineDot>
-                    <TimelineConnector />
-                  </TimelineSeparator>
-                  <TimelineContent sx={{ pt: '1em' }}>
-                    <EducationDetails
-                      title={institution.institution}
-                      degree={institution.degree}
-                      fieldOfStudy={institution.fieldOfStudy}
-                      period={institution.period}
-                    />
-                  </TimelineContent>
-                </TimelineItem>
-              ))}
-            </Timeline>
+                    </TimelineContent>
+                  </TimelineItem>
+                ))}
+              </Timeline>
+            </Paper>
           </Grid>
         </ListItem>
 

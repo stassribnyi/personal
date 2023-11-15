@@ -28,25 +28,25 @@ export const WorkDetails: React.FC<DetailsProps> = ({
   technologies,
 }) => (
   <>
-    <Typography variant="h6" color="secondary" fontWeight="600">
+    <Typography variant="h6" color="common.light" fontWeight="600">
       {position}
     </Typography>
-    <Typography variant="body2">
+    <Typography variant="body2" color="common.light">
       {period.from} &mdash; {period.to} (4 years 2 month)
     </Typography>
     <List dense>
       {responsibilities.map((info, idx) => (
-        <ListItem key={idx}>
-          <ListItemIcon sx={{ minWidth: '2.5rem' }}>
-            <CheckIcon fontSize="small" />
+        <ListItem key={idx} sx={{ color: 'common.light' }}>
+          <ListItemIcon sx={{ minWidth: '2.5rem', color: 'inherit' }}>
+            <CheckIcon fontSize="small" color="inherit" />
           </ListItemIcon>
-          <ListItemText primary={info} />
+          <ListItemText primary={info} color="inherit" />
         </ListItem>
       ))}
     </List>
     <Stack flexWrap="wrap" direction="row" gap={1} sx={{ mb: 2, mt: 2 }}>
       {technologies.map((tech, idx) => (
-        <Chip key={idx} label={tech} />
+        <Chip key={idx} label={tech} sx={{ color: 'common.light' }} />
       ))}
     </Stack>
   </>

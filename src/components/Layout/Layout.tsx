@@ -122,6 +122,7 @@ const theme = responsiveFontSizes(
             backgroundColor: COLORS.common.white,
             boxShadow: `2px 2px 2px rgba(0, 0, 0, 0.4)`,
           },
+         
         },
         defaultProps: {
           color: 'secondary',

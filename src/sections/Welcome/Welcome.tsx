@@ -78,7 +78,22 @@ export const Welcome: React.FC = () => {
             color: 'white',
             overflow: 'hidden',
             position: 'relative',
-            backgroundColor: 'rgba(var(--dark-accent, 50, 89, 99), 0.5)',
+
+            '&:before': {
+            background: 'rgb(var(--dark-accent, 50, 89, 99))',
+            filter: 'url(#noiseFilter)'
+            },
+
+            '&:before, &:after': {
+              position: 'absolute',
+              left: 0,
+              top: 0,
+              content: '""',
+              width: '100%',
+              height:'100%',
+              zIndex: -1,
+              opacity: '20%'
+            }
           }}
         >
           <Intro />
@@ -91,10 +106,23 @@ export const Welcome: React.FC = () => {
               right: -20,
               bottom: -20,
               left: -20,
-              zIndex: -1,
+              zIndex: -2,
               filter: 'blur(10px)',
             }}
           />
+          
+    <svg>
+        <filter id='noiseFilter'>
+          <feTurbulence 
+            type='fractalNoise' 
+            baseFrequency='0.8' 
+            stitchTiles='stitch'/>
+           <feColorMatrix in="colorNoise" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+              <feComposite operator="in" in2="SourceGraphic" result="monoNoise"/>
+              <feBlend in="SourceGraphic" in2="monoNoise" mode="screen" />
+        </filter>
+        
+      </svg>
         </Grid>
         <Grid
           lg={6}
